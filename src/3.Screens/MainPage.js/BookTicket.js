@@ -11,8 +11,10 @@ function BookTicket() {
         </div>
 
         <div className="ticket_Card">
-
+        <div className="WordCenter">
+        <h2 className="wordColor ">Choose Your Ticket</h2> </div>
           <div className="ticket_block">
+         
             <div className="book">
               <select name="" id="" className="selction">
                 <option value="English">English</option>
