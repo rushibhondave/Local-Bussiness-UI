@@ -1,0 +1,27 @@
+
+.container
+{
+    border: 2px red solid;
+    width: auto;
+    height: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ticket_info
+{
+    width: 400px;
+    height: 120px;
+    word-wrap: normal;
+    border: 2px blue solid;
+}
+
+.ticket_buy
+{ 
+    width: 500px;
+    height: 220px;
+    border: 2px blue solid;
+
+}
+
