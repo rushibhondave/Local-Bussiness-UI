@@ -44,7 +44,7 @@ function Navbar() {
           </ul>
         </nav>
 
-        <button class=" btnU btn">BUY TICKETS</button>
+        <button className=" btnU btn">BUY TICKETS</button>
       </header>
     </div>
   );

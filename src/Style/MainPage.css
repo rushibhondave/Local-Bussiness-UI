@@ -1,6 +1,11 @@
+body
+{
+  margin: 0;
+  padding: 0;
+}
 .container {
-  height: 60vh;
-  word-wrap:normal;
+  height: 50vh;
+  word-wrap: normal;
 }
 
 .btn {
@@ -14,31 +19,37 @@
   cursor: pointer;
 }
 
-.btn:hover
-{
-    background-color: #006400;
+.btn:hover {
+  background-color: #006400;
 }
 
 .btnU {
   margin-top: 10px;
   text-transform: uppercase;
-
 }
-
+.btnL {
+  margin-top: 10px;
+  text-transform: capitalize;
+}
 .btnC {
   display: flex;
   justify-content: center;
- 
 }
 
 .button {
   padding: 13px 56px;
 }
 
-.WordCenter
+z22
+.WordCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.title
 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .wrapper {
   width: auto;
@@ -46,8 +57,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
-
 }
 
 .h1 {
@@ -56,9 +65,7 @@
   color: #000;
 }
 
-.wordColor {
-  color: #424248;
-}
+
 
 .ticket_info {
   width: 600px;
@@ -69,43 +76,42 @@
   display: flex;
   justify-content: center;
   background-color: #ffff;
-
+ margin-top: 50px;
   padding: 30px 15px;
   border-radius: 10px;
   box-shadow: 0 0 15px 3px rgba(27, 39, 61, 0.1);
- 
 }
 
 .book {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 10px;
-  width: 400px;
-  height: 180px;
+  width: 450px;
+  height: 250px;
   padding: 10px;
 }
-.selction
-{
-   padding: 14px 20px;
-   border-radius: 5px;
-   border: none;
-   font-weight: 600;
-   box-shadow: 0 0 15px 3px rgba(27, 39, 61, 0.1);
+
+
+.selction {
+  padding: 14px 20px;
+  border-radius: 5px;
+  margin: 5px;
+  border: none;
+  font-weight: 600;
+  border: green 1px solid;
 }
 
-.selction:focus
-{
-    border: green 1px solid;
-    font-weight: 600;
+.selction:focus {
+  border: green 1px solid;
+  box-shadow:0 0 8px 0 green;
+  font-weight: 600;
 }
-option
-{
-    font-weight: 600;
-    scrollbar-width: auto;
-    padding: 20px;
-    border-radius: 0px;
-
+option {
+  font-weight: 600;
+  scrollbar-width: auto;
+  padding: 20px;
+  border-radius: 0px;
+  
 }
 
 .build_img {
@@ -117,7 +123,26 @@ option
   width: auto;
 }
 
-marquee
-{
+input[type=text]{
+
+  border:2px solid #aaa;
+  font-weight: 600;
+  color: #000;
+  border-radius:4px;
+  margin:8px 0;
+  outline:none;
+  padding:8px;
+  box-sizing:border-box;
+  transition:.3s;
+  padding: 14px 20px;
+  
+}
+
+input[type=text]:focus{
+  border-color:green;
+  box-shadow:0 0 8px 0 green;
+}
+
+marquee {
   margin-top: 20px;
 }

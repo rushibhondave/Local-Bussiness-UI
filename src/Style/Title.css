@@ -1,0 +1,26 @@
+.Titlecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  overflow-x: hidden !important;
+  font-family: "Lato", sans-serif;
+}
+
+.para {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.wordColor {
+  color: #424248;
+margin: 0;
+}
+
+p {
+  font-size: 15px;
+  color: #777;
+  margin: 0;
+}

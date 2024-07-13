@@ -1,11 +1,12 @@
-import BookTicket from "../3.Screens/MainPage.js/BookTicket";
+
 import Navbar from "../3.Screens/NavBar/Navbar";
+import BookTicketMain from "./BookTicketMain";
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <BookTicket/>
+      <BookTicketMain/>
     </div>
   );
 }
