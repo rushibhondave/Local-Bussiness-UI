@@ -40,7 +40,8 @@ body
   padding: 13px 56px;
 }
 
-z22
+
+
 .WordCenter {
   display: flex;
   justify-content: center;
@@ -105,7 +106,9 @@ z22
   border: green 1px solid;
   box-shadow:0 0 8px 0 green;
   font-weight: 600;
+  outline: none;
 }
+
 option {
   font-weight: 600;
   scrollbar-width: auto;
@@ -113,6 +116,7 @@ option {
   border-radius: 0px;
   
 }
+option:checked { color: #006400 }
 
 .build_img {
   background-image: url("../Img/BuildingsImg.png");
@@ -124,8 +128,8 @@ option {
 }
 
 input[type=text]{
-
-  border:2px solid #aaa;
+  outline: none;
+  border: green 1px solid;
   font-weight: 600;
   color: #000;
   border-radius:4px;
@@ -138,6 +142,9 @@ input[type=text]{
   
 }
 
+input::placeholder {
+  font-weight: 600;
+}
 input[type=text]:focus{
   border-color:green;
   box-shadow:0 0 8px 0 green;

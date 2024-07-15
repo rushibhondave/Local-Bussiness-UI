@@ -5,9 +5,9 @@ function CardComp() {
   return (
     <>
     <div className="card">
-     <Card/> 
-     <Card/> 
-     <Card/> 
+     <Card CardHead={"Search Your Bus"} CardInfo={"Choose your origin, destination,Just choose a Bus journey dates and search for buses"}/> 
+     <Card CardHead={"Search Your Bus"} CardInfo={"Choose your origin, destination,Just choose a Bus journey dates and search for buses"}/> 
+     <Card CardHead={"Search Your Bus"} CardInfo={"Choose your origin, destination,Just choose a Bus journey dates and search for buses"}/> 
     </div>
   
     </>

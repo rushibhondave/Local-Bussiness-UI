@@ -7,7 +7,10 @@
 }
 .cardbox
 {
-    width: 200px;
-    height: 200px;
-    border: 2px solid rgb(0, 72, 255);
+    margin: 29px;
+    width: 390px;
+    height: 258px;
+    border: 2px solid rgb(0, 72, 255); 
+    border-radius: 5px;
 }
+
