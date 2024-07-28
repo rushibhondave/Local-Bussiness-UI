@@ -1,16 +1,97 @@
+.Container_Card {
+  margin-top: 30px;
+  background-image: url("../Img/Service_Back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0px 40px;
+  transition: 0.5ms ease-in-out;
+  border-top: 2px solid #ddd;
+}
 
-.card
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+.text1 {
+  font-size: calc(1.425rem + 2.1vw);
+  font-weight: 700;
+  line-height: 1.2;
+  border-bottom: 1px solid  #fdd78c;
+  color: #DAB08B;
+}
+
+.Card_Grid_Box {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 39px;
+
+}
+
+
+.Card_Box {
+  margin-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+}
+
+.Card_Box:hover
 {
+
+    transform: translateY(-50px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    background: linear-gradient(to right, #d1913c, #ffd194);
+}
+.Card_Grid_item
+{
+    display: none;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    justify-content: space-around;
-}
-.cardbox
-{
-    margin: 29px;
-    width: 390px;
-    height: 258px;
-    border: 2px solid rgb(0, 72, 255); 
-    border-radius: 5px;
+    align-items: center;
 }
 
+
+
+.Service
+{
+    font-size: calc(1.275rem + .3vw);
+
+    font-weight: 600;
+    line-height: 1.2;
+    color: #111
+}
+
+
+.btn11 {
+    color: black;
+    border-radius:50px;
+    width: auto;
+    padding: 15px 39px;
+    font-weight: 600;
+    border: 1px solid  #fdd78c;
+    background-color:#fdd78c;
+    cursor: pointer;
+    margin: 25px 10px 10px 10px;
+  }
+  
+  
+  .btn11:hover {
+    background-color: white;
+    color: black;
+  }
+  
+ 

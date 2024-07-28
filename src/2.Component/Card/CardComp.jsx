@@ -1,17 +1,28 @@
-import React from 'react'
-import Card from '../../3.Screens/Card/Card'
+import React from "react";
 import "../../Style/Card.css";
+import Card from "../../3.Screens/Card/Card.jsx";
 function CardComp() {
   return (
     <>
-    <div className="card">
-     <Card CardHead={"Search Your Bus"} CardInfo={"Choose your origin, destination,Just choose a Bus journey dates and search for buses"}/> 
-     <Card CardHead={"Search Your Bus"} CardInfo={"Choose your origin, destination,Just choose a Bus journey dates and search for buses"}/> 
-     <Card CardHead={"Search Your Bus"} CardInfo={"Choose your origin, destination,Just choose a Bus journey dates and search for buses"}/> 
-    </div>
-  
+      <div className="Container_Card">     
+      <div className="text">
+      <span className="text1"> WE OFFER YOU</span>  
+      </div>
+     
+       <div className="Card_Grid_Box">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+      
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default CardComp
+export default CardComp;

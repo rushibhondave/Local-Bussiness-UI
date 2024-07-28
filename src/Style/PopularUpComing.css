@@ -1,0 +1,83 @@
+.PopularUpComing_Conatiner {
+  margin-top: 50px;
+  width: auto;
+  border-top: 2px solid #ddd;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+}
+
+.text11 {
+  margin: 30px;
+  font-size: calc(1.425rem + 2.1vw);
+  font-weight: 700;
+  line-height: 1.2;
+  border-bottom: 1px solid #fdd78c;
+  color: #dab08b;
+}
+
+.ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.li {
+  display: inline-block;
+  padding: 15px;
+  margin: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  border-radius: 50px;
+  background-color: #222831;
+}
+
+.Shop_infoget
+{
+    display: flex;
+
+    transition: 0.5s ease-in-out;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  width: auto;
+  border-bottom: 2px solid #ddd;
+  background-color: #fff;
+  gap: 0px;
+  width: 50%;
+}
+
+.menu-item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.item_info {
+  display: flex;
+
+  gap: 10px;
+}
+.item-details
+{
+    margin-left: 15px;
+}
+.item-details h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+}
+
+.item-details p {
+  margin: 5px 0;
+  color: #666;
+}

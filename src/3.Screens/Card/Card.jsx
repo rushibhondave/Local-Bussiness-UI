@@ -1,17 +1,18 @@
 import React from "react";
 import "../../Style/Card.css";
 import "../../Style/index.css";
-function Card({CardHead,CardInfo}) {
+
+function Card() {
   return (
     <>
-      <div className="card">
-        <div className="cardbox cardbox1">
-     
-        <div className="para wordColor">
-        <span><h1>ICon</h1></span>
-        <span className='h1'>{CardHead}</span>
-           <p>{CardInfo}</p>
-           </div>
+      <div className="Card_Box">
+        <div className="Card_Grid_item">
+          <span>
+            <img src="" alt="" />
+          </span>
+          <span className="Service">Service</span>
+          <p className="Service_Info">Lorem ipsum dolor sit amet.</p>
+          <button className="btn11">Read More</button>
         </div>
       </div>
     </>

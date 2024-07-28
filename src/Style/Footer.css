@@ -1,0 +1,14 @@
+
+
+.Mainfooter {
+  height: 10vh;
+  background-color: #13161f;
+  color: #fff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+ 
+}

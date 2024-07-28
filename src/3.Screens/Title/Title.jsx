@@ -16,5 +16,5 @@ function Title({word,Sword,index}) {
     </>
   )
 }
-
+ 
 export default Title

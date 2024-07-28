@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("../Img/FoodBack.png");
+  background-repeat: no-repeat;
+
+}
+img {
+  width: auto;
+  height: 60%;
+}
+.wrap {
+  margin-right: 50px;
+  width: 90vh;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.Text_Header1 {
+  font-size: 3rem;
+}
+
+.Text_Para {
+  margin: 10px;
+}
+
+.btn {
+  color: black;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px 89px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 10px 10px 10px 0px;
+}
+
+.btn1 {
+  background-color: #fdd78c;
+}
+
+.btn2 {
+  background-color: #fff;
+  border: 1px solid #fdd78c;
+}
+
+.btn:hover {
+  background-color: #fdd78c;
+}
+
+.btnU {
+  text-transform: uppercase;
+}
+
+
+.Text_Para
+{
+  color: #5e6e82;
+
+}
+
+@media (max-width: 840px) {
+ .container
+ {
+  background-image: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ }
+
+ img {
+  width: auto;
+  height: 40%;
+}
+
+.wrap
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+}
+
+
+@media (max-width: 840px) {
+  .container
+  {
+   background-image: none;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+  }
+ 
+  img {
+   width: auto;
+   height: 40%;
+ }
+ 
+ .wrap
+ {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+ }
+ }

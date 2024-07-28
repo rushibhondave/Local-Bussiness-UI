@@ -1,12 +1,15 @@
 
+import Footter from "../3.Screens/Footer/Footer";
 import Navbar from "../3.Screens/NavBar/Navbar";
-import BookTicketMain from "./BookTicketMain";
+import MainPage from "./MainPage";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <BookTicketMain/>
+      <Navbar />
+      <MainPage />
+      <Footter />
+  
     </div>
   );
 }
