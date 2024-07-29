@@ -18,20 +18,17 @@
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 700;
   line-height: 1.2;
-  border-bottom: 1px solid  #fdd78c;
-  color: #DAB08B;
+  border-bottom: 1px solid #fdd78c;
+  color: #dab08b;
 }
 
 .Card_Grid_Box {
-
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 39px;
-
 }
-
 
 .Card_Box {
   margin-top: 20px;
@@ -48,50 +45,36 @@
   transition: 0.5s ease-in-out;
 }
 
-.Card_Box:hover
-{
-
-    transform: translateY(-50px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    background: linear-gradient(to right, #d1913c, #ffd194);
+.Card_Box:hover {
+  transform: translateY(-50px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, #d1913c, #ffd194);
 }
-.Card_Grid_item
-{
-    display: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.Card_Grid_item {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.Service {
+  font-size: calc(1.275rem + 0.3vw);
 
-
-.Service
-{
-    font-size: calc(1.275rem + .3vw);
-
-    font-weight: 600;
-    line-height: 1.2;
-    color: #111
+  font-weight: 600;
+  line-height: 1.2;
+  color: #111;
 }
-
 
 .btn11 {
-    color: black;
-    border-radius:50px;
-    width: auto;
-    padding: 15px 39px;
-    font-weight: 600;
-    border: 1px solid  #fdd78c;
-    background-color:#fdd78c;
-    cursor: pointer;
-    margin: 25px 10px 10px 10px;
-  }
-  
-  
-  .btn11:hover {
-    background-color: white;
-    color: black;
-  }
-  
- 
+  color: black;
+  border-radius: 50px;
+  width: auto;
+  padding: 15px 39px;
+  font-weight: 600;
+  border: 1px solid #fdd78c;
+  background-color: #fdd78c;
+  cursor: pointer;
+  margin: 25px 10px 10px 10px;
+}
+

@@ -1,29 +1,7 @@
 import React from "react";
 import "../../Style/Navbar.css";
 function Navbar() {
-  // let menuIcon = document.querySelector('.menuIcon');
-  //       let nav = document.querySelector('.overlay-menu');
 
-  //       menuIcon.addEventListener('click', () => {
-  //           if (nav.style.transform != 'translateX(0%)') {
-  //               nav.style.transform = 'translateX(0%)';
-  //               nav.style.transition = 'transform 0.2s ease-out';
-  //           } else {
-  //               nav.style.transform = 'translateX(-100%)';
-  //               nav.style.transition = 'transform 0.2s ease-out';
-  //           }
-  //       });
-
-  //       // Toggle Menu Icon ========================================
-  //       let toggleIcon = document.querySelector('.menuIcon');
-
-  //       toggleIcon.addEventListener('click', () => {
-  //           if (toggleIcon.classNameName != 'menuIcon toggle') {
-  //               toggleIcon.classNameName += ' toggle';
-  //           } else {
-  //               toggleIcon.classNameName = 'menuIcon';
-  //           }
-  //       });
   return (
     <>
       <nav id="navbar" className="">
@@ -39,19 +17,19 @@ function Navbar() {
               <a href="#home">Home</a>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <a href="#services">Shops</a>
             </li>
             <li>
-              <a href="#about">About</a>
+              <a href="#about">Services</a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
+              <a href="#contact">About</a>
             </li>
             <li>
               <a href="#contact">Contact</a>
+            </li>
+            <li>
+              <a href="#contact">Blog</a>
             </li>
           </ul>
         </div>

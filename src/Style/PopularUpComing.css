@@ -2,6 +2,7 @@
   margin-top: 50px;
   width: auto;
   border-top: 2px solid #ddd;
+
 }
 
 .head {
@@ -33,13 +34,13 @@
   cursor: pointer;
   color: white;
   border-radius: 50px;
-  background-color: #222831;
+  background-color: #0B1727;
 }
 
 .Shop_infoget
 {
     display: flex;
-
+    cursor: pointer;
     transition: 0.5s ease-in-out;
     flex-wrap: wrap;
 }
