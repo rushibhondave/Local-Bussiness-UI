@@ -12,10 +12,19 @@ function LandingPage() {
             Apparently, we had reached a great height in the atmosphere, for the
             sky was a dead black, and which lifts the horizon
           </p>
-          <div className="button_Main">
-            <button className="btn button btn1 btnU">Search</button>
-            <button className="btn button btn2 btnU ">See More</button>
-          </div>
+           <div className="landing_Center">
+           <form action="" >
+              <input
+                type="text"
+                id="search-bar"
+                placeholder=" Search product,shop name and more...!"
+                className="searchcontainer" 
+              />
+              <button className="btn button btn1 btnU">Search</button>
+            </form>
+           </div>
+           
+     
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ function Shop_Get_Info() {
       <div className="menu-item">
         <img src={Restaurant_Img} alt="ShopsPic" />
         <div className="item-details">
-          <h2>Shops Name</h2>
+          <h6 className="h2">Shops Name</h6>
           <div className="item_info">
             <div className="item-Star">⭐⭐⭐⭐</div>
             <div className="item-Categery">Restaurant</div>

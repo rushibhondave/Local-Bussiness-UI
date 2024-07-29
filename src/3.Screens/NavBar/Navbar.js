@@ -1,61 +1,92 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../Style/Navbar.css";
 function Navbar() {
-
   return (
     <>
       <nav id="navbar" className="">
         <div className="nav-wrapper">
           <div className="logo">
-            <a href="#home">
-             Logo
-            </a>
+            <Link to={"/"} className="logo_Link">
+              Logo
+            </Link>
           </div>
 
           <ul id="menu">
             <li>
-              <a href="#home">Home</a>
+              <Link to={"/"} className="Link">
+                Home
+              </Link>
             </li>
             <li>
-              <a href="#services">Shops</a>
+              <Link to={"/DisplayPage"} className="Link">
+                Shops
+              </Link>
             </li>
             <li>
-              <a href="#about">Services</a>
+              <Link to={"/Service"} className="Link">
+                Services
+              </Link>
+              <ul className="submenu">
+                <li>
+                  <Link to={"/Service"} className="Link">
+                    Pulmber
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/Service"} className="Link">
+                    Carpainter
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/Service"} className="Link">
+                    Electrician
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="#contact">About</a>
+              <Link to={"/About"} className="Link">
+                About
+              </Link>
             </li>
+
             <li>
-              <a href="#contact">Contact</a>
+              <a href="#contact" className="Link">
+                Login
+              </a>
+              <ul className="submenu">
+                <li>
+                  <Link to={"/MyProfile_DashBoard"} className="Link">
+                    My Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/User_Login_Register"} className="Link">
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/User_Login_Register"} className="Link">
+                    Sign Up
+                  </Link>{" "}
+                </li>
+                <li>
+                  <Link to={"/RegisterShop"} className="Link">
+                    Register Shop
+                  </Link>{" "}
+                </li>
+                <li>
+                  <Link to={"/RegisterServiceCompo"} className="Link">
+                    Register Service
+                  </Link>{" "}
+                </li>
+              </ul>
             </li>
-            <li>
-              <a href="#contact">Blog</a>
-            </li>
+            <li></li>
           </ul>
         </div>
       </nav>
-
-      <div className="menuIcon">
-        <span className="icon icon-bars"></span>
-        <span className="icon icon-bars overlay"></span>
-      </div>
-
-      <div className="overlay-menu">
-        <ul id="menu">
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#services">Services</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
     </>
   );
 }

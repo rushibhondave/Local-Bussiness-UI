@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Style/Card.css";
+
 import Card from "../../3.Screens/Card/Card.jsx";
 function CardComp() {
   return (

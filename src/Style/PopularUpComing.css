@@ -17,6 +17,7 @@
   line-height: 1.2;
   border-bottom: 1px solid #fdd78c;
   color: #dab08b;
+
 }
 
 .ul {
@@ -65,16 +66,15 @@
 
 .item_info {
   display: flex;
-
   gap: 10px;
 }
 .item-details
 {
     margin-left: 15px;
 }
-.item-details h2 {
+.item-details .h2 {
   font-size: 18px;
-  margin: 0;
+
   color: #333;
 }
 
@@ -82,3 +82,27 @@
   margin: 5px 0;
   color: #666;
 }
+
+
+/* submenu style */
+.submenu_shop{
+  position: absolute;
+  width: 200px;
+  margin-top: -200px;
+  padding: 20px;
+  background-color:#ffff;
+  border-radius: 10px;  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  opacity: 0;
+  z-index: -999;
+  transition: all ease 0.5s;
+  }
+ ul li:hover .submenu_shop{
+  z-index: 99;
+  opacity: 1;
+  margin-top: 0;
+  }
+
+  .Shop_Name:hover
+  {
+    color: #FFB82E;
+  }

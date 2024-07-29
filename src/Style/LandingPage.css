@@ -2,8 +2,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .container {
   height: 100vh;
@@ -13,6 +11,11 @@ body {
   background-image: url("../Img/FoodBack.png");
   background-repeat: no-repeat;
 
+}
+
+.landing_Center
+{
+  display: flex;
 }
 img {
   width: auto;
@@ -48,6 +51,7 @@ img {
 
 .btn1 {
   background-color: #fdd78c;
+  margin: 9px;
 }
 
 .btn2 {
@@ -63,10 +67,39 @@ img {
   text-transform: uppercase;
 }
 
+.searchcontainer
+{
+  width: 350px;
+}
+.searchcontainer#search-bar{
+  margin: 0 auto;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #d79209;
+  outline: none;
+  &:focus{
+    border: 1px solid #FFB82E;
+    transition: 0.35s ease;
 
+    &::-webkit-input-placeholder{
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &:-ms-placeholder {
+     transition: opacity 0.45s ease; 
+  	 opacity: 0;
+     }    
+   }
+ }
 .Text_Para
 {
   color: #5e6e82;
+
 
 }
 

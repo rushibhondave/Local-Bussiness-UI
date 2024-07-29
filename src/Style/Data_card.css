@@ -1,0 +1,65 @@
+.Card-list {
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 28vh;
+}
+
+.bus {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.bus_data {
+  margin: 15px;
+}
+
+.ShopsPic {
+  border-radius: 9px;
+  height: 25vh;
+}
+
+.line {
+  margin: 5px;
+  border: 1px solid #E8E9EB;
+}
+
+.button11 {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px 89px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.Pro_Data
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.Data_pro
+{
+margin: 10px;
+}
+
+.button21 {
+    color: white;
+    border-radius: 5px;
+    width: auto;
+    padding: 10px 40px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-bottom: -20px;
+    background-color: #28a745;
+   
+  }
+.button2
+{
+    background-color: #d79209;
+}

@@ -1,0 +1,124 @@
+/* shopData */
+
+.shopData_Container {
+  width: auto;
+  margin-top: 70px;
+  min-height: 100%;
+
+
+}
+
+
+.Search_Cotainer {
+  background-color: #ffb82e;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-image: url('../Img/LoacalShop/All_products_bg.jpg');
+ 
+}
+
+.search_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 80%;
+  background-color: #F6F6F7;
+  height: 23vh;
+}
+
+.searchcontainer1 {
+  width: 450px;
+}
+input#search-bar {
+  margin: 0 auto;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #d79209;
+  outline: none;
+  &:focus {
+    border: 1px solid #ffb82e;
+    transition: 0.35s ease;
+
+    &::-webkit-input-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+    &:-ms-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+  }
+}
+
+.button {
+  color: white;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px 89px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  background-color: #28a745;
+ 
+}
+
+
+.data_show {
+  margin: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+}
+
+.filter_column {
+  width: 26%;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 90vh;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.Display_Card {
+  width: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 90vh;
+}
+
+
+.filters {
+    
+    background-color: white;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+
+}
+
+.filters h2 {
+    margin-top: 0;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h3 {
+    margin: 10px 0;
+}
+
+.filter-section label {
+    display: block;
+    margin: 5px 0;
+}

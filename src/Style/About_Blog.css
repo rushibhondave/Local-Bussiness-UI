@@ -1,0 +1,21 @@
+.About_Container {
+    height: 40vh;
+    background-image: url('../Img/LoacalShop/All_products_bg.jpg');
+   position: relative;
+   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .about_text
+{
+  position: absolute; 
+  font-size: calc(0.2rem + 3.3vw);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+
+
+}
+
