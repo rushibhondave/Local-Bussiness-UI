@@ -1,5 +1,5 @@
 import React from "react";
-import Local_Buussiness_India from "../../Img/local_Business/Local_Buussiness_India.jpg";
+import Local_Buussiness_India from "../../Img/LoacalShop/Support_Local_Buussiness.jpg";
 import "../../Style/Data_card.css";
 function Data_Card() {
   return (

@@ -1,3 +1,4 @@
+
 .PopularUpComing_Conatiner {
   margin-top: 50px;
   width: auto;
@@ -58,7 +59,7 @@
   width: 50%;
 }
 
-.menu-item img {
+.menu-item .Awited_IMg {
   width: 150px;
   height: 150px;
   border-radius: 8px;

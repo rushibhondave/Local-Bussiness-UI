@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -17,7 +19,7 @@ body {
 {
   display: flex;
 }
-img {
+.LandingPage_Img {
   width: auto;
   height: 60%;
 }
@@ -49,18 +51,21 @@ img {
   margin: 10px 10px 10px 0px;
 }
 
-.btn1 {
-  background-color: #fdd78c;
+#btn1 {
+  background-color: #FFB82E;
   margin: 9px;
 }
 
+#btn1:hover {
+  background-color: green;
+}
 .btn2 {
   background-color: #fff;
   border: 1px solid #fdd78c;
 }
 
 .btn:hover {
-  background-color: #FFB82E;
+  background-color: #fdd78c;
 }
 
 .btnU {
@@ -112,7 +117,7 @@ img {
   align-items: center;
  }
 
- img {
+ .LandingPage_Img {
   width: auto;
   height: 40%;
 }
@@ -136,7 +141,7 @@ img {
    align-items: center;
   }
  
-  img {
+  .LandingPage_Img {
    width: auto;
    height: 40%;
  }

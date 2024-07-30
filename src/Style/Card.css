@@ -1,3 +1,4 @@
+
 .Container_Card {
   margin-top: 30px;
   background-image: url("../Img/Service_Back.png");
@@ -77,5 +78,11 @@
   background-color: #fdd78c;
   cursor: pointer;
   margin: 25px 10px 10px 10px;
+}
+
+.btn11:hover
+{
+  color: #111;
+background-color: white;
 }
 

@@ -1,21 +1,191 @@
-.About_Container {
-    height: 40vh;
-    background-image: url('../Img/LoacalShop/All_products_bg.jpg');
-   position: relative;
-   
+.Aboutcontainer {
   display: flex;
-  justify-content: center;
   align-items: center;
-  }
-
-  .about_text
-{
-  position: absolute; 
-  font-size: calc(0.2rem + 3.3vw);
-  font-weight: 700;
-  line-height: 1.2;
-  color: #fff;
-
-
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+  margin-top: 50px;
 }
 
+.experience-banner {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: rotate(-90deg) translateY(-50%);
+  color: #FFB82E;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.content {
+  display: flex;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.images {
+  position: relative;
+}
+
+.main-image
+{
+  height: 50vh;
+  width: 50vh;
+}
+
+
+img{
+  object-fit: cover;
+}
+
+.circle-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.text-content {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.About_ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.About_ul .About_li {
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 16px;
+}
+
+.discover-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FFB82E;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+
+.services {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.Aboutcontainer1 {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-header h1 {
+  font-size: 36px;
+  color: #FFB82E;
+  margin-bottom: 20px;
+}
+
+.section-header p {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 270px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  margin-bottom: 15px;
+}
+
+.icon img {
+  width:30vh;
+
+object-fit:contain;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.more-details-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #FFB82E;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+
+.about_card11
+{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Link:active
+{
+color: #00A7C7;
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import "../../Style/DisplayPage.css";
-import Data_Card from "./Data_Card";
-function Data_Display() {
+
+import Service_Data_Card from "./Service_Data_Card";
+function Service_Data_Display() {
   return (
     <>
       <div className="shopData_Container">
@@ -47,9 +48,9 @@ function Data_Display() {
             </div>
           </div>
           <div className="Display_Card">
-            <Data_Card />
-            <Data_Card />
-            <Data_Card />
+            <Service_Data_Card />
+            <Service_Data_Card />
+            <Service_Data_Card />
           
           
         
@@ -61,4 +62,4 @@ function Data_Display() {
   );
 }
 
-export default Data_Display;
+export default Service_Data_Display;

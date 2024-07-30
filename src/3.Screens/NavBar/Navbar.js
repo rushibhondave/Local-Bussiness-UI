@@ -24,22 +24,22 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to={"/Service"} className="Link">
+              <Link className="Link">
                 Services
               </Link>
               <ul className="submenu">
                 <li>
-                  <Link to={"/Service"} className="Link">
+                  <Link to={"/Service_Data_Display"} className="Link">
                     Pulmber
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/Service"} className="Link">
+                  <Link to={"/Service_Data_Display"} className="Link">
                     Carpainter
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/Service"} className="Link">
+                  <Link to={"/Service_Data_Display"} className="Link">
                     Electrician
                   </Link>
                 </li>
@@ -52,9 +52,9 @@ function Navbar() {
             </li>
 
             <li>
-              <a href="#contact" className="Link">
+              <Link  className="Link">
                 Login
-              </a>
+              </Link>
               <ul className="submenu">
                 <li>
                   <Link to={"/MyProfile_DashBoard"} className="Link">
@@ -62,28 +62,55 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/User_Login_Register"} className="Link">
+                  <Link to={"/Login"} className="Link">
                     Sign In
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/User_Login_Register"} className="Link">
+                  <Link to={"/Register"} className="Link">
                     Sign Up
-                  </Link>{" "}
+                  </Link>
                 </li>
                 <li>
-                  <Link to={"/RegisterShop"} className="Link">
+                  <Link to={"/Register_Shop"} className="Link">
                     Register Shop
                   </Link>{" "}
                 </li>
                 <li>
-                  <Link to={"/RegisterServiceCompo"} className="Link">
+                  <Link to={"/Register_Service"} className="Link">
                     Register Service
                   </Link>{" "}
                 </li>
+
+                
               </ul>
             </li>
-            <li></li>
+            <li>
+              <Link className="Link">
+                Location
+              </Link>
+              <ul className="submenu">
+              
+                <li>
+                  <Link to={""} className="Link">
+                     1.Kondhawa
+                  </Link>
+                </li>
+                <li>
+                  <Link to={""} className="Link">
+                  2.GokhaleNagar
+                  </Link>
+                </li>
+                <li>
+                  <Link to={""} className="Link">
+                   3.Karvenagar
+                  </Link>
+                </li>
+             
+
+                
+              </ul>
+            </li>
           </ul>
         </div>
       </nav>

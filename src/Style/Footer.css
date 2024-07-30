@@ -1,3 +1,4 @@
+
 footer
 {
   bottom: 0;
@@ -22,3 +23,12 @@ footer
   bottom: 0;
  
 }
+
+.BuildingsImg
+{
+ overflow: hidden;
+ height: 90px;
+ width: auto;
+
+}
+

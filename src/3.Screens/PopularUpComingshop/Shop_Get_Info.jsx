@@ -4,7 +4,7 @@ function Shop_Get_Info() {
   return (
     <>
       <div className="menu-item">
-        <img src={Restaurant_Img} alt="ShopsPic" />
+        <img src={Restaurant_Img} alt="ShopsPic" className="Awited_IMg" />
         <div className="item-details">
           <h6 className="h2">Shops Name</h6>
           <div className="item_info">

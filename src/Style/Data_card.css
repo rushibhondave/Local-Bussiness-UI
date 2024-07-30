@@ -1,9 +1,10 @@
+
 .Card-list {
   background-color: white;
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  height: 28vh;
+  height: 35vh;
 }
 
 .bus {
@@ -16,8 +17,10 @@
 }
 
 .ShopsPic {
+  margin: 20px;
+  align-items: center;
   border-radius: 9px;
-  height: 25vh;
+  height: 30vh;
 }
 
 .line {
@@ -62,4 +65,19 @@ margin: 10px;
 .button2
 {
     background-color: #d79209;
+}
+
+
+.MobNo
+{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  width: auto;
+  padding: 5px;
+  cursor: pointer;
+  width: 130px;
+  background-color: grey;
 }

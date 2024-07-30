@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+.Shop_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  background: #f6f8fa;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.Shop_container {
+  max-width: 700px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.Shop_container .title1 {
+  padding: 25px;
+  background: linear-gradient(to right, #d1913c, #ffd194);
+}
+
+.Shop_container .title1 p {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  color: #ffff;
+}
+
+.Shop_container .title1 p::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(to right, #f37a65, #d64141);
+}
+
+.user_details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+}
+.user_details .Bussniess_box {
+  width: calc(100%);
+  margin: 0 0 12px 0;
+}
+.user_details .input_box {
+  width: calc(100% / 2 - 20px);
+  margin: 0 0 12px 0;
+}
+
+.input_box label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input_box label::after {
+  content: " *";
+  color: red;
+}
+.input_box .GST::after {
+  content: "(Optional)";
+  color: #e8e9eb;
+  font-size: 12px;
+}
+.Bussniess_box {
+  font-weight: 500;
+}
+
+.Bussniess_box input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: "Poppins", sans-serif;
+  transition: all 120ms ease-out 0s;
+}
+.input_box input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: "Poppins", sans-serif;
+  transition: all 120ms ease-out 0s;
+}
+
+.input_box input:focus,
+.input_box input:valid {
+  box-shadow: 0px 0px 0px 2px #ffb82e;
+}
+
+.input_box input:focus {
+  background-color: #fff;
+}
+.Bussniess_box input:focus {
+  background-color: #fff;
+}
+
+.Bussniess_box input:focus,
+.Bussniess_box input:valid {
+  box-shadow: 0px 0px 0px 2px #ffb82e;
+}
+
+.Owner_Info {
+  font-size: 25px;
+  font-weight: 500;
+  border-bottom: #e8e9eb 1px solid;
+}
+
+.select {
+  border: 1px solid #e8e9eb;
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  font-family: "Poppins", sans-serif;
+  transition: all 120ms ease-out 0s;
+}
+
+.select option {
+  font-weight: 500;
+}
+
+.reg_btn input {
+  height: 45px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(to right, #d1913c, #ffd194);
+  border-radius: 5px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reg_btn input:hover {
+  background: linear-gradient(to right, #d64141, #f37a65);
+}
+
+form .gender {
+  width: 100%;
+}
+
+.gender .gender_title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.gender .category {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.gender .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.gender .category label .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#radio_1:checked ~ .category label .one,
+#radio_2:checked ~ .category label .two,
+#radio_3:checked ~ .category label .three {
+  border-color: #d9d9d9;
+  background: #f7cb15;
+}
+
+.gender input {
+  display: none;
+}
+
+@media screen and (max-width: 584px) {
+  .user_details {
+    max-height: 340px;
+    overflow-y: scroll;
+  }
+
+  .user_details::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .user_details .input_box {
+    width: 100%;
+  }
+
+  .gender .category {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  .gender .category {
+    flex-direction: column;
+  }
+}
+
+.checkbox.style-c {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .checkbox.style-c input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkbox.style-c input:checked ~ .checkbox__checkmark {
+    background-color: #f7cb15;
+  }
+  .checkbox.style-c input:checked ~ .checkbox__checkmark:after {
+    opacity: 1;
+  }
+  .checkbox.style-c:hover input ~ .checkbox__checkmark {
+    background-color: #eee;
+  }
+  .checkbox.style-c:hover input:checked ~ .checkbox__checkmark {
+    background-color: #f7cb15;
+  }
+  .checkbox.style-c .checkbox__checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    transition: background-color 0.25s ease;
+    border-radius: 4px;
+  }
+  .checkbox.style-c .checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .checkbox.style-c .checkbox__body {
+    color: #333;
+    line-height: 1.4;
+    font-size: 16px;
+  }
