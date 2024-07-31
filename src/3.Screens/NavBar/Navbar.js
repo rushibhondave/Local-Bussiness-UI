@@ -47,7 +47,7 @@ function Navbar() {
             </li>
             <li>
               <Link to={"/About"} className="Link">
-                About
+                About Us
               </Link>
             </li>
 
@@ -67,11 +67,6 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/Register"} className="Link">
-                    Sign Up
-                  </Link>
-                </li>
-                <li>
                   <Link to={"/Register_Shop"} className="Link">
                     Register Shop
                   </Link>{" "}
@@ -85,32 +80,7 @@ function Navbar() {
                 
               </ul>
             </li>
-            <li>
-              <Link className="Link">
-                Location
-              </Link>
-              <ul className="submenu">
-              
-                <li>
-                  <Link to={""} className="Link">
-                     1.Kondhawa
-                  </Link>
-                </li>
-                <li>
-                  <Link to={""} className="Link">
-                  2.GokhaleNagar
-                  </Link>
-                </li>
-                <li>
-                  <Link to={""} className="Link">
-                   3.Karvenagar
-                  </Link>
-                </li>
-             
-
-                
-              </ul>
-            </li>
+          
           </ul>
         </div>
       </nav>

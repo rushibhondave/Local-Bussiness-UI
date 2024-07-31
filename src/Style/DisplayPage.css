@@ -1,7 +1,6 @@
 
 .shopData_Container {
   width: auto;
-  margin-top: 70px;
   height: 180vh;
 
 
@@ -36,6 +35,7 @@ input#search-bar {
   margin: 0 auto;
   height: 45px;
   padding: 0 20px;
+  width: 360px;
   font-size: 1rem;
   border: 1px solid #d79209;
   outline: none;

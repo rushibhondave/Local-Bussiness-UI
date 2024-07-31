@@ -1,156 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.container {
-  height: 100vh;
+
+ .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  background-image: url("../Img/FoodBack.png");
-  background-repeat: no-repeat;
-
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.landing_Center
-{
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
   display: flex;
-}
-.LandingPage_Img {
-  width: auto;
-  height: 60%;
-}
-.wrap {
-  margin-right: 50px;
-  width: 90vh;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-
+  justify-content: center;
+  list-style: none;
 }
 
-.Text_Header1 {
-  font-size: 3rem;
+.nav-links li {
+  margin: 0 15px;
 }
 
-.Text_Para {
-  margin: 10px;
-}
 
-.btn {
-  color: black;
-  border-radius: 5px;
-  width: auto;
-  padding: 15px 89px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  margin: 10px 10px 10px 0px;
-}
-
-#btn1 {
-  background-color: #FFB82E;
-  margin: 9px;
-}
-
-#btn1:hover {
-  background-color: green;
-}
-.btn2 {
-  background-color: #fff;
-  border: 1px solid #fdd78c;
-}
-
-.btn:hover {
-  background-color: #fdd78c;
-}
-
-.btnU {
-  text-transform: uppercase;
-}
-
-.searchcontainer
+.Link_BTN
 {
-  width: 350px;
+  background-color:#E0A658 ;
+  padding: 20px 10px;
 }
-.searchcontainer#search-bar{
-  margin: 0 auto;
-  height: 45px;
-  padding: 0 20px;
-  font-size: 1rem;
-  border: 1px solid #d79209;
-  outline: none;
-  &:focus{
-    border: 1px solid #FFB82E;
-    transition: 0.35s ease;
-
-    &::-webkit-input-placeholder{
-      transition: opacity 0.45s ease; 
-  	  opacity: 0;
-     }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease; 
-  	  opacity: 0;
-     }
-    &:-ms-placeholder {
-     transition: opacity 0.45s ease; 
-  	 opacity: 0;
-     }    
-   }
- }
-.Text_Para
-{
-  color: #5e6e82;
-
-
-}
-
-@media (max-width: 840px) {
- .container
- {
-  background-image: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
- }
-
- .LandingPage_Img {
-  width: auto;
-  height: 40%;
-}
-
-.wrap
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-}
-
-
-@media (max-width: 840px) {
-  .container
-  {
-   background-image: none;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-  }
- 
-  .LandingPage_Img {
-   width: auto;
-   height: 40%;
- }
- 
- .wrap
- {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: center;
- }
- }

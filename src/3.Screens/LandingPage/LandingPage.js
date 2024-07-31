@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../../Style/LandingPage.css";
 import swal from "sweetalert";
-import Vegetables_Cat from "../../Img/Vegetables_Cat.png";
-
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   const [inputValue, setInputValue] = useState("");
@@ -22,14 +21,8 @@ function LandingPage() {
 
   return (
     <>
-      <div className="container">
-        <img src={Vegetables_Cat} alt="" className="LandingPage_Img" />
-        <div className="wrap">
-          <h1 className="Text_Header1">The Spectacle Before </h1>
-          <p className="Text_Para">
-            Apparently, we had reached a great height in the atmosphere, for the
-            sky was a dead black, and which lifts the horizon
-          </p>
+      <nav class="navbar">
+        <div class="logo">
           <div className="landing_Center">
             <form action="" onClick={ClickSearch}>
               <input
@@ -41,13 +34,35 @@ function LandingPage() {
                 className="searchcontainer"
                 onChangeCapture={(e) => setInputValue(e.target.value)}
               />
-
-              <button className="btn button  btnU" id="btn1">Search</button>
+              <button className="btn button  btnU" id="btn1">
+                Search
+              </button>
             </form>
           </div>
         </div>
-      </div>
-      
+        <ul class="nav-links Link">
+          <li>
+            <Link className="Link btn Link_BTN" >Location</Link>
+            <ul className="submenu">
+              <li>
+                <Link to={""}   className="Link">
+                  1.Kondhawa
+                </Link>
+              </li>
+              <li>
+                <Link to={""} className="Link">
+                  2.GokhaleNagar
+                </Link>
+              </li>
+              <li>
+                <Link to={""} className="Link">
+                  3.Karvenagar
+                </Link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 }

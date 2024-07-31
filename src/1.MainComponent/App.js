@@ -5,9 +5,8 @@ import Navbar from "../3.Screens/NavBar/Navbar";
 import MainPage from "./MainPage";
 import DisplayPage from '../2.Component/Display_Page/DisplayPage'
 import Login from '../3.Screens/User_Login_Register/Login.jsx'
-import Register from '../3.Screens/User_Login_Register/Register.jsx'
 import ErrorCompoent from "../2.Component/Error_Component/ErrorCompoent.jsx";
-import RegisterShop from "../3.Screens/RegisterShop/RegisterShop.jsx";
+
 import Register_Shop from "../3.Screens/Register_shop_Service/Register_Shop.jsx";
 import Register_Service from "../3.Screens/Register_shop_Service/Register_Service.jsx";
 import Service_Data_Display from "../3.Screens/DisplayPageService/Service_Data_Display.jsx";
@@ -23,11 +22,10 @@ function App() {
         <Route path="/Service_Data_Display" element={< Service_Data_Display/>}/>
         <Route path="/DisplayPage" element={< DisplayPage/>}/>
         <Route path="/About" element={< About/>}/>
-        <Route path="/RegisterShop" element={< RegisterShop />}/>
+  
         <Route path="/Service_Data_Display" element={< Service_Data_Display />}/>
      
         <Route path="/Login" element={< Login/>}/>
-        <Route path="/Register" element={< Register/>}/>
         <Route path="/Register_Shop" element={< Register_Shop/>}/>
         <Route path="/Register_Service" element={< Register_Service/>}/>
         <Route path="*" element={< ErrorCompoent/>}/>

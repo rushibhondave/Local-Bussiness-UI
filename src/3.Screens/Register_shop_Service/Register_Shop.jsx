@@ -25,14 +25,6 @@ function Register_Shop() {
                     <input type="text" id="username" placeholder="Enter your Shop Start Date" required/>
                 </div>
                 <div className="input_box">
-                    <label for="username">Male Worker No</label>
-                    <input type="text" id="username" placeholder="Enter the Male Worker No" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">Female Worker No</label>
-                    <input type="text" id="username" placeholder="Enter the Female Worker No" required/>
-                </div>
-                <div className="input_box">
                     <label for="username">City</label>
                     <input type="text" id="username" placeholder="Enter City" required/>
                 </div>
@@ -44,16 +36,17 @@ function Register_Shop() {
                     <label for="username">Pin / Zip Code</label>
                     <input type="text" id="username" placeholder="Ente Pin / Zip Code" required/>
                 </div>
-                <div className="input_box">
-                    <label for="username" className="GST">GST No</label>
-                    <input type="text" id="username" placeholder="Enter the GST No" required/>
-                </div>
+              
                 <div className="input_box">
                     <label for="username"> Mobile No</label>
                     <input type="text" id="username" placeholder="Enter the Mobile No" required/>
                 </div>
                 <div className="input_box">
-                    <label for="username">Shop Google Link</label>
+                    <label for="username">Alternative Mobile No</label>
+                    <input type="text" id="username" placeholder="Enter the Alternative Mobile No" required/>
+                </div>
+                <div className="input_box ">
+                    <label for="username">Shop Google Map Link</label>
                     <input type="text" id="username" placeholder="Enter yourShop Google Link" required/>
                 </div>
                     <div className="Owner_Info">

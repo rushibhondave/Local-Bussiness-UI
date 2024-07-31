@@ -4,7 +4,7 @@
   justify-content: center;
   padding: 50px;
   position: relative;
-  margin-top: 50px;
+
 }
 
 .experience-banner {
@@ -35,6 +35,14 @@
 {
   height: 50vh;
   width: 50vh;
+  margin: 19px;
+  border-radius: 5px;
+}
+
+.Service_Img
+{
+  margin: 10px;
+  border-radius: 5px;
 }
 
 
@@ -135,13 +143,14 @@ p {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
+  margin-bottom: 29px;
   width: 270px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-19px);
 }
 
 .icon {

@@ -23,29 +23,26 @@
   background-color: #FFB82E;
 }
 
-
-
-.gif
-{
- background: url("../Img//local_Business/BuildingsImg.png") no-repeat scroll center 0;
- width: 100%;
- height: 266px;;
- background-position: center;
- background-size: cover;
-
-
-}
-.bicycle
-{
- margin-top: 150px;
-}
-
-.car
-{
- height: 140px;
- margin-top: -39px;
-}
-.link
-{
+.btn {
+  color: black;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px 89px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 10px 10px 10px 0px;
   text-decoration: none;
+}
+
+#btn1:hover {
+  background-color: green;
+}
+
+.btn:hover {
+  background-color: #fdd78c;
+}
+
+.btnU {
+  text-transform: uppercase;
 }
