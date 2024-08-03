@@ -26,9 +26,9 @@ function Data_Display() {
             <div className="line"><hr /></div>
             <div class="filter-section">
                 <h3>Vehicle Type</h3>
-                <label><input type="checkbox"/> Classic</label>
-                <label><input type="checkbox"/> Coach</label>
-                <label><input type="checkbox"/> AC</label>
+                <label><input type="radio"/> Classic</label>
+                <label><input type="radio"/> Coach</label>
+                <label><input type="radio"/> AC</label>
             </div>
             <div className="line"><hr /></div>
             <div class="filter-section">
@@ -49,11 +49,7 @@ function Data_Display() {
           <div className="Display_Card">
             <Data_Card />
             <Data_Card />
-            <Data_Card />
-          
-          
-        
-           
+            <Data_Card />   
           </div>
         </div>
       </div>

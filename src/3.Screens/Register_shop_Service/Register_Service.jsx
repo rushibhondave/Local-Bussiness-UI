@@ -117,7 +117,7 @@ function Register_Service()
                         <span>Prefer not to say</span>
                     </label>
                 </div>
-                 </div>
+                </div>
               
                 <div class="checkboxes__row">
                   <div class="checkboxes__item">

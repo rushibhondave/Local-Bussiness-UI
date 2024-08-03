@@ -44,7 +44,7 @@ function User_Login_Register()
                 <input type="password" required />
                 <label for="">Password</label>
               </div>
-              <div class="input-group Login_Select">
+              <div class="input-group" id="Login_Select">
               <div className="Bussniess_box input_box GST">
                     <label for="name"></label>
                     <select name="" id="" className="select">
