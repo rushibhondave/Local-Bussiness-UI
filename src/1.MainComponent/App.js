@@ -10,6 +10,7 @@ import ErrorCompoent from "../2.Component/Error_Component/ErrorCompoent.jsx";
 import Register_Shop from "../3.Screens/Register_shop_Service/Register_Shop.jsx";
 import Register_Service from "../3.Screens/Register_shop_Service/Register_Service.jsx";
 import Service_Data_Display from "../3.Screens/DisplayPageService/Service_Data_Display.jsx";
+import Shop_Service_Login from "../3.Screens/Register_shop_Service/Shop_Service_Login.jsx";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Service_Data_Display" element={< Service_Data_Display/>}/>
         <Route path="/DisplayPage" element={< DisplayPage/>}/>
         <Route path="/About" element={< About/>}/>
+        <Route path="/Shop_Service_Login" element={< Shop_Service_Login/>}/>
   
         <Route path="/Service_Data_Display" element={< Service_Data_Display />}/>
      

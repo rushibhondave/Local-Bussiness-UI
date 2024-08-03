@@ -195,3 +195,15 @@ h2 {
 .sign-link p a:hover {
     text-decoration: underline;
 }
+
+.GST
+{
+  border: none;
+  outline: none;
+}
+.Bussniess_box .GST::after {
+  content: "(Optional)";
+  color: #e8e9eb;
+  font-size: 12px;
+
+}

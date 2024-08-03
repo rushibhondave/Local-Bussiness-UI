@@ -30,17 +30,22 @@ function Register_Service()
 
         <form action="#">
             <div className="user_details">
-            <div className="Bussniess_box">
-                    <label for="name">Service Name</label>
-                    <input type="text" id="name" placeholder="Enter your Business name" required/>
+     
+                <div className="input_box">
+                    <label for="username"> Mobile No</label>
+                    <input type="text" id="username" placeholder="Enter the Mobile No" required/>
                 </div>
-                <div className="Bussniess_box">
-                    <label for="name">Company Name</label>
+                <div className="input_box">
+                    <label for="name">Password</label>
+                    <input type="password" id="name" placeholder="Enter The Password" required/>
+                </div>
+               <div className="Bussniess_box">
+                    <label for="name">Service Name</label>
                     <input type="text" id="name" placeholder="Enter your Business name" required/>
                 </div>
                 <div className="input_box">
                     <label for="name">First Name</label>
-                    <input type="text" id="name" placeholder="Enter your BFirst Name" required/>
+                    <input type="text" id="name" placeholder="Enter your First Name" required/>
                 </div>
                 <div className="input_box">
                     <label for="name">Last Name</label>
@@ -50,30 +55,27 @@ function Register_Service()
                     <label for="name">Address</label>
                     <input type="text" id="name" placeholder="Enter your Business Address" required/>
                 </div>
-                <div className="input_box">
-                    <label for="username">Service Start Date</label>
-                    <input type="text" id="username" placeholder="Enter your Shop Start Date" required/>
+                <div className="Bussniess_box input_box">
+                    <label for="name">Service Category</label>
+                    <select name="" id="" className="select">
+                        <option value="" disabled>Choose Option</option>
+                        <option value="">Plumber</option>
+                        <option value="">Technician</option>
+                        <option value="">Repair</option>
+                        <option value="">Carpainter</option>
+                    </select>
                 </div>
                 <div className="input_box">
                     <label for="username">Service Amount</label>
                     <input type="number" id="username" placeholder="Enter your Service Amount" required/>
                 </div>
                 <div className="input_box">
-                    <label for="username">Job Timings</label>
-                    <input type="number" id="username" placeholder="Enter your Service Amount" required/>
+                    <label for="username" className="GST" >Job Timings</label>
+                    <input type="text" id="username" placeholder="Enter your Service Amount" required/>
                 </div>
                 <div className="input_box">
-                    <label for="username">Experience</label>
+                    <label for="username" className="GST">Experience</label>
                     <input type="number" id="username" placeholder="Enter your Experience" required/>
-                </div>
-             
-                <div className="input_box">
-                    <label for="username">Education</label>
-                    <input type="text" id="username" placeholder="Enter your Education" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">Language</label>
-                    <input type="text" id="username" placeholder="Enter your Experience" required/>
                 </div>
                 <div className="input_box">
                     <label for="username">City</label>
@@ -91,9 +93,9 @@ function Register_Service()
                     <label for="username" className="GST">Addtional Information</label>
                     <input type="text" id="username" placeholder="Enter yout Addtional Information" required/>
                 </div>
-                <div className="input_box">
-                    <label for="username">Mobile No</label>
-                    <input type="text" id="username" placeholder="Enter your Shop Mobile No" required/>
+                <div className="input_box"> 
+                    <label for="name" >Adhar No</label>
+                    <input type="text" id="name" placeholder="Enter your Adhar No" required/>
                 </div>
                 <div class="gender">
                 <span class="gender_title">Gender</span>

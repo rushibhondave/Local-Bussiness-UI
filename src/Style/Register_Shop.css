@@ -67,10 +67,16 @@
   content: " *";
   color: red;
 }
+.GST
+{
+  border: none;
+  outline: none;
+}
 .input_box .GST::after {
   content: "(Optional)";
   color: #e8e9eb;
   font-size: 12px;
+
 }
 .Bussniess_box {
   font-weight: 500;
@@ -103,10 +109,10 @@
   transition: all 120ms ease-out 0s;
 }
 
-.input_box input:focus,
+/* .input_box input:focus,
 .input_box input:valid {
   box-shadow: 0px 0px 0px 2px #ffb82e;
-}
+} */
 
 .input_box input:focus {
   background-color: #fff;
@@ -119,6 +125,7 @@
 .Bussniess_box input:valid {
   box-shadow: 0px 0px 0px 2px #ffb82e;
 }
+
 
 .Owner_Info {
   font-size: 25px;

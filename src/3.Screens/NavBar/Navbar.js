@@ -53,7 +53,7 @@ function Navbar() {
 
             <li>
               <Link  className="Link">
-                Login
+                Sign In
               </Link>
               <ul className="submenu">
                 <li>
@@ -63,12 +63,18 @@ function Navbar() {
                 </li>
                 <li>
                   <Link to={"/Login"} className="Link">
-                    Sign In
+                    User Sign In
                   </Link>
+                </li>
+                
+                <li>
+                  <Link to={"/Shop_Service_Login"} className="Link">
+                  Shop-Service Sign In
+                  </Link>{" "}
                 </li>
                 <li>
                   <Link to={"/Register_Shop"} className="Link">
-                    Register Shop
+                      Register Shop
                   </Link>{" "}
                 </li>
                 <li>

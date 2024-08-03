@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../../Style/Login.css";
 import { Link } from "react-router-dom";
-function User_Login_Register() 
+function Shop_Service_Login() 
 {
+  
+     
   return (
     <>
       <div className="body">
@@ -18,7 +20,6 @@ function User_Login_Register()
                 <input type="password" required />
                 <label for="">Password</label>
               </div>
-
               <button type="submit" class="btn_Login">
                 Sign Up
               </button>
@@ -44,18 +45,6 @@ function User_Login_Register()
                 <input type="password" required />
                 <label for="">Password</label>
               </div>
-              <div class="input-group Login_Select">
-              <div className="Bussniess_box input_box GST">
-                    <label for="name"></label>
-                    <select name="" id="" className="select">
-                        <option value=""  disabled  >Choose Location</option>
-                        <option value="">KarveNagar Lane No 1</option>
-                        <option value="">Kondhwa Budruk Lane No 6</option>
-                        <option value="">Gokhale Nagar Lane No 5</option>
-                        <option value="">VIT COLLEGE</option>
-                    </select>
-                </div>
-              </div>
               <div class="forgot-pass">
                 <a href="#">Forgot Password?</a>
               </div>
@@ -78,4 +67,4 @@ function User_Login_Register()
   );
 }
 
-export default User_Login_Register;
+export default Shop_Service_Login;

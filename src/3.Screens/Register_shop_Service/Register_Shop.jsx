@@ -11,7 +11,16 @@ function Register_Shop() {
 
         <form action="#">
             <div className="user_details">
-            <div className="Bussniess_box">
+      
+                <div className="input_box"> 
+                    <label for="username"> Mobile No</label>
+                    <input type="text" id="username" placeholder="Enter the Mobile No" required/>
+                </div>
+                <div className="input_box">
+                    <label for="name">Password</label>
+                    <input type="password" id="name" placeholder="Enter The Password" required/>
+                </div>
+                <div className="Bussniess_box">
                     <label for="name">Business Name</label>
                     <input type="text" id="name" placeholder="Enter your Business name" required/>
                 </div>
@@ -21,8 +30,18 @@ function Register_Shop() {
                     <input type="text" id="name" placeholder="Enter your Business Address" required/>
                 </div>
                 <div className="input_box">
-                    <label for="username">Shop Start Date</label>
-                    <input type="text" id="username" placeholder="Enter your Shop Start Date" required/>
+                    <label for="username">Shop Timings</label>
+                    <input type="text" id="username" placeholder="Enter your Shop Timings"/>
+                </div>
+                     <div className="Bussniess_box input_box">
+                    <label for="name">Shop Category</label>
+                    <select name="" id="" className="select">
+                        <option value=""  disabled  >Choose Option</option>
+                        <option value="">Street Shop</option>
+                        <option value="">Medical</option>
+                        <option value="">Food Stall</option>
+                        <option value="">Grocery</option>
+                    </select>
                 </div>
                 <div className="input_box">
                     <label for="username">City</label>
@@ -36,64 +55,31 @@ function Register_Shop() {
                     <label for="username">Pin / Zip Code</label>
                     <input type="text" id="username" placeholder="Ente Pin / Zip Code" required/>
                 </div>
-              
                 <div className="input_box">
-                    <label for="username"> Mobile No</label>
-                    <input type="text" id="username" placeholder="Enter the Mobile No" required/>
+                    <label for="name" className="GST">Email Id</label>
+                    <input type="email" id="name" placeholder="Enter your Email Id" />
                 </div>
-                <div className="input_box">
-                    <label for="username">Alternative Mobile No</label>
-                    <input type="text" id="username" placeholder="Enter the Alternative Mobile No" required/>
-                </div>
+            
+           
                 <div className="input_box ">
-                    <label for="username">Shop Google Map Link</label>
-                    <input type="text" id="username" placeholder="Enter yourShop Google Link" required/>
+                    <label for="username" className="GST">Shop Google Map Link</label>
+                    <input type="text" id="username" placeholder="Enter yourShop Google Link" />
                 </div>
                     <div className="Owner_Info">
                       <p>Owener Information</p>
                     </div>
                 <div className="Bussniess_box">
                     <label for="name">Owner Name</label>
-                    <input type="text" id="name" placeholder="Enter your Business name" required/>
+                    <input type="text" id="name" placeholder="Enter The Owner Name" required/>
                 </div>
-                <div className="Bussniess_box input_box">
-                    <label for="name">Ownership</label>
-                    <select name="" id="" className="select">
-                        <option value=""  disabled >Choose Option</option>
-                        <option value="">Self Owned</option>
-                        <option value="">Rented</option>
-                        <option value="">Partnership</option>
-              
-                    </select>
-                </div>
+           
                 <div className="input_box">
                     <label for="username"> Mobile No</label>
                     <input type="text" id="username" placeholder="Enter your  Mobile No" required/>
                 </div>
-             
-                <div className="input_box">
-                    <label for="username">Address</label>
-                    <input type="text" id="username" placeholder="Enter your Address" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">City</label>
-                    <input type="text" id="username" placeholder="Enter City" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">State</label>
-                    <input type="text" id="username" placeholder="Enter State" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">Pin / Zip Code</label>
-                    <input type="text" id="username" placeholder="Ente Pin / Zip Code" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">Adhar No</label>
-                    <input type="text" id="username" placeholder="Enter The Adhar No" required/>
-                </div>
-                <div className="input_box">
-                    <label for="username">Email id</label>
-                    <input type="text" id="username"  className="GST" placeholder="Ente The Email Id" required/>
+                <div className="input_box"> 
+                    <label for="name" >Adhar No</label>
+                    <input type="text" id="name" placeholder="Enter your Adhar No" required/>
                 </div>
                 <div class="checkboxes__row">
                   <div class="checkboxes__item">
