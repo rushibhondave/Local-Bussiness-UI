@@ -37,8 +37,8 @@ function User_Login_Register()
             <form action="">
               <h2>Login</h2>
               <div class="input-group">
-                <input type="email" required />
-                <label for="">Email</label>
+                <input type="number" required />
+                <label for="">Mobile No</label>
               </div>
               <div class="input-group">
                 <input type="password" required />

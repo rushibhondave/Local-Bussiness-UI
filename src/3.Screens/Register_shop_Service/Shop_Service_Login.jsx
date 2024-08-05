@@ -38,8 +38,8 @@ function Shop_Service_Login()
             <form action="">
               <h2>Shop-Service Login</h2>
               <div class="input-group">
-                <input type="email" required />
-                <label for="">Email</label>
+                <input type="number" required />
+                <label for="">Mobile No</label>
               </div>
               <div class="input-group">
                 <input type="password" required />

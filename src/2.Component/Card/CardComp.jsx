@@ -18,6 +18,7 @@ function CardComp() {
           <Card />
           <Card />
           <Card />
+       
       
         </div>
       </div>
