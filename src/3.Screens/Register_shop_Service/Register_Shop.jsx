@@ -25,9 +25,15 @@ function Register_Shop() {
                     <input type="text" id="name" placeholder="Enter your Business name" required/>
                 </div>
               
-                <div className="input_box">
+                <div className="Bussniess_box input_box GST">
                     <label for="name">Address</label>
-                    <input type="text" id="name" placeholder="Enter your Business Address" required/>
+                    <select name="" id="" className="select">
+                        <option value=""  disabled  >Choose Location</option>
+                        <option value="">KarveNagar Lane No 1</option>
+                        <option value="">Kondhwa Budruk Lane No 6</option>
+                        <option value="">Gokhale Nagar Lane No 5</option>
+                        <option value="">VIT COLLEGE</option>
+                    </select>
                 </div>
                 <div className="input_box">
                     <label for="username">Shop Timings</label>
