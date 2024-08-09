@@ -27,14 +27,8 @@ function Register_Shop() {
               
                 <div className="Bussniess_box input_box GST">
                     <label for="name">Address</label>
-                    <select name="" id="" className="select">
-                        <option value=""  disabled  >Choose Location</option>
-                        <option value="">KarveNagar Lane No 1</option>
-                        <option value="">Kondhwa Budruk Lane No 6</option>
-                        <option value="">Gokhale Nagar Lane No 5</option>
-                        <option value="">VIT COLLEGE</option>
-                    </select>
-                </div>
+                    <input type="text" id="username" placeholder="Enter your Address" required/>
+                </div> 
                 <div className="input_box">
                     <label for="username">Shop Timings</label>
                     <input type="text" id="username" placeholder="Enter your Shop Timings"/>
@@ -57,9 +51,16 @@ function Register_Shop() {
                     <label for="username">State</label>
                     <input type="text" id="username" placeholder="Enter State" required/>
                 </div>
+            
                 <div className="input_box">
                     <label for="username">Pin / Zip Code</label>
-                    <input type="text" id="username" placeholder="Ente Pin / Zip Code" required/>
+                    <select name="" id="" className="select">
+                        <option value=""  disabled  >Choose Location</option>
+                        <option value="">KarveNagar 411052</option>
+                        <option value="">Kondhwa Budruk 411048 </option>
+                        <option value="">Gokhale Nagar 411016 </option>
+                        <option value="">kharadi  411014</option>
+                    </select>
                 </div>
                 <div className="input_box">
                     <label for="name" className="GST">Email Id</label>

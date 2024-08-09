@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../Style/LandingPage.css";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify'; import 'react-toastify/dist/ReactToastify.css';
 function LandingPage() {
   const [inputValue, setInputValue] = useState("");
   const [error, seterror] = useState(false);
@@ -17,7 +17,9 @@ function LandingPage() {
     } else {
       swal("Good job");
     }
+    // 
   };
+  
 
   return (
     <>

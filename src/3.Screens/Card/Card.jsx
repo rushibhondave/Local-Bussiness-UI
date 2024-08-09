@@ -2,7 +2,7 @@ import React from "react";
 import "../../Style/Card.css";
 import "../../Style/index.css";
 
-function Card() {
+function Card({Service}) {
   return (
     <>
       <div className="Card_Box">
@@ -10,7 +10,7 @@ function Card() {
           <span>
             <img src="" alt="" />
           </span>
-          <span className="Service">Service</span>
+          <span className="Service">{Service}</span>
           <p className="Service_Info">Lorem ipsum dolor sit amet.</p>
           <button className="btn11">Read More</button>
         </div>

@@ -43,6 +43,11 @@ function Navbar() {
                     Electrician
                   </Link>
                 </li>
+                <li>
+                  <Link to={"/DatagetbyAsp"} className="Link">
+                  DatagetbyAsp
+                  </Link>
+                </li>
               </ul>
             </li>
             <li>

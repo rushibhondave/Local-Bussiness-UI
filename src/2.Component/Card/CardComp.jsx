@@ -10,16 +10,15 @@ function CardComp() {
       </div>
      
        <div className="Card_Grid_Box">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-       
-      
+          <Card  Service="Grocery" />
+          <Card Service="ChefCart"/>
+          <Card Service="Street Shop"/>
+          <Card Service="Medicals"/>
+          <Card Service="Service Labour"/>
+          <Card Service="Cleaning Services"/>
+          <Card Service=""/>
+          <Card Service="Other"/>
+
         </div>
       </div>
     </>

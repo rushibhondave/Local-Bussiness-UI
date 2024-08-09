@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import "../../Style/Register_Shop.css";
 import swal from "sweetalert";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { _ } from "ajv";
 function Register_Service() 
 {
-    function RegisterService_Submit() {
-        const [inputValue, setInputValue] = useState("");
-        // Regular expression to match only letters and numbers
-        const regex = /^[a-zA-Z0-9]*$/;
-        const ClickSearch = (e) => {
-          const value = e.target.value;
-          e.preventDefault();
-          swal({
-            title: "Good job!",
-            text: "Data Submit Susscfully!",
-            icon: "success",
-            button: "Close",
-          });
-        };
+    // function RegisterService_Submit() {
+    //     const [inputValue, setInputValue] = useState("");
+    //     // Regular expression to match only letters and numbers
+    //     const regex = /^[a-zA-Z0-9]*$/;
+    //     const ClickSearch = (e) => {
+    //       const value = e.target.value;
+    //       e.preventDefault();
+    //       swal({
+    //         title: "Good job!",
+    //         text: "Data Submit Susscfully!",
+    //         icon: "success",
+    //         button: "Close",
+    //       });
+    //     };
 
-    }
+    // }
+  
+
+    const RegisterService_Submit = () => toast.success("Wow so easy!");
+
+  
+
     
   return (
     <>
@@ -51,16 +60,6 @@ function Register_Service()
                     <label for="name">Last Name</label>
                     <input type="text" id="name" placeholder="Enter your Last Name" required/>
                 </div>
-                <div className="Bussniess_box input_box GST">
-                    <label for="name">Address</label>
-                    <select name="" id="" className="select">
-                        <option value=""  disabled  >Choose Location</option>
-                        <option value="">KarveNagar Lane No 1</option>
-                        <option value="">Kondhwa Budruk Lane No 6</option>
-                        <option value="">Gokhale Nagar Lane No 5</option>
-                        <option value="">VIT COLLEGE</option>
-                    </select>
-                </div>
                 <div className="Bussniess_box input_box">
                     <label for="name">Service Category</label>
                     <select name="" id="" className="select">
@@ -69,6 +68,7 @@ function Register_Service()
                         <option value="">Technician</option>
                         <option value="">Repair</option>
                         <option value="">Carpainter</option>
+                        <option value="">Cleaning Services</option>
                     </select>
                 </div>
                 <div className="input_box">
@@ -79,21 +79,24 @@ function Register_Service()
                     <label for="username" className="GST" >Job Timings</label>
                     <input type="text" id="username" placeholder="Enter your Service Amount" required/>
                 </div>
-                <div className="input_box">
-                    <label for="username" className="GST">Experience</label>
-                    <input type="number" id="username" placeholder="Enter your Experience" required/>
-                </div>
+                <div className="Bussniess_box input_box GST">
+                    <label for="name">Address</label>
+                    <input type="text" id="username" placeholder="Enter your Address" required/>
+                </div> 
                 <div className="input_box">
                     <label for="username">City</label>
                     <input type="text" id="username" placeholder="Enter City" required/>
                 </div>
-                <div className="input_box">
-                    <label for="username">State</label>
-                    <input type="text" id="username" placeholder="Enter State" required/>
-                </div>
+       
                 <div className="input_box">
                     <label for="username">Pin / Zip Code</label>
-                    <input type="text" id="username" placeholder="Ente Pin / Zip Code" required/>
+                    <select name="" id="" className="select">
+                        <option value=""  disabled  >Choose Location</option>
+                        <option value="">KarveNagar 411052</option>
+                        <option value="">Kondhwa Budruk 411048 </option>
+                        <option value="">Gokhale Nagar 411016 </option>
+                        <option value="">kharadi  411014</option>
+                    </select>
                 </div>
                 <div className="input_box">
                     <label for="username" className="GST">Addtional Information</label>
@@ -141,6 +144,7 @@ function Register_Service()
         </form>
     </div>
     </div>
+    <ToastContainer/>
     </>
   );
 }
