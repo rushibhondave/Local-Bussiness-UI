@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Style/Register_Shop.css";
-function Register_Shop() {
+function Register_Shop() 
+{
+    const [mobileNo, setmobileNo] = useState("");
+    const [password, setpassword] = useState("");
+    const [ShopName, setShopName] = useState("");
+    const [address, setaddress] = useState("");
+    const [ShopTimings, setShopTimings] = useState("");
+    const [ShopCategory, setShopCategory] = useState("");
+    const [serviceAmount, setserviceAmount] = useState(0.0);
+    const [city, setcity] = useState("");
+    const [pinCode, setpinCode] = useState("");
+    const [EmailId, setEmailId] = useState("");
+    const [OwnerName, setOwnerName] = useState("");
+    const [OwnermobileNo, setOwnermobileNo] = useState("");
+    const [adharNo, setadharNo] = useState("");  
+    const [termsAccepted, settermsAccepted] = useState(false);
+    const url="https://localhost:7148/api/ShopAdds";
   return (
     <>
     <div className="Shop_body">
@@ -21,8 +37,8 @@ function Register_Shop() {
                     <input type="password" id="name" placeholder="Enter The Password" required/>
                 </div>
                 <div className="Bussniess_box">
-                    <label for="name">Business Name</label>
-                    <input type="text" id="name" placeholder="Enter your Business name" required/>
+                    <label for="name">Shop Name</label>
+                    <input type="text" id="name" placeholder="Enter your Shop name" required/>
                 </div>
               
                 <div className="Bussniess_box input_box GST">
@@ -47,10 +63,7 @@ function Register_Shop() {
                     <label for="username">City</label>
                     <input type="text" id="username" placeholder="Enter City" required/>
                 </div>
-                <div className="input_box">
-                    <label for="username">State</label>
-                    <input type="text" id="username" placeholder="Enter State" required/>
-                </div>
+          
             
                 <div className="input_box">
                     <label for="username">Pin / Zip Code</label>
@@ -68,10 +81,6 @@ function Register_Shop() {
                 </div>
             
            
-                <div className="input_box ">
-                    <label for="username" className="GST">Shop Google Map Link</label>
-                    <input type="text" id="username" placeholder="Enter yourShop Google Link" />
-                </div>
                     <div className="Owner_Info">
                       <p>Owener Information</p>
                     </div>
@@ -99,7 +108,7 @@ function Register_Shop() {
                </div>
                 
             </div>
-            <div className="reg_btn">
+            <div className="reg_btn ">
                 <input type="submit" value="Register"/>
             </div>
         </form>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
 .Shop_body {
   display: flex;
@@ -67,8 +67,7 @@
   content: " *";
   color: red;
 }
-.GST
-{
+.GST {
   border: none;
   outline: none;
 }
@@ -76,7 +75,6 @@
   content: "(Optional)";
   color: #e8e9eb;
   font-size: 12px;
-
 }
 .Bussniess_box {
   font-weight: 500;
@@ -109,10 +107,6 @@
   transition: all 120ms ease-out 0s;
 }
 
-/* .input_box input:focus,
-.input_box input:valid {
-  box-shadow: 0px 0px 0px 2px #ffb82e;
-} */
 
 .input_box input:focus {
   background-color: #fff;
@@ -125,7 +119,6 @@
 .Bussniess_box input:valid {
   box-shadow: 0px 0px 0px 2px #ffb82e;
 }
-
 
 .Owner_Info {
   font-size: 25px;
@@ -152,66 +145,67 @@
   font-weight: 500;
 }
 
-.reg_btn input {
+.reg_btn {
   height: 45px;
   width: 100%;
   border: none;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(to right, #d1913c, #ffd194);
+  display: flex;
+  justify-content: center;
   border-radius: 5px;
   color: #ffffff;
   letter-spacing: 1px;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
 }
 
-.reg_btn input:hover {
-  background: linear-gradient(to right, #d64141, #f37a65);
-}
-
-form .gender {
-  width: 100%;
-}
-
-.gender .gender_title {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.gender .category {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-  margin: 5px 0;
-}
-
-.gender .category label {
-  display: flex;
-  align-items: center;
+.Submit {
+  color: white;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px 89px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
+  margin-left: 20px;
+  background-color: red;
 }
 
-.gender .category label .dot {
-  height: 18px;
-  width: 18px;
-  background: #d9d9d9;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 4px solid transparent;
-  transition: all 0.3s ease;
+.Clear {
+  color: white;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px 89px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  background-color: #28a745;
 }
 
-#radio_1:checked ~ .category label .one,
-#radio_2:checked ~ .category label .two,
-#radio_3:checked ~ .category label .three {
-  border-color: #d9d9d9;
-  background: #f7cb15;
+.checkboxes__row input
+{
+  margin: 10px;
 }
 
-.gender input {
-  display: none;
+.checkboxes__row label
+{
+  font-weight: 600;
+  padding: 5px 20px;
 }
+
+.term_condition  label
+{
+  font-weight: 600;
+  padding: 15px 20px;
+}
+.term_condition  input
+{
+  margin: 10px;
+}
+
 
 @media screen and (max-width: 584px) {
   .user_details {
@@ -238,60 +232,12 @@ form .gender {
   }
 }
 
-.checkbox.style-c {
-    display: inline-block;
-    position: relative;
-    padding-left: 30px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  .checkbox.style-c input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  .checkbox.style-c input:checked ~ .checkbox__checkmark {
-    background-color: #f7cb15;
-  }
-  .checkbox.style-c input:checked ~ .checkbox__checkmark:after {
-    opacity: 1;
-  }
-  .checkbox.style-c:hover input ~ .checkbox__checkmark {
-    background-color: #eee;
-  }
-  .checkbox.style-c:hover input:checked ~ .checkbox__checkmark {
-    background-color: #f7cb15;
-  }
-  .checkbox.style-c .checkbox__checkmark {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
-    transition: background-color 0.25s ease;
-    border-radius: 4px;
-  }
-  .checkbox.style-c .checkbox__checkmark:after {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 4px;
-    width: 5px;
-    height: 10px;
-    border: solid #333;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-  .checkbox.style-c .checkbox__body {
-    color: #333;
-    line-height: 1.4;
-    font-size: 16px;
-  }
+
+
+.Img_box input {
+  margin: 10px;
+}
+
+.Img_title {
+  font-weight: 500;
+}

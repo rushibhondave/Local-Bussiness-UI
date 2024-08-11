@@ -11,6 +11,8 @@ import Register_Service from "../3.Screens/Register_shop_Service/Register_Servic
 import Service_Data_Display from "../3.Screens/DisplayPageService/Service_Data_Display.jsx";
 import Shop_Service_Login from "../3.Screens/Register_shop_Service/Shop_Service_Login.jsx";
 import DatagetbyAsp from "./DatagetbyAsp.jsx";
+import DataAdd from "./DataAdd.jsx";
+
 
 
 
@@ -21,8 +23,9 @@ function App() {
         <Navbar />
         <Routes>
         <Route path="/" element={< MainPage/>}/>
+        <Route path="/DataAdd" element={< DataAdd/>}/>
         <Route path="/DatagetbyAsp" element={< DatagetbyAsp/>}/>
-   
+  
         <Route path="/Service_Data_Display" element={< Service_Data_Display/>}/>
         <Route path="/DisplayPage" element={< DisplayPage/>}/>
         <Route path="/About" element={< About/>}/>

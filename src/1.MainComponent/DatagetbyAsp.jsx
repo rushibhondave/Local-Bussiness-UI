@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "../1.MainComponent/style.css";
+import { toast } from "react-toastify";
 
 function DatagetbyAsp() {
   const [data, setData] = useState([]);
@@ -60,14 +61,16 @@ function DatagetbyAsp() {
     }
   }, [data]);
 
-  const handleAdd = useCallback(async () => {
+  const handleAdd = useCallback(   async () => {
     try {
       if (!newItem.shopId || !newItem.shopName || !newItem.shopType || !newItem.shopAddrss) {
+        toast.error("Error while adding data.");
         Swal.fire({
           icon: 'warning',
           title: 'Incomplete Data',
           text: 'Please fill in all required fields.',
         });
+
         return;
       }
       await axios.post("https://localhost:7148/api/ShopInfoes", newItem);
@@ -84,6 +87,7 @@ function DatagetbyAsp() {
         text: 'New shop has been added successfully.',
       });
     } catch (error) {
+      
       console.error("Error adding data:", error);
       Swal.fire({
         icon: 'error',

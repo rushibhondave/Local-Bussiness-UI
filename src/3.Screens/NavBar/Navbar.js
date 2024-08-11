@@ -44,10 +44,11 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/DatagetbyAsp"} className="Link">
-                  DatagetbyAsp
+                  <Link to={"/DataAdd"} className="Link">
+                  DataAdd
                   </Link>
                 </li>
+             
               </ul>
             </li>
             <li>
