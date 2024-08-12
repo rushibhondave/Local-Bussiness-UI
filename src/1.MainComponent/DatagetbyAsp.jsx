@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "../1.MainComponent/style.css";
 import { toast } from "react-toastify";
-
+import "../1.MainComponent/style.css";
 function DatagetbyAsp() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,7 +26,7 @@ function DatagetbyAsp() {
         console.error("Data is not an array:", result.data);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+    
       Swal.fire({
         icon: 'error',
         title: 'Error',

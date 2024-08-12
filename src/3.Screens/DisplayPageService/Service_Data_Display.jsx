@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import "../../Style/DisplayPage.css";
-
 import Service_Data_Card from "./Service_Data_Card";
-function Service_Data_Display() {
+function Service_Data_Display() 
+{
+  const [data, setdata] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  useEffect(() => {}, [inputValue]);
+
+  useEffect(() => {
+    getdata();
+  }, [inputValue]);
+  const getdata = (event) => {
+    try {
+      if (event) event.preventDefault();
+      axios.get("https://localhost:7063/api/Serach").then((result) => {
+        setdata(result.data);
+        console.log(result);
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Error while fetching data.",
+      });
+    }
+  };
   return (
     <>
       <div className="shopData_Container">
@@ -14,8 +38,11 @@ function Service_Data_Display() {
                 id="search-bar"
                 placeholder=" Search product,shop name and more...!"
                 className="searchcontainer1"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                required
               />
-              <button className="button">Search</button>
+              <button className="button" >Search</button>
             </form>
           </div>
         </div>

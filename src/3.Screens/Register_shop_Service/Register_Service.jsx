@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../Style/Register_Shop.css";
-import swal from "sweetalert";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -69,7 +68,7 @@ function Register_Service() {
         !gender ||
         !termsAccepted
       ) {
-        toast.error("Error while adding data.");
+       
         Swal.fire({
           icon: "warning",
           title: "Incomplete Data",
@@ -79,7 +78,7 @@ function Register_Service() {
         return;
       }
 
-      const url = "https://localhost:7148/api/RegisterServices";
+      const url = "https://localhost:7063/api/RegisterServices";
       const data = {
         mobileNo: mobileNo,
         password: password,
@@ -101,13 +100,13 @@ function Register_Service() {
         Swal.fire({
           icon: "success",
           title: "Added",
-          text: "New shop has been added successfully.",
+          text: "New Service has been added successfully.",
         });
       });
 
       clear();
     } catch (error) {
-      console.error("Error adding data:", error);
+     
       Swal.fire({
         icon: "error",
         title: "Error",

@@ -15,7 +15,7 @@ function DataAdd() {
       const data = {
         name: name,
         sex: sex,
-        country: country,
+        country: country, 
         Subscribe: newsletter,
       };
 

@@ -1,69 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/LandingPage.css";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify'; import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
+
 function LandingPage() {
   const [inputValue, setInputValue] = useState("");
-  const [error, seterror] = useState(false);
-  // Regular expression to match only letters and numbers
-  const regex = /[a-zA-Z0-9]*$/;
 
-  const ClickSearch = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+   
+ 
+  }, [inputValue]);
 
-    if (inputValue.length <= 0) {
-      seterror(true);
-    } else {
-      swal("Good job");
-    }
-    // 
-  };
-  
+  const handleSearch = (event) => {
+    if (event) event.preventDefault(); // Prevent the default form submission behavior.
+    console.log(inputValue);
+    // Add your search logic here
+  }
 
   return (
     <>
-      <nav class="navbar">
-        <div class="logo">
+      <nav className="navbar">
+        <div className="logo">
           <div className="landing_Center">
-            <form action="" onClick={ClickSearch}>
+            <form onSubmit={handleSearch}>
               <input
                 type="text"
                 id="search-bar"
                 name="Search_Bar_Landing_Page"
-                value={inputValue.Search_Bar_Landing_Page}
-                placeholder=" Search product,shop name and more...!"
+                value={inputValue}
+                placeholder=" Search product, shop name and more...!"
                 className="searchcontainer"
-                onChangeCapture={(e) => setInputValue(e.target.value)}
+                onChange={(e) => setInputValue(e.target.value)} // Use onChange instead of onChangeCapture
               />
-              <button className="btn button  btnU" id="btn1">
-                Search
-              </button>
+              <button className="btn button btnU" id="btn1">Search</button>
             </form>
           </div>
         </div>
-        <ul class="nav-links Link">
-          <li>
-            <Link className="Link btn Link_BTN" >Location</Link>
-            <ul className="submenu">
-              <li>
-                <Link to={""}   className="Link">
-                  1.Kondhawa
-                </Link>
-              </li>
-              <li>
-                <Link to={""} className="Link">
-                  2.GokhaleNagar
-                </Link>
-              </li>
-              <li>
-                <Link to={""} className="Link">
-                  3.Karvenagar
-                </Link>
-              </li>
-            </ul>
-          </li>
-        </ul>
       </nav>
     </>
   );
