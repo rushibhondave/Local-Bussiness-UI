@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../../3.Screens/Card/Card.jsx";
+import Data_Display from "../../3.Screens/DisplayPage/Data_Display.jsx";
 function CardComp() {
   return (
     <>
@@ -10,15 +11,10 @@ function CardComp() {
       </div>
      
        <div className="Card_Grid_Box">
-          <Card  Service="Grocery" />
-          <Card Service="ChefCart"/>
-          <Card Service="Street Shop"/>
-          <Card Service="Medicals"/>
-          <Card Service="Service Labour"/>
-          <Card Service="Cleaning Services"/>
-          <Card Service=""/>
-          <Card Service="Other"/>
-
+          <Card  Service="Grocery" info="Fresh produce, daily essentials available."  fileName={<Data_Display/>}/>
+          <Card Service="Street Shop" info="Local goods, affordable prices daily."/>
+          <Card Service="Medicals" info="Prescription drugs, healthcare products here."/>
+          <Card Service="Services " info="Professional help, diverse offerings available."/>
         </div>
       </div>
     </>

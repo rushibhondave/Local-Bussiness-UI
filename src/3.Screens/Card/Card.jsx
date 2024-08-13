@@ -1,8 +1,9 @@
 import React from "react";
 import "../../Style/Card.css";
 import "../../Style/index.css";
+import { Link, useNavigate } from "react-router-dom";
 
-function Card({Service}) {
+function Card({ Service, info, fileName }) {
   return (
     <>
       <div className="Card_Box">
@@ -11,8 +12,14 @@ function Card({Service}) {
             <img src="" alt="" />
           </span>
           <span className="Service">{Service}</span>
-          <p className="Service_Info">Lorem ipsum dolor sit amet.</p>
-          <button className="btn11">Read More</button>
+          <div className="Service_Info">
+            <p className="info">{info}</p>
+          </div>
+          <button className="btn11">
+            <Link to={"/About"} className="Link">
+              Read More
+            </Link>
+          </button>
         </div>
       </div>
     </>

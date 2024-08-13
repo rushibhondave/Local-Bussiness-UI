@@ -22,7 +22,6 @@
 
 .shopData_Container {
     width: auto;
-
     min-height: 100%;
   
   
@@ -31,7 +30,7 @@
   
   .Search_Cotainer {
     background-color: #ffb82e;
-    height: 40vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: flex-end;

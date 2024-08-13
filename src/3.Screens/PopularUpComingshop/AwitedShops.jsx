@@ -1,45 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/PopularUpComing.css";
 import Shop_Get_Info from "./Shop_Get_Info";
+import axios from "axios";
+import Swal from "sweetalert2";
+import ErrorCompoent from "../../2.Component/Error_Component/ErrorCompoent";
 
 function AwitedShops() {
+  const [inputValue, setInputValue] = useState("");
+  const [data, setdata] = useState([]);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    getdata();
+  }, []);
+  const getdata = (event) => {
+    try {
+      if (event) event.preventDefault();
+      axios.get("https://localhost:7063/api/SerachShop").then((result) => {
+        setdata(result.data);
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Error while fetching data.",
+      });
+    }
+  };
+
+ 
   return (
     <>
       <div className="PopularUpComing_Conatiner">
         <div className="head">
           <h1 className="text11">Most AWAITED </h1>
         </div>
-        <div className="list_Shop">
-          <ul className="ul">
-            <li className="li Active Shop_Name">All Shop</li>
-          
-            <li className="li Active Shop_Name">Upcoming Shop
-            <form action="">
-              <ul className="submenu_shop">
-                <li><a href=""  className="Link">1.Kondhawa</a></li>
-                <li><a href="" className="Link">2.GokhaleNagar</a></li>
-                <li><a href="" className="Link">3.Karvenagar</a></li>
-              </ul>
-              </form>
-            </li>
-            <li className="li Active Shop_Name">Most Popular Shop
-            <form action="">
-              <ul className="submenu_shop">
-                <li><a href=""  className="Link">1.Kondhawa</a></li>
-                <li><a href="" className="Link">2.GokhaleNagar</a></li>
-                <li><a href="" className="Link">3.Karvenagar</a></li>
-              </ul>
-              </form>
-            </li>
-          </ul>
-        </div>
         <div className="Shop_infoget">
-          <Shop_Get_Info />
-          <Shop_Get_Info />
-          <Shop_Get_Info />
-          <Shop_Get_Info />
-          <Shop_Get_Info />
-          <Shop_Get_Info />
+
+        {data && data.length > 0 ? (
+              data.map((item, index) => {
+                return (
+                  < Shop_Get_Info 
+                    key={index}
+                    ShopName={item.shopName}
+                    shopCategory={item.shopCategory}
+                    shopTimings={item.shopTimings}
+                    shopaddress={item.address}
+                    shopinfo={"Shop to to good"}
+                  />
+                );
+              })
+            ) : (
+             "Loading..."
+            )}
+     
         </div>
       </div>
     </>

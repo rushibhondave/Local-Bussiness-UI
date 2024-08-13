@@ -24,32 +24,9 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link className="Link">
+              <Link to={"/Service_Data_Display"} className="Link">
                 Services
               </Link>
-              <ul className="submenu">
-                <li>
-                  <Link to={"/Service_Data_Display"} className="Link">
-                    Pulmber
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/Service_Data_Display"} className="Link">
-                    Carpainter
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/Service_Data_Display"} className="Link">
-                    Electrician
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/DataAdd"} className="Link">
-                  DataAdd
-                  </Link>
-                </li>
-             
-              </ul>
             </li>
             <li>
               <Link to={"/About"} className="Link">
@@ -58,9 +35,7 @@ function Navbar() {
             </li>
 
             <li>
-              <Link  className="Link">
-                Sign In
-              </Link>
+              <Link className="Link">Sign In</Link>
               <ul className="submenu">
                 <li>
                   <Link to={"/MyProfile_DashBoard"} className="Link">
@@ -72,15 +47,15 @@ function Navbar() {
                     User Sign In
                   </Link>
                 </li>
-                
+
                 <li>
                   <Link to={"/Shop_Service_Login"} className="Link">
-                  Shop-Service Sign In
+                    Shop-Service Sign In
                   </Link>{" "}
                 </li>
                 <li>
                   <Link to={"/Register_Shop"} className="Link">
-                      Register Shop
+                    Register Shop
                   </Link>{" "}
                 </li>
                 <li>
@@ -88,11 +63,8 @@ function Navbar() {
                     Register Service
                   </Link>{" "}
                 </li>
-
-                
               </ul>
             </li>
-          
           </ul>
         </div>
       </nav>

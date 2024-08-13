@@ -86,3 +86,17 @@
 background-color: white;
 }
 
+.Service_Info
+{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.info
+{
+  font-size: small;
+  margin: 5px;
+
+}
