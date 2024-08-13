@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import About from "../3.Screens/About_Blog/About";
-import Footter from "../3.Screens/Footer/Footer";
 import Navbar from "../3.Screens/NavBar/Navbar";
 import MainPage from "./MainPage";
 import DisplayPage from '../2.Component/Display_Page/DisplayPage'
@@ -10,8 +9,11 @@ import Register_Shop from "../3.Screens/Register_shop_Service/Register_Shop.jsx"
 import Register_Service from "../3.Screens/Register_shop_Service/Register_Service.jsx";
 import Service_Data_Display from "../3.Screens/DisplayPageService/Service_Data_Display.jsx";
 import Shop_Service_Login from "../3.Screens/Register_shop_Service/Shop_Service_Login.jsx";
-import DatagetbyAsp from "./DatagetbyAsp.jsx";
-import DataAdd from "./DataAdd.jsx";
+import Payment from "../3.Screens/Payment/Payment.jsx";
+import ShopInfoGet from "../3.Screens/ShopInfo/ShopInfoGet.jsx";
+import ProductsDataDisplay from "../2.Component/ProductsDataDisplay.jsx";
+import DashBoard from "../3.Screens/DashBoad/DashBoard.jsx";
+
 
 
 
@@ -23,8 +25,13 @@ function App() {
         <Navbar />
         <Routes>
         <Route path="/" element={< MainPage/>}/>
-        <Route path="/DataAdd" element={< DataAdd/>}/>
-        <Route path="/DatagetbyAsp" element={< DatagetbyAsp/>}/>
+        <Route path="/DashBoard" element={< DashBoard/>}/>
+      
+  
+        <Route path="/Payment" element={< Payment/>}/>
+        
+        <Route path="/ShopInfoGet" element={< ShopInfoGet/>}/>
+        <Route path="/ProductsDataDisplay" element={< ProductsDataDisplay/>}/>
   
         <Route path="/Service_Data_Display" element={< Service_Data_Display/>}/>
         <Route path="/DisplayPage" element={< DisplayPage/>}/>
@@ -36,10 +43,11 @@ function App() {
         <Route path="*" element={< ErrorCompoent/>}/>
         {/* <Route path="/*" element={< Navigate to={"/"}/>}/>   Go on Home Page Chose 1*/}   
         </Routes>
-        <Footter />
+      
       </Router>
     </div>
   );
 }
 
 export default App;
+// import 'bootstrap/dist/css/bootstrap.min.css'; 

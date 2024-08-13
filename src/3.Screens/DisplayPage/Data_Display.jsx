@@ -1,16 +1,17 @@
 import "../../Style/DisplayPage.css";
 import ErrorCompoent from "../../2.Component/Error_Component/ErrorCompoent.jsx";
-import Data_Card from "./Data_Card";
+import Data_Card from "./Data_Card.jsx";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
 function Data_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
   const [Location, setLocation] = useState("");
   const [Time, setTime] = useState("");
-  const [error, setError] = useState("");
-  useEffect(() => {}, [inputValue]);
+
 
   useEffect(() => {
     getdata();
@@ -57,6 +58,7 @@ function Data_Display() {
         return;
       }
 
+     
       axios
         .get(
           `https://localhost:7063/api/SerachShop/${encodeURIComponent(
@@ -207,9 +209,9 @@ function Data_Display() {
                     Khothrud
                   </label>
 
-                  <div>
+                  <div className="loactionshow">
                     <h4>Selected Location:</h4>
-                    <p>
+                    <p >
                       {Location
                         ? `Pin Code: ${Location}`
                         : "No location selected"}

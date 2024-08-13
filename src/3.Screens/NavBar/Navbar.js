@@ -24,6 +24,11 @@ function Navbar() {
               </Link>
             </li>
             <li>
+              <Link to={"/ProductsDataDisplay"} className="Link">
+                Products
+              </Link>
+            </li>
+            <li>
               <Link to={"/Service_Data_Display"} className="Link">
                 Services
               </Link>
@@ -38,7 +43,7 @@ function Navbar() {
               <Link className="Link">Sign In</Link>
               <ul className="submenu">
                 <li>
-                  <Link to={"/MyProfile_DashBoard"} className="Link">
+                  <Link to={"/DashBoard"} className="Link">
                     My Profile
                   </Link>
                 </li>

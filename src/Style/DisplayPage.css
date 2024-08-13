@@ -125,3 +125,10 @@ input#search-bar {
     display: block;
     margin: 5px 0;
 }
+
+
+.Pro_Data1
+{
+  display: flex;
+  justify-content: flex-end;
+}

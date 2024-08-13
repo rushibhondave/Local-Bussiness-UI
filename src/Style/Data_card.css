@@ -3,7 +3,8 @@
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  height: 35vh;
+
+  height: 39vh;
 }
 
 #servicecard {
@@ -28,7 +29,7 @@
   margin-top: 20px;
 }
 .line {
-  margin-bottom: 15px;
+  margin:5px ;
   border: 1px solid #e8e9eb;
 }
 
@@ -54,8 +55,6 @@
   font-weight: 600;
   border: none;
   cursor: pointer;
-  margin-left: 20px;
-  margin-bottom: -20px;
   background-color: #28a745;
 }
 .button2 {
@@ -103,7 +102,7 @@
   align-items: center;
 }
 
-.Pro_Data {
+.Servicebutton {
   margin: 50px;
   font-size: large;
   font-weight: 500;
@@ -112,4 +111,37 @@
   width: auto;
   padding: 5px;
   cursor: pointer;
+}
+
+
+.butnc
+{
+  background-color: #d79209;
+  margin: 15px;
+}
+
+.phone-number-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.phone-link {
+  text-decoration: none;
+  color: inherit; /* Use the inherited color of the text */
+  display: flex;
+  align-items: center;
+}
+
+.phone-icon {
+  margin-right: 8px; /* Space between icon and text */
+  font-size: 20px; /* Adjust the size of the icon */
+}
+
+.mobile-no {
+  font-size: 16px; /* Adjust the size of the phone number */
+}
+
+.phone-link:hover .phone-icon, .phone-link:hover .mobile-no {
+  color: #007bff; /* Change color on hover */
 }

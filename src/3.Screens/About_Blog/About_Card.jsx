@@ -1,10 +1,10 @@
 import React from "react";
 import local_Bussness from "../../Img/local_Business/i_Love_buy_Loacal.jpg";
-function About_Card() {
+function About_Card({title,description}) {
   return (
     <>
       <div className="cards">
-        <div className="card">
+        <div className="card" id="card">
           <div className="icon">
             <img
               src={local_Bussness}
@@ -12,10 +12,9 @@ function About_Card() {
               className="Service_Img"
             />
           </div>
-          <h3>Licensed Therapist</h3>
+          <h3>{title}</h3>
           <p>
-            Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum
-            accusamus,
+            {description}
           </p>
         </div>
       </div>

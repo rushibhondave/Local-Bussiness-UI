@@ -18,7 +18,7 @@ function LandingPage() {
               </Link>
             </button>
             <button className="btn button btnU" id="BtnC2">
-              <Link to={"/DisplayPage"} className="Link">
+              <Link to={"/ProductsDataDisplay"} className="Link">
                 Product
               </Link>
             </button>

@@ -1,15 +1,17 @@
+import "../../Style/DisplayPage.css";
+import ErrorCompoent from "../../2.Component/Error_Component/ErrorCompoent.jsx";
+import Data_Card from "./ProductsData_Card.jsx";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "../../Style/DisplayPage.css";
-import Service_Data_Card from "./Service_Data_Card";
-function Service_Data_Display() 
-{
+import ProductsData_Card from "./ProductsData_Card.jsx";
+function ProductsData_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [Location, setLocation] = useState("");
-  
+  const [Time, setTime] = useState("");
+
   useEffect(() => {}, [inputValue]);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ function Service_Data_Display()
   const getdata = (event) => {
     try {
       if (event) event.preventDefault();
-      axios.get("https://localhost:7063/api/SearchService").then((result) => {
+      axios.get("https://localhost:7063/api/RegisterProducts").then((result) => {
         setdata(result.data);
       });
     } catch (error) {
@@ -29,28 +31,6 @@ function Service_Data_Display()
         text: "Error while fetching data.",
       });
     }
-  };
-  const getdatabyLoaction = (event) => {
-    try {
-      if (event) event.preventDefault();
-      axios
-        .get(`https://localhost:7063/api/SearchService/location/${Location}`)
-        .then((result) => {
-          setdata(result.data);
-          setError(""); // Clear any previous errors
-        });
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Error while fetching data.",
-      });
-    }
-  };
-
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value);
-    getdatabyLoaction();
   };
 
 
@@ -62,10 +42,8 @@ function Service_Data_Display()
         setError("Please enter a search term.");
         return;
       }
-
-      axios
-        .get(
-          `https://localhost:7063/api/SearchService/${encodeURIComponent(
+      axios.get(
+          `https://localhost:7063/api/SearchProduct/${encodeURIComponent(
             inputValue
           )}`
         )
@@ -83,9 +61,52 @@ function Service_Data_Display()
       });
     }
   };
+
+  const getdatabyhandleShopCategory = (event) => {
+    if (event) event.preventDefault();
+    try {
+      if (!inputValue.trim() || !inputValue < 0) {
+        setError("Please enter a search term.");
+        return;
+      }
+
+      axios
+        .get(
+          `https://localhost:7063/api/SerachShop/shopCategory/${encodeURIComponent(
+            inputValue
+          )}`
+        )
+        .then((result) => {
+          setdata(result.data);
+          setError(""); // Clear any previous errors
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.response
+          ? error.response.data
+          : "Error while fetching data.",
+      });
+    }
+  };
+
+
+
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  };
+  const handleShopCategory = (event) => {
+    setTime(event.target.value);
+    console.log(Time)
+    getdatabyhandleShopCategory();
+  };
+
+
+
   return (
     <>
-    
       <div className="shopData_Container">
         <div className="Search_Cotainer">
           <div className="search_div">
@@ -93,18 +114,19 @@ function Service_Data_Display()
               <input
                 type="text"
                 id="search-bar"
-                placeholder=" Search Service name and more...!"
+                placeholder=" Search product,shop name and more...!"
                 className="searchcontainer1"
                 value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                required
+                onChange={(e) => setInputValue(e.target.value)} // Use onChange instead of onChangeCapture
               />
-              <button className="button" onClick={handleSearchByName} >Search</button>
+              <button className="button" onClick={handleSearchByName}>
+                Search
+              </button>
             </form>
           </div>
         </div>
         <div className="data_show">
-        <div className="filter_column">
+          <div className="filter_column">
             <div className="filter_data">
               <aside className="filters">
                 <h2>Filter</h2>
@@ -168,9 +190,9 @@ function Service_Data_Display()
                     Khothrud
                   </label>
 
-                  <div>
+                  <div className="loactionshow">
                     <h4>Selected Location:</h4>
-                    <p>
+                    <p >
                       {Location
                         ? `Pin Code: ${Location}`
                         : "No location selected"}
@@ -181,37 +203,61 @@ function Service_Data_Display()
                   <hr />
                 </div>
 
+                <div className="filter-section">
+                  <h3>Types</h3>
+                  <label>
+                    <input type="radio"
+                    value="StreetShop"
+                      checked={Time === "StreetShop"}
+                      onChange={ handleShopCategory} /> Street Shop
+                  </label>
+                  <label>
+                    <input type="radio" 
+                      value="Medical"
+                      checked={Time === "Medical"}
+                      onChange={ handleShopCategory}
+                    /> Medical
+                  </label>
+                  <label>
+                    <input type="radio" 
+                      value="FoodStall"
+                      checked={Time === "FoodStall"}
+                      onChange={ handleShopCategory}
+                    /> Food Stall
+                  </label>
+                  <label>
+                    <input type="radio" 
+                      value="Grocery"
+                      checked={Time === "Grocery"}
+                      onChange={ handleShopCategory}
+                    />Grocery Shop
+                  </label>
+                </div>
               </aside>
             </div>
           </div>
           <div className="Display_Card">
-
-          {data && data.length > 0 ? (
+            {data && data.length > 0 ? (
               data.map((item, index) => {
                 return (
-                  <Service_Data_Card
+                  <ProductsData_Card
                     key={index}
-                    serviceName={item.serviceName}
-                    firstName={item.firstName}
-                    lastName={item.lastName}
-                    serviceCategory={item.serviceCategory}
-                    serviceAmount={item.serviceAmount}
-                    jobTimings={item.jobTimings}
-                    mobileNo={item.mobileNo}
-                    address={item.address}
-                    additionalInformation={item.additionalInformation}
-                    gender={item.gender}
+                    productName={item.productName}
+                    category={item.category}
+                    price={item.price}
+                    description={item.description}
+                    shopName={item.shopName}
+                   
                   />
                 );
               })
             ) : (
-             "Data is not available..."
+              <div className="errorcomp">
+          
+                <ErrorCompoent />
+                
+              </div>
             )}
-
-          
-          
-        
-           
           </div>
         </div>
       </div>
@@ -219,4 +265,4 @@ function Service_Data_Display()
   );
 }
 
-export default Service_Data_Display;
+export default ProductsData_Display;

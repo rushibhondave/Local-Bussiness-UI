@@ -16,6 +16,8 @@ function Register_Shop() {
   const [ownerName, setOwnerName] = useState("");
   const [ownerMobileNo, setOwnerMobileNo] = useState("");
   const [adharNo, setAdharNo] = useState("");
+  const [Description, setDescription] = useState("");
+  const [Area, setArea] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const handleForm = async () => {
@@ -234,6 +236,28 @@ function Register_Shop() {
               />
             </div>
 
+
+            <div className="input_box">
+              <label htmlFor="" className="GST">Description</label>
+              <input
+                type="text"
+                id="emailId"
+                placeholder="Enter the description of the shop"
+                value={Description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            
+            <div className="input_box">
+              <label htmlFor="emailId" className="GST"> Area/Land Mark</label>
+              <input
+                type="text"
+                id="Area"
+                placeholder="Enter the Area/Land Mark"
+                value={Area}
+                onChange={(e) => setArea(e.target.value)}
+              />
+            </div>
             <div className="Owner_Info">
               <p>Owner Information</p>
             </div>
@@ -281,7 +305,7 @@ function Register_Shop() {
                   onChange={(e) => setTermsAccepted(e.target.checked)}
                   required
                 />
-                Accept Terms And Conditions
+                Delivery Service
               </label>
             </div>
           </div>

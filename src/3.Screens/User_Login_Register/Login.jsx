@@ -1,75 +1,104 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/Login.css";
 import { Link } from "react-router-dom";
-function User_Login_Register() 
-{
+import Swal from "sweetalert2";
+function User_Login_Register() {
+  const [MobileNo, setMobileNo] = useState("");
+  const [Password, setPassword] = useState("");
+  const [Eroor, setError] = useState(false);
+
+  useEffect=()=>
+  {
+
+  }
+  const HandleForm = (event) => {
+    console.log(MobileNo, Password);
+    if (event) event.preventDefault();
+    try {
+      if (!MobileNo) {
+      }
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully",
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: "<a >Why do I have this issue?</a>",
+      });
+    }
+  };
+
   return (
     <>
       <div className="body">
-        <div class="wrapper">
-          <div class="form-wrapper sign-up">
+        <div className="wrapper">
+          <div className="form-wrapper sign-up">
             <form action="">
               <h2>Sign Up</h2>
-              <div class="input-group">
+              <div className="input-group">
                 <input type="text" required />
-                <label for="">Mobile No</label>
+                <label htmlFor="">Mobile No</label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input type="password" required />
-                <label for="">Password</label>
+                <label htmlFor="">Password</label>
               </div>
 
-              <button type="submit" class="btn_Login">
+              <button type="submit" className="btn_Login">
                 Sign Up
               </button>
-              <div class="sign-link">
+              <div className="sign-link">
                 <p>
                   Already have an account?
-                  <a href="" class="signIn-link" >
-                    Sign In
-                  </a>
+                  <a className="signIn-link">Sign In</a>
                 </p>
               </div>
             </form>
           </div>
 
-          <div class="form-wrapper sign-in">
-            <form action="">
-              <h2>Login</h2>
-              <div class="input-group">
-                <input type="number" required />
-                <label for="">Mobile No</label>
+          <div className="form-wrapper sign-in">
+            <form onSubmit={HandleForm}>
+              <h2>Login / Sign-Up</h2>
+              <div className="input-group">
+                <input
+                  type="number"
+                  required
+                  value={MobileNo}
+                  onChange={(e) => setMobileNo(e.target.value)}
+                />
+                <label htmlFor="">Mobile No</label>
               </div>
-              <div class="input-group">
-                <input type="password" required />
-                <label for="">Password</label>
+              <div className="input-group">
+                <input
+                  type="password"
+                  required
+                  value={Password}
+                  autoComplete="off"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <label htmlFor="">Password</label>
               </div>
-              <div class="input-group" id="Login_Select">
-              <div className="Bussniess_box input_box GST">
-                    <label for="name"></label>
-                    <select name="" id="" className="select">
-                        <option value=""  disabled  >Choose Location</option>
-                        <option value="">KarveNagar Lane No 1</option>
-                        <option value="">Kondhwa Budruk Lane No 6</option>
-                        <option value="">Gokhale Nagar Lane No 5</option>
-                        <option value="">VIT COLLEGE</option>
-                    </select>
-                </div>
+
+              <div className="forgot-pass">
+                <a>Forgot Password?</a>
               </div>
-              <div class="forgot-pass">
-                <a href="#">Forgot Password?</a>
-              </div>
-              <button type="submit" class="btn_Login">
-                Login
+              <button type="submit" className="btn_Login">
+                Connect
               </button>
-              <div class="sign-link">
-                <p>
-                  Don't have an account
-                  <Link to={"/Register"} className="signUp-link">
-                    Sign Up
-                  </Link>
-                </p>
-              </div>
             </form>
           </div>
         </div>
