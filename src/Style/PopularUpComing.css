@@ -1,6 +1,7 @@
 
 .PopularUpComing_Conatiner {
   margin-top: 50px;
+  margin-left:20px ;
   width: auto;
   border-top: 2px solid #ddd;
 
@@ -67,8 +68,16 @@
 
 .item_info {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
+
+.description
+{
+  display: flex;
+  justify-content: center;
+}
+
 .item-details
 {
     margin-left: 15px;
@@ -106,4 +115,9 @@
   .Shop_Name:hover
   {
     color: #FFB82E;
+  }
+
+  .description
+  {
+   margin-left: 20px; 
   }

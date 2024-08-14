@@ -7,9 +7,11 @@ import local_Bussness from "../../Img/local_Business/i_Love_buy_Loacal.jpg";
 import { Link } from "react-router-dom";
 import About_Card from "./About_Card";
 
+
 function About() {
   return (
     <>
+
       <div className="Aboutcontainer">
         <div className="experience-banner">Support Local Business</div>
         <div className="content">

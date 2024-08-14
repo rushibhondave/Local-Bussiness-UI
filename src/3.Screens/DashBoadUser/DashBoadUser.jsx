@@ -1,38 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../Style/DashBoard.css";
-
-function DashBoard() {
+import orders from '../../Img/Social/orders-bfe8c4.svg';
+import Heart from '../../Img/Social/Heart.svg';
+import notificationPreferences from '../../Img/Social/notificationPreferences-cfffaf.svg';
+import Setting from '../../Img/Social/Setting.svg';
+function DashBoadUser() {
   return (
     <>
       <div className="main-body">
         <div className="layout-container">
           <nav className="side-navigation">
             <ul className="nav-list">
+            
               <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                Inventory
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                  Orders
+                <Link to={""} className="nav-link">
+                 <span><img src={orders} alt="" className="IconColor" /></span>  Orders
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to={"/Register_Shop"} className="nav-link">
-                Register Shop
+                <span><img src={Heart} alt="" className="IconColor" /></span> My Wishlist
                 </Link>
               </li>
+           
               <li className="nav-item">
-                <Link to={"/Register_Service"} className="nav-link">
-                Register Service
+                <Link to={"/"} className="nav-link">
+                <span><img src={notificationPreferences} alt="" className="IconColor" /></span> Notification
                 </Link>
               </li>
         
               <li className="nav-item">
                 <Link to={"/"} className="nav-link">
-                  Settings
+                <span><img src={Setting} alt="" className="IconColor" /></span>  Settings
                 </Link>
               </li>
             </ul>
@@ -53,24 +53,22 @@ function DashBoard() {
                 <h2>Trending Now</h2>
                 <div class="trending-items-container">
                   <div class="trending-item">
-                    
+                  
                     <p>Home Decor Range</p>
                   </div>
                   <div class="trending-item">
-                    {/* <img src="disney-dress.jpg" alt="Disney Princess Dress" /> */}
+                  
                     <p>Disney Princess Dress</p>
                   </div>
                 </div>
               </div>
 
               <div class="dashboard-card customers-card">
-                <h2>Customers</h2>
+                <h2>Orders in Progress</h2>
                 <table class="table">
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone</th>
                       <th>Billing Address</th>
                       <th>Total</th>
                       <th>Actions</th>
@@ -79,8 +77,6 @@ function DashBoard() {
                   <tbody>
                     <tr>
                       <td>Alex Xavier</td>
-                      <td>alex@example.com</td>
-                      <td>(555) 123-4567</td>
                       <td>123 Elm Street, Springfield, IL</td>
                       <td>$981.00</td>
                       <td className="Buttonn">
@@ -92,7 +88,7 @@ function DashBoard() {
               </div>
 
               <div class="dashboard-card sales-summary-card">
-                <h2>Today's Sales</h2>
+                <h2>Recived's Orders</h2>
                 <div class="summary-container">
                   <div class="summary-stat">
                     <h3>$5k</h3>
@@ -114,22 +110,22 @@ function DashBoard() {
               </div>
 
               <div class="dashboard-card top-products-card">
-                <h2>Top Products</h2>
+                <h2>Top Orders</h2>
                 <table class="table">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Name</th>
-                      <th>Popularity</th>
-                      <th>Sales</th>
+                      <th>Desccrition</th>
+                      <th>Amout</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>01</td>
                       <td>Home Decor Range</td>
-                      <td>78%</td>
-                      <td>$1234</td>
+                      <td>Buy a good bat</td>
+                      <td>Rs1234</td>
                     </tr>
                   </tbody>
                 </table>
@@ -142,4 +138,4 @@ function DashBoard() {
   );
 }
 
-export default DashBoard;
+export default DashBoadUser;

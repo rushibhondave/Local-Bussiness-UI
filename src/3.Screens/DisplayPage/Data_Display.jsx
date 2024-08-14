@@ -5,13 +5,23 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router-dom";
+
 function Data_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [Location, setLocation] = useState("");
   const [Time, setTime] = useState("");
+  const validateinput = (shopName) => {
+    const trimmedshopName = shopName.trim();
+    const isValid = /^[a-zA-Z0-9@$_]{2,}$/.test(trimmedshopName);
+    return isValid;
+  };
 
+  const validateinputValue = (shopName) => {
+    const trimmedShopName = shopName.trim();
+    return /^[a-zA-Z\s]+$/.test(trimmedShopName);
+  };
 
   useEffect(() => {
     getdata();
@@ -52,6 +62,26 @@ function Data_Display() {
 
   const handleSearchByName = (event) => {
     if (event) event.preventDefault();
+
+    
+    // Validate password
+    if (!inputValue || !validateinput(inputValue)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Service Name is wrong insert and not include any numbers, @, $, _.",
+      });
+      return;
+    }
+    // Validate shop name
+    if (!validateinputValue(inputValue)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Input Value",
+        text: "Service Name should only contain letters.",
+      });
+      return;
+    } else {
     try {
       if (!inputValue.trim() || !inputValue < 0) {
         setError("Please enter a search term.");
@@ -78,6 +108,8 @@ function Data_Display() {
           : "Error while fetching data.",
       });
     }
+
+  }
   };
 
   const getdatabyhandleShopCategory = (event) => {
@@ -126,6 +158,7 @@ function Data_Display() {
 
   return (
     <>
+
       <div className="shopData_Container">
         <div className="Search_Cotainer">
           <div className="search_div">
@@ -265,6 +298,7 @@ function Data_Display() {
                     shopCategory={item.shopCategory}
                     shopTimings={item.shopTimings}
                     shopaddress={item.address}
+                    description={item.description}
                   />
                 );
               })

@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../../Style/Login.css";
-import { Link, Outlet } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-function User_Login_Register() {
+import axios from "axios";
+function Signup() {
   const [MobileNo, setMobileNo] = useState("");
   const [Password, setPassword] = useState("");
   const [Error, setError] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  
+  const navigate = useNavigate();
+  useEffect(() => {}, []);
+
 
   const validateMobileNo = (mobile) => {
     const trimmedMobile = mobile.trim();
@@ -45,27 +51,57 @@ function User_Login_Register() {
         text: "Password must be at least 4 characters and include only letters, numbers, @, $, _.",
       });
       return;
+    } else {
+      try {
+        const url = "https://localhost:7063/api/UserLogins";
+        const data = {
+          mobileNo: MobileNo,
+          password: Password,
+        };
+        axios.post(url, data).then((result) => {
+           // Start fade-out transition after 1 second
+        const timer = setTimeout(() => {
+          setFadeOut(true);
+        }, 3000); // 1000ms = 1 second
+
+        // Redirect after fade-out transition
+        const redirectTimer = setTimeout(() => {
+          navigate("/ProductsDataDisplay");
+        }, 4000); // 3000ms = 3 seconds
+        Swal.fire({
+          title: "Accout Created Successful!",
+          text: "Redirecting to home page...",
+          icon: "success",
+          timer: 3000, // 3 seconds
+          timerProgressBar: true,
+          showConfirmButton: false,
+          willClose: () => {},
+        });
+
+        return () => {
+          clearTimeout(timer);
+          clearTimeout(redirectTimer);
+        };
+        });
+
+      
+
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Error while adding data.",
+        });
+      }
     }
-
-    // Perform the rest of your login/signup logic here
-    Swal.fire({
-      icon: "success",
-      title: "Success",
-      text: "Form submitted successfully!",
-    });
-
-    // Reset the form after successful submission
-    setMobileNo("");
-    setPassword("");
   };
 
   return (
     <>
-    
       <div className="body">
         <div className="wrapper">
           <div className="form-wrapper sign-up">
-            <form action="">
+            <form>
               <h2>Sign Up</h2>
               <div className="input-group">
                 <input type="text" required />
@@ -90,7 +126,7 @@ function User_Login_Register() {
 
           <div className="form-wrapper sign-in">
             <form onSubmit={HandleForm}>
-              <h2>Login </h2>
+              <h2>Sign-Up</h2>
               <div className="input-group">
                 <input
                   type="number"
@@ -115,19 +151,23 @@ function User_Login_Register() {
                 <a>Forgot Password?</a>
               </div>
               <button type="submit" className="btn_Login">
-              Login
+                Signup
               </button>
 
-              <div class="sign-link">
-                    <p>Don't have an account? <a href="#" class="signUp-link">Sign Up</a></p>
-                </div>
+              <div className="sign-link">
+                <p>
+                  Don't have an account?{" "}
+                  <a href="#" className="signUp-link">
+                    Sign Up
+                  </a>
+                </p>
+              </div>
             </form>
           </div>
         </div>
       </div>
-
     </>
   );
 }
 
-export default User_Login_Register;
+export default Signup;

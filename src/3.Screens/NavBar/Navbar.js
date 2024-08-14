@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../Style/Navbar.css";
+import Seller from '../../Img/Social/Shops.svg'
+import profile from '../../Img/Social/profile-52e0dc.svg'
+import DownArorw from '../../Img/Social/DownArorw.svg'
 function Navbar() {
   return (
     <>
@@ -40,10 +43,15 @@ function Navbar() {
             </li>
 
             <li>
-              <Link className="Link">Sign In</Link>
+              <Link className="Link"> <span className="">
+                <img src={profile} alt="" className="shopimg" />
+              </span>Account
+              <span className="">
+                <img src={DownArorw} alt="" className="shopimg" />
+              </span></Link>
               <ul className="submenu">
                 <li>
-                  <Link to={"/DashBoard"} className="Link">
+                  <Link to={"/DashBoadUser"} className="Link">
                     My Profile
                   </Link>
                 </li>
@@ -52,22 +60,32 @@ function Navbar() {
                     User Sign In
                   </Link>
                 </li>
-
+                <li>
+                  <Link to={"/Signup"} className="Link">
+                    User Signup
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link className="Link Shops">
+              <span className="">
+                <img src={Seller} alt="" className="shopimg" />
+              </span>
+              Become a Seller</Link>
+              <ul className="submenu">
+                <li>
+                  <Link to={"/DashBoard"} className="Link">
+                  DashBoard
+                  </Link>
+                </li>
                 <li>
                   <Link to={"/Shop_Service_Login"} className="Link">
-                    Shop-Service Sign In
+                   Seller Sign In
                   </Link>{" "}
                 </li>
-                <li>
-                  <Link to={"/Register_Shop"} className="Link">
-                    Register Shop
-                  </Link>{" "}
-                </li>
-                <li>
-                  <Link to={"/Register_Service"} className="Link">
-                    Register Service
-                  </Link>{" "}
-                </li>
+
+              
               </ul>
             </li>
           </ul>

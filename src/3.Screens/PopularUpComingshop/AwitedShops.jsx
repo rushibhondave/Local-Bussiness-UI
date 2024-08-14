@@ -45,7 +45,7 @@ function AwitedShops() {
                     shopCategory={item.shopCategory}
                     shopTimings={item.shopTimings}
                     shopaddress={item.address}
-                    shopinfo={"Shop to to good"}
+                    description={item.description}
                   />
                 );
               })

@@ -9,7 +9,13 @@
 .dashboard-card {
    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 20px;
+   
     border-radius: 10px;
+}
+
+.cardhight
+{
+    height: 40vh;
 }
 
 .earnings-card h2, .visitor-insights-card h2, .trending-card h2, .customers-card h2, .sales-summary-card h2, .top-products-card h2 {
@@ -115,4 +121,12 @@
 
 .summary-stat:last-child {
     margin-right: 0;
+}
+
+
+.IconColor
+{
+    color: #ffffff;
+    background-color: #ffffff;
+    border-radius: 50px;
 }

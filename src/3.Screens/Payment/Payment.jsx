@@ -13,6 +13,7 @@ function Payment() {
   const [inputValue2, setInputValue2] = useState(quantity || '');
   const [inputValue3, setInputValue3] = useState(amount || '');
   const [product, setProduct] = useState({
+    
     tax: 15, // Tax amount
     total: 115, // Total amount after tax
     Delivery:true
@@ -264,6 +265,8 @@ function Payment() {
           </a>
         </footer>
       </div>
+
+
     </>
   );
 }

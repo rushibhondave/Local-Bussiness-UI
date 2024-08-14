@@ -3,13 +3,23 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "../../Style/DisplayPage.css";
 import Service_Data_Card from "./Service_Data_Card";
-function Service_Data_Display() 
-{
+function Service_Data_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [Location, setLocation] = useState("");
-  
+
+  const validateinput = (shopName) => {
+    const trimmedshopName = shopName.trim();
+    const isValid = /^[a-zA-Z0-9@$_]{2,}$/.test(trimmedshopName);
+    return isValid;
+  };
+
+  const validateinputValue = (shopName) => {
+    const trimmedShopName = shopName.trim();
+    return /^[a-zA-Z\s]+$/.test(trimmedShopName);
+  };
+
   useEffect(() => {}, [inputValue]);
 
   useEffect(() => {
@@ -53,39 +63,56 @@ function Service_Data_Display()
     getdatabyLoaction();
   };
 
-
-
   const handleSearchByName = (event) => {
     if (event) event.preventDefault();
-    try {
-      if (!inputValue.trim() || !inputValue < 0) {
-        setError("Please enter a search term.");
-        return;
-      }
 
-      axios
-        .get(
-          `https://localhost:7063/api/SearchService/${encodeURIComponent(
-            inputValue
-          )}`
-        )
-        .then((result) => {
-          setdata(result.data);
-          setError(""); // Clear any previous errors
-        });
-    } catch (error) {
+    // Validate password
+    if (!inputValue || !validateinput(inputValue)) {
       Swal.fire({
         icon: "error",
-        title: "Error",
-        text: error.response
-          ? error.response.data
-          : "Error while fetching data.",
+        title: "Oops...",
+        text: "Service Name is wrong insert and not include any numbers, @, $, _.",
       });
+      return;
+    }
+    // Validate shop name
+    if (!validateinputValue(inputValue)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Input Value",
+        text: "Service Name should only contain letters.",
+      });
+      return;
+    } else {
+      try {
+        if (!inputValue.trim() || !inputValue < 0) {
+          setError("Please enter a search term.");
+          return;
+        }
+
+        axios
+          .get(
+            `https://localhost:7063/api/SearchService/${encodeURIComponent(
+              inputValue
+            )}`
+          )
+          .then((result) => {
+            setdata(result.data);
+            setError(""); // Clear any previous errors
+          });
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: error.response
+            ? error.response.data
+            : "Error while fetching data.",
+        });
+      }
     }
   };
   return (
     <>
-    
       <div className="shopData_Container">
         <div className="Search_Cotainer">
           <div className="search_div">
@@ -99,12 +126,14 @@ function Service_Data_Display()
                 onChange={(e) => setInputValue(e.target.value)}
                 required
               />
-              <button className="button" onClick={handleSearchByName} >Search</button>
+              <button className="button" onClick={handleSearchByName}>
+                Search
+              </button>
             </form>
           </div>
         </div>
         <div className="data_show">
-        <div className="filter_column">
+          <div className="filter_column">
             <div className="filter_data">
               <aside className="filters">
                 <h2>Filter</h2>
@@ -180,38 +209,29 @@ function Service_Data_Display()
                 <div className="line">
                   <hr />
                 </div>
-
               </aside>
             </div>
           </div>
           <div className="Display_Card">
-
-          {data && data.length > 0 ? (
-              data.map((item, index) => {
-                return (
-                  <Service_Data_Card
-                    key={index}
-                    serviceName={item.serviceName}
-                    firstName={item.firstName}
-                    lastName={item.lastName}
-                    serviceCategory={item.serviceCategory}
-                    serviceAmount={item.serviceAmount}
-                    jobTimings={item.jobTimings}
-                    mobileNo={item.mobileNo}
-                    address={item.address}
-                    additionalInformation={item.additionalInformation}
-                    gender={item.gender}
-                  />
-                );
-              })
-            ) : (
-             "Data is not available..."
-            )}
-
-          
-          
-        
-           
+            {data && data.length > 0
+              ? data.map((item, index) => {
+                  return (
+                    <Service_Data_Card
+                      key={index}
+                      serviceName={item.serviceName}
+                      firstName={item.firstName}
+                      lastName={item.lastName}
+                      serviceCategory={item.serviceCategory}
+                      serviceAmount={item.serviceAmount}
+                      jobTimings={item.jobTimings}
+                      mobileNo={item.mobileNo}
+                      address={item.address}
+                      additionalInformation={item.additionalInformation}
+                      gender={item.gender}
+                    />
+                  );
+                })
+              : "Data is not available..."}
           </div>
         </div>
       </div>

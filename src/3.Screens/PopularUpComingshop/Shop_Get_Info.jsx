@@ -1,6 +1,6 @@
 import React from "react";
 import Restaurant_Img from '../../Img/Restaurant_Img.png'
-function Shop_Get_Info({ShopName,shopCategory,shopTimings,shopaddress,shopinfo}) {
+function Shop_Get_Info({ShopName,shopCategory,shopTimings,shopaddress,description}) {
   return (
     <>
       <div className="menu-item">
@@ -12,7 +12,10 @@ function Shop_Get_Info({ShopName,shopCategory,shopTimings,shopaddress,shopinfo})
             <div className="item-Categery">{shopCategory}</div>
             <div className="item-Loction">{shopaddress}</div>
           </div>
-          <p>Ipsum ipsum clita erat amet dolor justo diam...</p>
+          <div className="description">
+          <p className=""> {description}</p>
+          </div>
+       
         </div>
       </div>
     </>

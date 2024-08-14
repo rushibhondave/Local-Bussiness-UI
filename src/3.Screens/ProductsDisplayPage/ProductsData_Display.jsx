@@ -14,6 +14,17 @@ function ProductsData_Display() {
 
   useEffect(() => {}, [inputValue]);
 
+  const validateinput = (shopName) => {
+    const trimmedshopName = shopName.trim();
+    const isValid = /^[a-zA-Z0-9@$_]{2,}$/.test(trimmedshopName);
+    return isValid;
+  };
+
+  const validateinputValue = (shopName) => {
+    const trimmedShopName = shopName.trim();
+    return /^[a-zA-Z\s]+$/.test(trimmedShopName);
+  };
+
   useEffect(() => {
     getdata();
   }, [inputValue]);
@@ -37,6 +48,25 @@ function ProductsData_Display() {
 
   const handleSearchByName = (event) => {
     if (event) event.preventDefault();
+
+     // Validate password
+     if (!inputValue || !validateinput(inputValue)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Products Name is wrong insert and not include any numbers, @, $, _.",
+      });
+      return;
+    }
+    // Validate shop name
+    if (!validateinputValue(inputValue)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Input Value",
+        text: "Products Name should only contain letters.",
+      });
+      return;
+    } else {
     try {
       if (!inputValue.trim() || !inputValue < 0) {
         setError("Please enter a search term.");
@@ -60,6 +90,8 @@ function ProductsData_Display() {
           : "Error while fetching data.",
       });
     }
+
+  }
   };
 
   const getdatabyhandleShopCategory = (event) => {

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../Style/Login.css";
-import { Link, Outlet } from "react-router-dom";
+
 import Swal from "sweetalert2";
-function User_Login_Register() {
+function Shop_Service_Login() 
+{
   const [MobileNo, setMobileNo] = useState("");
   const [Password, setPassword] = useState("");
   const [Error, setError] = useState(false);
@@ -58,76 +59,71 @@ function User_Login_Register() {
     setMobileNo("");
     setPassword("");
   };
-
+     
   return (
     <>
-    
+
       <div className="body">
-        <div className="wrapper">
-          <div className="form-wrapper sign-up">
+        <div class="wrapper">
+          <div class="form-wrapper sign-up">
             <form action="">
               <h2>Sign Up</h2>
-              <div className="input-group">
+              <div class="input-group">
                 <input type="text" required />
-                <label htmlFor="">Mobile No</label>
+                <label for="">Mobile No</label>
               </div>
-              <div className="input-group">
+              <div class="input-group">
                 <input type="password" required />
-                <label htmlFor="">Password</label>
+                <label for="">Password</label>
               </div>
-
-              <button type="submit" className="btn_Login">
+              <button type="submit" class="btn_Login">
                 Sign Up
               </button>
-              <div className="sign-link">
+              <div class="sign-link">
                 <p>
                   Already have an account?
-                  <a className="signIn-link">Sign In</a>
+                  <a href="" class="signIn-link" >
+                    Sign In
+                  </a>
                 </p>
               </div>
             </form>
           </div>
 
-          <div className="form-wrapper sign-in">
+          <div class="form-wrapper sign-in">
             <form onSubmit={HandleForm}>
-              <h2>Login </h2>
-              <div className="input-group">
-                <input
-                  type="number"
-                  required
+              <h2> Sign In</h2>
+              <div class="input-group">
+                <input type="number" 
+                 required
                   value={MobileNo}
-                  onChange={(e) => setMobileNo(e.target.value)}
-                />
-                <label htmlFor="">Mobile No</label>
+                  autoComplete="off"
+                  onChange={(e) => setMobileNo(e.target.value)} />
+                <label for="">Mobile No</label>
               </div>
-              <div className="input-group">
-                <input
-                  type="password"
+              <div class="input-group">
+                <input type="password" 
                   required
                   value={Password}
                   autoComplete="off"
                   onChange={(e) => setPassword(e.target.value)}
+                  
                 />
-                <label htmlFor="">Password</label>
+                <label for="">Password</label>
               </div>
-
-              <div className="forgot-pass">
-                <a>Forgot Password?</a>
+              <div class="forgot-pass">
+                <a href="#">Forgot Password?</a>
               </div>
-              <button type="submit" className="btn_Login">
-              Login
+              <button type="submit" class="btn_Login">
+                Login
               </button>
 
-              <div class="sign-link">
-                    <p>Don't have an account? <a href="#" class="signUp-link">Sign Up</a></p>
-                </div>
             </form>
           </div>
         </div>
       </div>
-
     </>
   );
 }
 
-export default User_Login_Register;
+export default Shop_Service_Login;

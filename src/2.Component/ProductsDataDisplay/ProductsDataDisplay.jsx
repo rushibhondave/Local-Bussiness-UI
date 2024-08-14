@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductsData_Display from '../3.Screens/ProductsDisplayPage/ProductsData_Display'
+import ProductsData_Display from '../../3.Screens/ProductsDisplayPage/ProductsData_Display'
 
 function ProductsDataDisplay() {
   return (

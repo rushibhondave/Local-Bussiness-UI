@@ -51,7 +51,7 @@ function ProductsData_Card({
                     </Link>
                   </button>
                   <button className="button21 butnc">
-                    <Link to={"/ShopInfoGet"} className="Link">
+                    <Link to={"/DisplayPage"} className="Link">
                       Info
                     </Link>
                   </button>

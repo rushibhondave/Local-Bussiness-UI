@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Outlet } from "react-router-dom";
 
 function Register_Service() {
   const [mobileNo, setmobileNo] = useState("");
@@ -21,10 +22,6 @@ function Register_Service() {
   const [adharNo, setadharNo] = useState("");
   const [gender, setgender] = useState("");
   const [termsAccepted, settermsAccepted] = useState(false);
-
-  
-
- 
 
   // Validate mobile number to only accept digits
   const handleMobileNoChange = (e) => {
@@ -50,68 +47,240 @@ function Register_Service() {
     }
   };
 
+  const validateMobileNo = (mobile) => {
+    const trimmedMobile = mobile.trim();
+    const isValid = /^\d{10}$/.test(trimmedMobile);
+    return isValid;
+  };
+
+  const validatePassword = (password) => {
+    const trimmedPassword = password.trim();
+    const isValid = /^[a-zA-Z0-9@$_]{4,}$/.test(trimmedPassword);
+    return isValid;
+  };
+
+  const validateShop = (serviceName) => {
+    const trimmedshopName = serviceName.trim();
+    const isValid = /^[a-zA-Z0-9@$_]{2,}$/.test(trimmedshopName);
+    return isValid;
+  };
+
+  const validateserviceName = (shopName) => {
+    const trimmedShopName = shopName.trim();
+    return /^[a-zA-Z\s]+$/.test(trimmedShopName);
+  };
+  const validatefirstName= (shopName) => {
+    const trimmedShopName = shopName.trim();
+    return /^[a-zA-Z\s]+$/.test(trimmedShopName);
+  };
+  const validatelastName = (shopName) => {
+    const trimmedShopName = shopName.trim();
+    return /^[a-zA-Z\s]+$/.test(trimmedShopName);
+  };
+
+  const validateShopTimings = (timings) => {
+    return /^[a-zA-Z0-9\s]+$/.test(timings);
+  };
+
+  const validateAddress = (address) => {
+    return /^[a-zA-Z0-9\s,]+$/.test(address);
+  };
+
+  const validateCity = (city) => {
+    return /^[a-zA-Z\s]+$/.test(city);
+  };
+
+
+  const validateAadharNo = (aadharNo) => {
+    return /^\d{12}$/.test(aadharNo);
+  };
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleform = () => {
-    console.log(mobileNo,password,serviceName,firstName,lastName,serviceCategory,serviceAmount,jobTimings,address,city,pinCode,additionalInfo,adharNo,gender,termsAccepted)
-    try {
-      if (
-        !mobileNo ||
-        !password ||
-        !serviceName ||
-        !firstName ||
-        !lastName ||
-        !serviceCategory ||
-        !serviceAmount ||
-        !address ||
-        !city ||
-        !pinCode ||
-        !adharNo ||
-        !gender ||
-        !termsAccepted
-      ) {
-       
-        Swal.fire({
-          icon: "warning",
-          title: "Incomplete Data",
-          text: "Please fill in all required fields.",
-        });
-
-        return;
-      }
-
-      const url = "https://localhost:7063/api/RegisterServices";
-      const data = {
-        mobileNo: mobileNo,
-        password: password,
-        serviceName: serviceName,
-        firstName: firstName,
-        lastName: lastName,
-        serviceCategory: serviceCategory,
-        serviceAmount: serviceAmount,
-        jobTimings: jobTimings,
-        address: address,
-        city: city,
-        pinCode: pinCode,
-        additionalInformation: additionalInfo,
-        adharNo: adharNo,
-        gender: gender,
-        termsAndConditionsAccepted: termsAccepted,
-      };
-      axios.post(url, data).then((result) => {
-        Swal.fire({
-          icon: "success",
-          title: "Added",
-          text: "New Service has been added successfully.",
-        });
+    if (
+      !mobileNo ||
+      !password ||
+      !serviceName ||
+      !firstName ||
+      !lastName ||
+      !address ||
+      !jobTimings ||
+      !serviceAmount ||
+      !serviceCategory ||
+      !city ||
+      !pinCode ||
+      !additionalInfo||
+      !adharNo ||
+      !gender ||
+      !termsAccepted
+    ) {
+      Swal.fire({
+        icon: "warning",
+        title: "Incomplete Data",
+        text: "Please fill in all required fields.",
       });
+      return;
+    }
 
-      clear();
-    } catch (error) {
-     
+    // Validate mobile number
+    if (
+      !mobileNo ||
+      !validateMobileNo(mobileNo) ||
+      (mobileNo.length > 0 && mobileNo == 10)
+    ) {
       Swal.fire({
         icon: "error",
-        title: "Error",
-        text: "Error while adding data.",
+        title: "Oops...",
+        text: "Mobile No must be a valid 10-digit number!",
       });
+      return;
+    }
+    // Validate password
+    if (!password || !validatePassword(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password must be at least 4 characters and include only letters, numbers, @, $, _.",
+      });
+      return;
+    }
+    // Validate password
+    if (!serviceName || !validateShop(serviceName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Shop Name is wrong insert and not include any numbers, @, $, _.",
+      });
+      return;
+    }
+    // Validate serviceName 
+    if (!validateserviceName(serviceName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Shop Name",
+        text: "Shop Name should only contain letters.",
+      });
+      return;
+    }
+
+
+    // Validate firstName name
+    if (!validatefirstName(firstName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Shop Name",
+        text: "first Name  should only contain letters.",
+      });
+      return;
+    }
+    if (!firstName || !validateShop(firstName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "first Name   is wrong insert and not include any numbers, @, $, _.",
+      });
+      return;
+    }
+    // Validate lastName name
+    if (!validatelastName(lastName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Shop Name",
+        text: "last Name  should only contain letters.",
+      });
+      return;
+    }
+    if (!lastName || !validateShop(lastName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "first Name  is wrong insert and not include any numbers, @, $, _.",
+      });
+      return;
+    }
+
+
+ 
+
+    // Validate shop timings
+    if (!validateShopTimings(jobTimings)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Shop Timings",
+        text: "Shop Timings should only contain letters and numbers.",
+      });
+      return;
+    }
+
+    // Validate address
+    if (!validateAddress(address)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Address",
+        text: "Address should not contain special characters.",
+      });
+      return;
+    }
+
+    // Validate city
+    if (!validateCity(city)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid City",
+        text: "City should not contain special characters.",
+      });
+      return;
+    }
+
+    // Validate Aadhar No
+    if (!validateAadharNo(adharNo)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Aadhar No",
+        text: "Aadhar No must be exactly 12 digits.",
+      });
+      return;
+    }
+
+     else {
+      try {
+        const url = "https://localhost:7063/api/RegisterServices";
+        const data = {
+          mobileNo: mobileNo,
+          password: password,
+          serviceName: serviceName,
+          firstName: firstName,
+          lastName: lastName,
+          serviceCategory: serviceCategory,
+          serviceAmount: serviceAmount,
+          jobTimings: jobTimings,
+          address: address,
+          city: city,
+          pinCode: pinCode,
+          additionalInformation: additionalInfo,
+          adharNo: adharNo,
+          gender: gender,
+          termsAndConditionsAccepted: termsAccepted,
+        };
+        axios.post(url, data).then((result) => {
+          Swal.fire({
+            icon: "success",
+            title: "Added",
+            text: "New Service has been added successfully.",
+          });
+        });
+
+        clear();
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Error while adding data.",
+        });
+      }
     }
   };
 
@@ -316,7 +485,7 @@ function Register_Service() {
               </div>
 
               <div className="">
-                <div className="checkboxes__row" > 
+                <div className="checkboxes__row">
                   <label htmlFor="male">
                     <input
                       type="radio"
@@ -356,7 +525,6 @@ function Register_Service() {
                 </div>
               </div>
 
-            
               <div className="term_condition">
                 <label htmlFor="termsAccepted">
                   <input
@@ -383,6 +551,8 @@ function Register_Service() {
           <ToastContainer />
         </div>
       </div>
+
+
     </>
   );
 }
