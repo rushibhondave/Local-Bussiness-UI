@@ -171,6 +171,7 @@
   cursor: pointer;
   margin-left: 20px;
   background-color: red;
+  margin-bottom: -1px;
 }
 
 .Clear {
@@ -240,4 +241,103 @@
 
 .Img_title {
   font-weight: 500;
+}
+
+.language-switcher
+{
+  display: flex;
+gap:15px;
+}
+/* General button style */
+.lBUtton {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff; /* Primary color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+  margin: 10px;
+
+
+}
+
+.green
+{
+  background-color: #218838;
+}
+/* Button hover state */
+.lBUtton:hover {
+  background-color: #0056b3; 
+  transform: scale(1.05); 
+}
+
+/* Button active state */
+.lBUtton:active {
+  background-color: #004080; 
+  transform: scale(0.98);
+}
+
+
+.Submit {
+  background-color: #28a745; /* Green color for Submit button */
+}
+
+.Submit:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.Clear {
+  background-color: #dc3545; /* Red color for Clear button */
+}
+
+.Clear:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+.transalationdiv
+{
+  display: flex;
+  justify-content: center;
+  margin: 12px;
+
+  
+}
+.language-select {
+  width: 200px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 60%;
+
+  text-align: center;
+}
+
+/* Hover effect for the select element */
+.language-select:hover {
+  border-color: #3e8e41;
+
+}
+
+/* Styling for the options */
+.language-option {
+  padding: 10px;
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* Hover effect for the options */
+.language-select option:hover {
+  background-color: #d4edda;
 }

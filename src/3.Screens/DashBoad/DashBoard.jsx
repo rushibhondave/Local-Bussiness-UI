@@ -2,144 +2,72 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../Style/DashBoard.css";
 
-function DashBoard() {
+function Dashboard() {
   return (
-    <>
-      <div className="main-body">
-        <div className="layout-container">
-          <nav className="side-navigation">
-            <ul className="nav-list">
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                Inventory
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                  Orders
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/Register_Shop"} className="nav-link">
-                Register Shop
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/Register_Service"} className="nav-link">
-                Register Service
-                </Link>
-              </li>
-        
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                  Settings
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          <div className="bodyDashboard">
-            <div className="dashboard-container">
-              <div className="dashboard-card earnings-card cardhight">
-               
-              </div>
-
-              <div className="dashboard-card visitor-insights-card">
-                <h2>Visitor Insights</h2>
-                <div className="chart"></div>
-              </div>
-
-              <div className="dashboard-card trending-card">
-                <h2>Trending Now</h2>
-                <div className="trending-items-container">
-                  <div className="trending-item">
-                    
-                    <p>Home Decor Range</p>
-                  </div>
-                  <div className="trending-item">
-                    {/* <img src="disney-dress.jpg" alt="Disney Princess Dress" /> */}
-                    <p>Disney Princess Dress</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="dashboard-card customers-card">
-                <h2>Customers</h2>
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                      <th>Billing Address</th>
-                      <th>Total</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Alex Xavier</td>
-                      <td>alex@example.com</td>
-                      <td>(555) 123-4567</td>
-                      <td>123 Elm Street, Springfield, IL</td>
-                      <td>$981.00</td>
-                      <td className="Buttonn">
-                        <button className="action-button-delete">Delete</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="dashboard-card sales-summary-card">
-                <h2>Today's Sales</h2>
-                <div className="summary-container">
-                  <div className="summary-stat">
-                    <h3>$5k</h3>
-                    <p>Total Sales</p>
-                  </div>
-                  <div className="summary-stat">
-                    <h3>500</h3>
-                    <p>Total Orders</p>
-                  </div>
-                  <div className="summary-stat">
-                    <h3>9</h3>
-                    <p>Products Sold</p>
-                  </div>
-                  <div className="summary-stat">
-                    <h3>12</h3>
-                    <p>New Customers</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="dashboard-card top-products-card">
-                <h2>Top Products</h2>
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Name</th>
-                      <th>Popularity</th>
-                      <th>Sales</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>01</td>
-                      <td>Home Decor Range</td>
-                      <td>78%</td>
-                      <td>$1234</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+    <div className="dashboard-main">
+      <nav className="dashboard-nav">
+        <ul>
+          <li>
+            <Link to={"/Dashboard"}>Dashboard</Link>
+          </li>
+          <li>
+            <Link to={"/edit-profile"}>Edit Profile</Link>
+          </li>
+          <li>
+            <Link to={"/Register_Shop"}>Register Shop</Link>
+          </li>
+          <li>
+            <Link to={"/Register_Service"}>Register Service</Link>
+          </li>
+          <li>
+            <Link to={"/orders"}>Orders</Link>
+          </li>
+          <li>
+            <Link to={"/inventory"}>Inventory</Link>
+          </li>
+          <li>
+            <Link to={"/settings"}>Settings</Link>
+          </li>
+        </ul>
+      </nav>
+      <div className="dashboard-content">
+        <div className="profile-section">
+          <h2>Shop Owner Profile</h2>
+          <div className="profile-details">
+            <p><strong>Shop Name:</strong> Rushi Shop</p>
+            <p><strong>Category:</strong> Grocery</p>
+            <p><strong>Owner:</strong> Rushi B</p>
+            <p><strong>Contact:</strong> (+91) 8146347361</p>
+            <button>Edit Profile</button>
+          </div>
+        </div>
+        <div className="profile-section">
+          <h2>Service Provider Profile</h2>
+          <div className="profile-details">
+            <p><strong>Service Name:</strong> Plumber</p>
+            <p><strong>Category:</strong> Home Services</p>
+            <p><strong>Provider:</strong> Jane Smith</p>
+            <p><strong>Contact:</strong> (+91) 8146347361</p>
+            <button>Edit Profile</button>
+          </div>
+        </div>
+        <div className="summary-section">
+          <div className="summary-card">
+            <h3>Total Sales</h3>
+            <p>₹5000</p>
+          </div>
+          <div className="summary-card">
+            <h3>New Orders</h3>
+            <p>45</p>
+          </div>
+          <div className="summary-card">
+            <h3>Customer Feedback</h3>
+            <p>Positive</p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default DashBoard;
+export default Dashboard;

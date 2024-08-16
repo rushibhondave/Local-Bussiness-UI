@@ -1,0 +1,96 @@
+/*************************************************Loader**************************************************/
+
+.ParentLoader {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .placeholder {
+    width: 40vw;
+    height: 12vw;
+    background-color: #f8f9f9;
+    box-shadow: 1px 4px 23px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 3vw 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .loader {
+    height: 22%;
+    background: linear-gradient(
+      90deg,
+      rgba(210, 210, 210, 0.5) 0%,
+      rgba(238, 238, 238, 0.7) 100%
+    );
+    border-radius: 10px;
+    animation: loading 0.8s infinite;
+  }
+  
+  .containerDotBody
+  {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact {
+    text-decoration: none;
+    color: #0e0e0e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid white;
+    padding: 2rem;
+    font-size: 1.3rem;
+    transition: transform 0.2s;
+  
+  }
+  .contact a:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+    color: #f6a41f;
+  
+    font-size: 1.6rem;
+  }
+  .loadinqg {
+    padding: 2rem;
+
+  }
+
+
+  
+  @keyframes loading {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    .placeholder {
+      height: 10vh;
+      width: auto;
+    }
+    .contact {
+      font-size: medium;
+      padding: 1rem;
+    }
+  
+    .loadinqg {
+      padding: 1rem;
+    }
+  }
+  
+  @media only screen and (min-width: 601px) and (max-width: 1000px) {
+    .placeholder {
+      height: 10vh;
+      width: auto;
+    }
+  }
+  

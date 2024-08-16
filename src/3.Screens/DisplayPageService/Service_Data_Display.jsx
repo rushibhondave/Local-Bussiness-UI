@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "../../Style/DisplayPage.css";
 import Service_Data_Card from "./Service_Data_Card";
+import Loader from "../About_Blog/Loader";
 function Service_Data_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -274,7 +275,7 @@ function Service_Data_Display() {
                     />
                   );
                 })
-              : "Data is not available..."}
+              :    <Loader />}
           </div>
         </div>
       </div>

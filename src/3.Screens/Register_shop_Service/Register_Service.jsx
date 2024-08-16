@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/Register_Shop.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Outlet } from "react-router-dom";
+import Data from "../../Utils/ServiceData.json";
 
 function Register_Service() {
   const [mobileNo, setmobileNo] = useState("");
@@ -22,7 +23,18 @@ function Register_Service() {
   const [adharNo, setadharNo] = useState("");
   const [gender, setgender] = useState("");
   const [termsAccepted, settermsAccepted] = useState(false);
-
+  const [Language, setLanguage] = useState("English");
+  const [content, setcontent] = useState({});
+  
+  useEffect(() => {
+    if (Language == "English") {
+      setcontent(Data.English);
+    } else if (Language == "हिन्दी") {
+      setcontent(Data.हिन्दी);
+    } else if (Language == "मराठी") {
+      setcontent(Data.मराठी);
+    }
+  }, [Language]);
   // Validate mobile number to only accept digits
   const handleMobileNoChange = (e) => {
     const value = e.target.value;
@@ -325,15 +337,31 @@ function Register_Service() {
           <div className="title1">
             <p>Registration Service</p>
           </div>
-
+          <div className="transalationdiv">
+       <select
+          name=""
+          id=""
+           className="language-select"
+          value={Language}
+          onChange={(e) => {
+            setLanguage(e.target.value);
+          }}
+        >
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>मराठी</option>
+        </select>
+       </div>
           <form>
             <div className="user_details">
               <div className="input_box">
-                <label htmlFor="mobileNo">Mobile No</label>
+              <label htmlFor="mobileNo">{content.mobileNo}</label>
+
                 <input
                   type="text"
                   id="mobileNo"
-                  placeholder="Enter the Mobile No"
+                  placeholder={`Enter the ${content.mobileNo}`}
+
                   value={mobileNo}
                   onChange={handleMobileNoChange}
                   required
@@ -341,11 +369,12 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="password">Password</label>
+              <label htmlFor="password">{content.password}</label>
+
                 <input
                   type="password"
                   id="password"
-                  placeholder="Enter The Password"
+                  placeholder={`Enter the ${content.password}`}
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                   required
@@ -353,11 +382,14 @@ function Register_Service() {
               </div>
 
               <div className="Bussniess_box">
-                <label htmlFor="serviceName">Service Name</label>
+              <label htmlFor="serviceName">{content.serviceName}</label>
+
                 <input
                   type="text"
                   id="serviceName"
-                  placeholder="Enter your Service name"
+                  placeholder={`Enter your ${content.serviceName}`}
+
+
                   value={serviceName}
                   onChange={handleNameChange(setserviceName)}
                   required
@@ -365,11 +397,14 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="firstName">First Name</label>
+              <label htmlFor="firstName">{content.firstName}</label>
+
+
                 <input
                   type="text"
                   id="firstName"
-                  placeholder="Enter your First Name"
+                  placeholder={`Enter your ${content.firstName}`}
+
                   value={firstName}
                   onChange={handleNameChange(setfirstName)}
                   required
@@ -377,11 +412,12 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="lastName">Last Name</label>
+              <label htmlFor="lastName">{content.lastName}</label>
                 <input
                   type="text"
                   id="lastName"
-                  placeholder="Enter your Last Name"
+                  placeholder={`Enter your ${content.lastName}`}
+
                   value={lastName}
                   onChange={handleNameChange(setlastName)}
                   required
@@ -389,7 +425,8 @@ function Register_Service() {
               </div>
 
               <div className="Bussniess_box input_box">
-                <label htmlFor="serviceCategory">Service Category</label>
+              <label htmlFor="serviceCategory">{content.serviceCategory}</label>
+
                 <select
                   id="serviceCategory"
                   className="select"
@@ -409,11 +446,12 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="serviceAmount">Service Amount</label>
+              <label htmlFor="serviceAmount">{content.serviceAmount}</label>
+
                 <input
                   type="number"
                   id="serviceAmount"
-                  placeholder="Enter your Service Amount"
+                  placeholder={`Enter your ${content.serviceAmount}`}
                   value={serviceAmount}
                   onChange={handleServiceAmountChange}
                   required
@@ -421,22 +459,25 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="jobTimings">Job Timings</label>
+              <label htmlFor="jobTimings">{content.jobTimings}</label>
                 <input
                   type="text"
                   id="jobTimings"
-                  placeholder="Enter your Job Timings"
+                  placeholder={`Enter your ${content.jobTimings}`}
+
                   value={jobTimings}
                   onChange={(e) => setjobTimings(e.target.value)}
                 />
               </div>
 
               <div className="Bussniess_box input_box GST">
-                <label htmlFor="address">Address</label>
+              <label htmlFor="address">{content.address}</label>
+
+
                 <input
                   type="text"
                   id="address"
-                  placeholder="Enter your Address"
+                  placeholder={`Enter your ${content.address}`}
                   value={address}
                   onChange={(e) => setaddress(e.target.value)}
                   required
@@ -444,11 +485,13 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="city">City</label>
+              <label htmlFor="city">{content.city}</label>
+
                 <input
                   type="text"
                   id="city"
-                  placeholder="Enter City"
+                  placeholder={`Enter your ${content.city}`}
+
                   value={city}
                   onChange={(e) => setcity(e.target.value)}
                   required
@@ -456,9 +499,11 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="pinCode">Pin / Zip Code</label>
+              <label htmlFor="pinCode">{content.pinCode}</label>
+
                 <select
                   id="pinCode"
+                  
                   className="select"
                   value={pinCode}
                   onChange={(e) => setpinCode(e.target.value)}
@@ -477,31 +522,34 @@ function Register_Service() {
               </div>
 
               <div className="input_box">
-                <label htmlFor="additionalInfo">Additional Information</label>
+              <label htmlFor="additionalInfo">{content.additionalInfo}</label>
+
                 <input
                   type="text"
                   id="additionalInfo"
-                  placeholder="Additional Information"
+                  placeholder={`Enter your ${content.additionalInfo}`}
                   value={additionalInfo}
                   onChange={(e) => setadditionalInfo(e.target.value)}
                 />
               </div>
 
               <div className="input_box">
-                <label htmlFor="adharNo">Adhar No</label>
+              <label htmlFor="adharNo">{content.adharNo}</label>
                 <input
                   type="text"
                   id="adharNo"
-                  placeholder="Enter Adhar Card Number"
+                  placeholder={`Enter your ${content.adharNo}`}
+
                   value={adharNo}
                   onChange={(e) => setadharNo(e.target.value)}
                   required
                 />
               </div>
-
+              <label>{content.gender}</label>
               <div className="">
                 <div className="checkboxes__row">
-                  <label htmlFor="male">
+                <label htmlFor="male">
+
                     <input
                       type="radio"
                       id="male"
@@ -511,7 +559,7 @@ function Register_Service() {
                       onChange={(e) => setgender(e.target.value)}
                       required
                     />
-                    Male
+                  {content.male}
                   </label>
                   <label htmlFor="female">
                     <input
@@ -523,8 +571,8 @@ function Register_Service() {
                       onChange={(e) => setgender(e.target.value)}
                       required
                     />
-                    Female
-                  </label>
+                   {content.female}</label>
+
                   <label htmlFor="PrferNotToSay">
                     <input
                       type="radio"
@@ -535,8 +583,8 @@ function Register_Service() {
                       onChange={(e) => setgender(e.target.value)}
                       required
                     />
-                    Prfer Not To Say
-                  </label>
+                   {content.preferNotToSay}</label>
+
                 </div>
               </div>
 
@@ -549,17 +597,19 @@ function Register_Service() {
                     onChange={(e) => settermsAccepted(e.target.checked)}
                     required
                   />
-                  Accept Terms And Condition
+                {content.termsAccepted}
                 </label>
               </div>
             </div>
 
             <div className="reg_btn">
               <button type="button" onClick={handleform} className="Submit">
-                Submit
+              {content.submit}
+
               </button>
               <button type="button" onClick={clear} className="Clear">
-                Clear
+              {content.clear}
+
               </button>
             </div>
           </form>
@@ -569,6 +619,7 @@ function Register_Service() {
 
 
     </>
+
   );
 }
 

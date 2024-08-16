@@ -8,10 +8,10 @@ import setting from '../../Img/Social/Setting.svg';
 
 function DashboardUser() {
   const userInfo = {
-    name: "Alex Xavier",
-    email: "alex.xavier@example.com",
-    phone: "+1 123 456 7890",
-    address: "123 Elm Street, Springfield, IL",
+    name: "Rushi B",
+    email: "RushiB@gmail.com",
+    phone: "+91 9854548382",
+    address: "GuruPrasad Colony karvenagar,Pune.",
   };
 
   return (
@@ -73,10 +73,10 @@ function DashboardUser() {
                     <tr>
                       <td>{userInfo.name}</td>
                       <td>{userInfo.address}</td>
-                      <td>$981.00</td>
+                      <td>₹981.00</td>
                       <td className="Buttonn">
                         <button className="action-button-delete">Delete</button>
-                        <button className="action-button-edit">Edit</button>
+                        <button className="action-button-edit">Cancel</button>
                       </td>
                     </tr>
                   </tbody>
@@ -88,20 +88,16 @@ function DashboardUser() {
                 <h2>Received Orders</h2>
                 <div className="summary-container">
                   <div className="summary-stat">
-                    <h3>$5k</h3>
-                    <p>Total Sales</p>
+                    <h3>₹5k</h3>
+                    <p>Total Buy</p>
                   </div>
                   <div className="summary-stat">
-                    <h3>500</h3>
+                    <h3>5</h3>
                     <p>Total Orders</p>
                   </div>
                   <div className="summary-stat">
-                    <h3>9</h3>
-                    <p>Products Sold</p>
-                  </div>
-                  <div className="summary-stat">
-                    <h3>12</h3>
-                    <p>New Customers</p>
+                    <h3>1</h3>
+                    <p>Wating Order</p>
                   </div>
                 </div>
               </div>
@@ -121,13 +117,13 @@ function DashboardUser() {
                   <tbody>
                     <tr>
                       <td>01</td>
-                      <td>Home Decor Range</td>
-                      <td>Buy a good bat</td>
-                      <td>Rs1234</td>
+                      <td></td>
+                      <td>Buy a good Things</td>
+                      <td>₹ 1234</td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> 
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ProductsData_Card from "./ProductsData_Card.jsx";
+import Loader from "../About_Blog/Loader.jsx";
 function ProductsData_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -327,7 +328,7 @@ function ProductsData_Display() {
             ) : (
               <div className="errorcomp">
           
-                <ErrorCompoent />
+              <Loader />
                 
               </div>
             )}

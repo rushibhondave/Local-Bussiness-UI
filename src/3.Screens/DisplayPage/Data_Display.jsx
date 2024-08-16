@@ -5,8 +5,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router-dom";
+import Loader from "../About_Blog/Loader.jsx";
 
 function Data_Display() {
+  
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
@@ -361,7 +363,7 @@ function Data_Display() {
             ) : (
               <div className="errorcomp">
           
-                <ErrorCompoent />
+              <Loader />
                 
               </div>
             )}

@@ -1,0 +1,108 @@
+{
+    "English": {
+      "titles": "Registration Service",
+      "mobileNo": "Mobile No",
+      "password": "Password",
+      "serviceName": "Service Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "serviceCategory": "Service Category",
+      "serviceAmount": "Service Amount",
+      "jobTimings": "Job Timings",
+      "address": "Address",
+      "city": "City",
+      "pinCode": "Pin / Zip Code",
+      "additionalInfo": "Additional Information",
+      "adharNo": "Adhar No",
+      "gender": "gender",
+        "male": "Male",
+        "female": "Female",
+        "preferNotToSay": "Prefer Not To Say",
+    
+      "termsAccepted": "Accept Terms And Condition",
+      "submit": "Submit",
+      "clear": "Clear"
+    },
+    "हिन्दी": {
+      "titles": "पंजीकरण सेवा",
+      "mobileNo": "मोबाइल नंबर",
+      "password": "पासवर्ड",
+      "serviceName": "सेवा नाम",
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "serviceCategory": "सेवा श्रेणी",
+      "serviceAmount": "सेवा राशि",
+      "jobTimings": "नौकरी का समय",
+      "address": "पता",
+      "city": "शहर",
+      "pinCode": "पिन / ज़िप कोड",
+      "additionalInfo": "अतिरिक्त जानकारी",
+      "adharNo": "आधार नंबर",
+      "gender": "लिंग",
+        "male": "पुरुष",
+        "female": "महिला",
+        "preferNotToSay": "अन्य",
+   
+      "termsAccepted": "शर्तों और शर्तों को स्वीकार करें",
+      "submit": "सबमिट करें",
+      "clear": "स्पष्ट करें"
+    },
+    "मराठी": {
+      "titles": "नोंदणी सेवा",
+      "mobileNo": "मोबाईल नंबर",
+      "password": "पासवर्ड",
+      "serviceName": "सेवा नाव",
+      "firstName": "पहिले नाव",
+      "lastName": "आडनाव",
+      "serviceCategory": "सेवा श्रेणी",
+      "serviceAmount": "सेवा रक्कम",
+      "jobTimings": "नोकरीची वेळ",
+      "address": "पत्ता",
+      "city": "शहर",
+      "pinCode": "पिन / झिप कोड",
+      "additionalInfo": "अधिक माहिती",
+      "adharNo": "आधार नंबर",
+      "gender": "लिंग",
+        "male": "पुरुष",
+        "female": "स्त्री",
+        "preferNotToSay": "इतर",
+      "termsAccepted": "अटी आणि शर्ती स्वीकारा",
+      "submit": "सप्ट",
+      "clear": "स्वच्छ करा"
+    }
+
+    ,
+      "LocationService": {
+        "locations": {
+          "411052": "KarveNagar",
+          "411007": "Pune University",
+          "411016": "Aundh",
+          "411017": "Baner",
+          "411021": "Bavdhan",
+          "411015": "Khothrud"
+        }
+      },
+      "स्थानसेवा": {
+        "locations": {
+          "411052": "कर्वे नगर",
+          "411007": "पुणे विश्वविद्यालय",
+          "411016": "आडख",
+          "411017": "बाणेर",
+          "411021": "बावधन",
+          "411015": "खोठरुड"
+        }
+      },
+      "स्थान सेवा": {
+        "locations": {
+          "411052": "कर्वे नगर",
+          "411007": "पुणे विद्यापीठ",
+          "411016": "आंड",
+          "411017": "बाणेर",
+          "411021": "बावधन",
+          "411015": "खोठरुड"
+        }
+      }
+    
+    
+  }
+  
