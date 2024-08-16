@@ -1,16 +1,15 @@
 import React from "react";
 import Local_Buussiness_India from "../../Img/local_Business/buy_Local.jpg";
 import "../../Style/Data_card.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function ProductsData_Card({
   productName,
   category,
   description,
   price,
   shopName,
-
 }) {
-
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -18,11 +17,14 @@ function ProductsData_Card({
       state: {
         name: productName,
         description: description,
+        category: category,
+        shopName: shopName,
         amount: price,
         quantity: 1, // Add quantity if needed
       },
     });
   };
+
   return (
     <>
       <main className="Card-list">
@@ -41,19 +43,16 @@ function ProductsData_Card({
                   <div>{category}</div>
                   <div>{shopName}</div>
                   <div>₹ {price}</div>
-                  <div>Shop Name : {description}</div>
+                  <div>Shop Name: {description}</div>
 
                   <div className="line"></div>
-                  <button className="button21">
-                    <Link to={"/Payment"} className="Link"
-                    onClick={handleClick}>
-                      Buy
-                    </Link>
+                  <button className="button21" onClick={handleClick}>
+                    Buy
                   </button>
                   <button className="button21 butnc">
-                    <Link to={"/DisplayPage"} className="Link">
+                    <a href="/DisplayPage" className="Link">
                       Info
-                    </Link>
+                    </a>
                   </button>
                 </div>
               </div>

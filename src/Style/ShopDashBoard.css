@@ -1,0 +1,54 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #1e1e2f;
+    color: #fff;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background-color: #2e2e3d;
+    border-radius: 10px;
+    padding: 20px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .top-products, .customer-fulfillment {
+    background-color: #2e2e3d;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .top-products ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .top-products li {
+    margin: 10px 0;
+  }
+  
+  .customer-fulfillment .fulfillment-data {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .customer-fulfillment .fulfillment-data div {
+    text-align: center;
+  }
+  

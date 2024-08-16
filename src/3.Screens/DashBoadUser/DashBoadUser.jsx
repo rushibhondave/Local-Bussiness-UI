@@ -2,37 +2,42 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../Style/DashBoard.css";
 import orders from '../../Img/Social/orders-bfe8c4.svg';
-import Heart from '../../Img/Social/Heart.svg';
+import heart from '../../Img/Social/Heart.svg';
 import notificationPreferences from '../../Img/Social/notificationPreferences-cfffaf.svg';
-import Setting from '../../Img/Social/Setting.svg';
-function DashBoadUser() {
+import setting from '../../Img/Social/Setting.svg';
+
+function DashboardUser() {
+  const userInfo = {
+    name: "Alex Xavier",
+    email: "alex.xavier@example.com",
+    phone: "+1 123 456 7890",
+    address: "123 Elm Street, Springfield, IL",
+  };
+
   return (
     <>
       <div className="main-body">
         <div className="layout-container">
           <nav className="side-navigation">
             <ul className="nav-list">
-            
               <li className="nav-item">
-                <Link to={""} className="nav-link">
-                 <span><img src={orders} alt="" className="IconColor" /></span>  Orders
+                <Link to={"/orders"} className="nav-link">
+                  <span><img src={orders} alt="Orders Icon" className="IconColor" /></span> Orders
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/Register_Shop"} className="nav-link">
-                <span><img src={Heart} alt="" className="IconColor" /></span> My Wishlist
+                <Link to={"/wishlist"} className="nav-link">
+                  <span><img src={heart} alt="Wishlist Icon" className="IconColor" /></span> My Wishlist
                 </Link>
               </li>
-           
               <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                <span><img src={notificationPreferences} alt="" className="IconColor" /></span> Notification
+                <Link to={"/notifications"} className="nav-link">
+                  <span><img src={notificationPreferences} alt="Notification Icon" className="IconColor" /></span> Notification
                 </Link>
               </li>
-        
               <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                <span><img src={Setting} alt="" className="IconColor" /></span>  Settings
+                <Link to={"/settings"} className="nav-link">
+                  <span><img src={setting} alt="Settings Icon" className="IconColor" /></span> Settings
                 </Link>
               </li>
             </ul>
@@ -40,30 +45,20 @@ function DashBoadUser() {
 
           <div className="bodyDashboard">
             <div className="dashboard-container">
-              <div className="dashboard-card earnings-card cardhight">
-               
-              </div>
-
-              <div className="dashboard-card visitor-insights-card">
-                <h2>Visitor Insights</h2>
-                <div className="chart"></div>
-              </div>
-
-              <div className="dashboard-card trending-card">
-                <h2>Trending Now</h2>
-                <div className="trending-items-container">
-                  <div className="trending-item">
-                  
-                    <p>Home Decor Range</p>
-                  </div>
-                  <div className="trending-item">
-                  
-                    <p>Disney Princess Dress</p>
-                  </div>
+              {/* User Information Section */}
+              <div className="dashboard-card user-info-card">
+                <h2>User Information</h2>
+                <div className="user-details">
+                  <p><strong>Name:</strong> {userInfo.name}</p>
+                  <p><strong>Email:</strong> {userInfo.email}</p>
+                  <p><strong>Phone:</strong> {userInfo.phone}</p>
+                  <p><strong>Address:</strong> {userInfo.address}</p>
+                  <button className="action-button-edit">Edit Profile</button>
                 </div>
               </div>
 
-              <div className="dashboard-card customers-card">
+              {/* Orders in Progress */}
+              <div className="dashboard-card orders-progress-card">
                 <h2>Orders in Progress</h2>
                 <table className="table">
                   <thead>
@@ -76,19 +71,21 @@ function DashBoadUser() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Alex Xavier</td>
-                      <td>123 Elm Street, Springfield, IL</td>
+                      <td>{userInfo.name}</td>
+                      <td>{userInfo.address}</td>
                       <td>$981.00</td>
                       <td className="Buttonn">
                         <button className="action-button-delete">Delete</button>
+                        <button className="action-button-edit">Edit</button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
+              {/* Sales Summary */}
               <div className="dashboard-card sales-summary-card">
-                <h2>Recived's Orders</h2>
+                <h2>Received Orders</h2>
                 <div className="summary-container">
                   <div className="summary-stat">
                     <h3>$5k</h3>
@@ -109,15 +106,16 @@ function DashBoadUser() {
                 </div>
               </div>
 
-              <div className="dashboard-card top-products-card">
+              {/* Top Orders */}
+              <div className="dashboard-card top-orders-card">
                 <h2>Top Orders</h2>
                 <table className="table">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Name</th>
-                      <th>Desccrition</th>
-                      <th>Amout</th>
+                      <th>Description</th>
+                      <th>Amount</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -138,4 +136,4 @@ function DashBoadUser() {
   );
 }
 
-export default DashBoadUser;
+export default DashboardUser;

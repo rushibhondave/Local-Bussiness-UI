@@ -1,94 +1,135 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../Style/payment.css";
 import QRCode from "react-qr-code";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
 function Payment() {
   const location = useLocation();
-  const name = location.state?.name;
-  const quantity = location.state?.quantity;
-  const amount = location.state?.amount;
+  const {
+    name = "",
+    quantity = 1,
+    amount = 0,
+    description = "",
+    category = "",
+    shopName = "",
+  } = location.state || {};
 
-  const [inputValue1, setInputValue1] = useState(name || '');
-  const [inputValue2, setInputValue2] = useState(quantity || '');
-  const [inputValue3, setInputValue3] = useState(amount || '');
-  const [product, setProduct] = useState({
-    
-    tax: 15, // Tax amount
-    total: 115, // Total amount after tax
-    Delivery:true
-  });
+  const [inputValue1, setInputValue1] = useState(name);
+  const [inputValue2, setInputValue2] = useState(quantity);
+  const [inputValue3, setInputValue3] = useState(amount);
+  const [inputValue4, setInputValue4] = useState(description);
+  const [inputValue5, setInputValue5] = useState(category);
+  const [inputValue6, setInputValue6] = useState(shopName);
 
-  const navigate = useNavigate();
-  const [fadeOut, setFadeOut] = useState(false);
 
-  useEffect(() => {}, [navigate]);
+
+  const [Name, sesetName] = useState(shopName);
+  const [address, setAddress] = useState("");
+  const [pinCode, setPinCode] = useState("");
   const [userInfo, setUserInfo] = useState({
     name: "",
     address: "",
     pincode: "",
   });
 
+  const [product, setProduct] = useState({
+    tax: 15,
+    total: amount + 15, // Default total including tax
+    Delivery: true,
+    type: "solid", // Default type; this should be passed as a prop ideally
+  });
+
+  const navigate = useNavigate();
+
+  const handleIncreaseQuantity = () => {
+    const newQuantity = inputValue2 + 1;
+    const newTotal = inputValue3 * newQuantity + product.tax;
+    setInputValue2(newQuantity);
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      total: newTotal,
+    }));
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (inputValue2 > 1) {
+      const newQuantity = inputValue2 - 1;
+      const newTotal = inputValue3 * newQuantity + product.tax;
+      setInputValue2(newQuantity);
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        total: newTotal,
+      }));
+    }
+  };
+  const handleDeleteProduct = () => {
+    setInputValue1("");
+    setInputValue2(0);
+    setInputValue3(0);
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      total: 0,
+    }));
+  };
+
+
+
+
+  const validateform = (event) => {
+    event.preventDefault();
+  }
+
+  const handlePayment = (event) => {
+    event.preventDefault();
+
+    try {
+      Swal.fire({
+        title: "Payment Successful!",
+        text: "Generating Invoice...",
+        icon: "success",
+        timer: 3000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+
+      setTimeout(() => {
+        generateInvoice();
+        navigate("/ProductsDataDisplay");
+      }, 3000);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "An error occurred. Please try again later.",
+      });
+    }
+  };
+
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setUserInfo((prevState) => ({
       ...prevState,
-      [id]: value,
+      [id.split("-")[1]]: value, // Extracts 'name', 'address', 'pincode'
     }));
   };
 
-  const handlePayment = () => {
-    try {
-      // Start fade-out transition after 1 second
-      const timer = setTimeout(() => {
-        setFadeOut(true);
-      }, 3000); // 1000ms = 1 second
+  const generateInvoice = () => {
+    const doc = new jsPDF();
 
-      // Redirect after fade-out transition
-      const redirectTimer = setTimeout(() => {
-        navigate("/ProductsDataDisplay");
-      }, 5000); // 3000ms = 3 seconds
-      Swal.fire({
-        title: "Payment Successful!",
-        text: "Redirecting to home page...",
-        icon: "success",
-        timer: 3000, // 3 seconds
-        timerProgressBar: true,
-        showConfirmButton: false,
-        willClose: () => {},
-      });
-  
-      return () => {
-        clearTimeout(timer);
-        clearTimeout(redirectTimer);
-      };
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        Swal.fire({
-          icon: "error",
-          title: "Bad Request",
-          text: "Invalid input. Please check your details and try again.",
-        });
-      } 
-      else if (error.message === "Network Error") {
-        Swal.fire({
-          icon: "error",
-          title: "Network Error",
-          text: "Unable to connect. Please check your internet connection and try again.",
-        });
-      }else {
-        Swal.fire({
-          icon: "error",
-          title: "Error",
-          text: "An error occurred while creating your account. Please try again later.",
-        });
-      }
-    }
-    
+    html2canvas(document.querySelector("#invoice")).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const imgWidth = 210; // A4 width in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      doc.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      doc.save("invoice.pdf");
+    });
   };
+
   return (
     <>
-   
       <div className="payment-body">
         <article className="payment-card">
           <div className="payment-container">
@@ -96,168 +137,123 @@ function Payment() {
               <h2>Payment</h2>
             </div>
             <div className="payment-card-body">
-              <div className="payment-method">
-                <h4>Choose payment method below</h4>
-                <div className="payment-types flex justify-space-between">
-                  <div className="payment-type">
-                    <div className="payment-logo">
-                      <i className="far fa-credit-card" />
+              <div id="invoice">
+                <div className="payment-info flex justify-space-between">
+                  <div className="payment-column">
+                    <h4>Product Info</h4>
+                    <div className="payment-field full">
+                      <label>Product Name</label>
+                      <input type="text" value={inputValue1} readOnly />
                     </div>
-                    <div className="payment-text">
-                      <p>Pay with Credit Card</p>
+                    <div className="payment-field full">
+                      <label>Quantity</label>
+                      <div className="quantity-container">
+                        <button
+                          className={`quantity-button ${
+                            product.type === "liquid" ? "liquid" : "solid"
+                          }`}
+                          onClick={handleIncreaseQuantity}
+                        >
+                          Add More
+                        </button>
+
+                        <button
+                          className={`quantity-button1  ${
+                            product.type === "liquid" ? "liquid" : "solid"
+                          }`}
+                          onClick={handleDecreaseQuantity}
+                        >
+                          Delete
+                        </button>
+                        <input type="number" value={inputValue2} readOnly />
+                      </div>
                     </div>
-                  </div>
-                  <div className="payment-type">
-                    <div className="payment-logo">
-                      <i className="fab fa-paypal" />
+                    <div className="payment-field full">
+                      <label>Amount</label>
+                      <input type="text" value={inputValue3} readOnly />
                     </div>
-                    <div className="payment-text">
-                      <p>Pay with PayPal</p>
-                    </div>
+                    <button
+                      className="delete-button"
+                      onClick={handleDeleteProduct}
+                    >
+                      Delete Product
+                    </button>
                   </div>
-                  <div className="payment-type">
-                    <div className="payment-logo">
-                      <i className="fab fa-amazon" />
-                    </div>
-                    <div className="payment-text">
-                      <p>Pay with Amazon</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="payment-info flex justify-space-between">
-                <div className="payment-column billing-info">
-                  <div className="payment-title">
-                    <div className="payment-num">1</div>
-                    <h4>Billing Info</h4>
-                  </div>
-                  <div className="payment-field full">
-                    <label htmlFor="billing-name">Full Name</label>
-                    <input
-                      id="billing-name"
-                      type="text"
-                      placeholder="Full Name"
-                    />
-                  </div>
-                  <div className="payment-field full">
-                    <label htmlFor="billing-address">Billing Address</label>
-                    <input
-                      id="billing-address"
-                      type="text"
-                      placeholder="Billing Address"
-                    />
-                  </div>
-                  <div className="flex justify-space-between">
-                    <div className="payment-field half">
-                      <label htmlFor="billing-city">City</label>
-                      <input id="billing-city" type="text" placeholder="City" />
-                    </div>
-                    <div className="payment-field half">
-                      <label htmlFor="billing-state">State</label>
-                      <input
-                        id="billing-state"
-                        type="text"
-                        placeholder="State"
-                      />
-                    </div>
-                  </div>
-                  <div className="payment-field full">
-                    <label htmlFor="billing-zip">Zip</label>
-                    <input id="billing-zip" type="text" placeholder="Zip" />
-                  </div>
-                </div>
-                <div className="payment-column credit-info">
-                  <div className="payment-title">
-                    <div className="payment-num">2</div>
-                    <h4>Credit Card Info</h4>
-                  </div>
-                  <div className="payment-field full">
-                    <label htmlFor="card-name">Cardholder Name</label>
-                    <input id="card-name" type="text" placeholder="Full Name" />
-                  </div>
-                  <div className="payment-field full">
-                    <label htmlFor="card-number">Card Number</label>
-                    <input
-                      id="card-number"
-                      type="text"
-                      placeholder="1234-5678-9012-3456"
-                    />
-                  </div>
-                  <div className="flex justify-space-between">
-                    <div className="payment-field half">
-                      <label htmlFor="exp-month">Exp. Month</label>
-                      <input id="exp-month" type="text" placeholder="MM" />
-                    </div>
-                    <div className="payment-field half">
-                      <label htmlFor="exp-year">Exp. Year</label>
-                      <input id="exp-year" type="text" placeholder="YY" />
-                    </div>
-                  </div>
-                  <div className="payment-field full">
-                    <label htmlFor="cvc">CVC Number</label>
-                    <input id="cvc" type="text" placeholder="CVC" />
-                  </div>
-                </div>
-              </div>
-              <div className="qr-section">
-                <h4 className="payment-type selected">QR Code for Purchase</h4>
-                <div className="App">
-                  <QRCode value={product.total} />
-                  <div className="input-here"></div>
-                </div>
-                <div className="qr-info">
-                  <p>
-                    <strong>Product Name:</strong> {inputValue1}
-                  </p>
-                  <p>
-                    <strong>Quantity:</strong> {inputValue2}
-                  </p>
-                  <p>
-                    <strong>Description:</strong> {inputValue3}
-                  </p>
-                  <p>
-                    <strong>Amount (before tax):</strong> ₹₹{product.amount}
-                  </p>
-                  <p>
-                    <strong>Tax:</strong> ₹₹{product.tax}
-                  </p>
-                  <p>
-                    <strong>Total Amount:</strong> ₹₹{product.total}
-                  </p>
                 </div>
 
-                <div className="payment-field full">
-                  <label htmlFor="user-name">Name</label>
-                  <input
-                    id="user-name"
-                    type="text"
-                    placeholder="Name"
-                    value={userInfo.name}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="payment-field full">
-                  <label htmlFor="user-address">Address</label>
-                  <input
-                    id="user-address"
-                    type="text"
-                    placeholder="Address"
-                    value={userInfo.address}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className="payment-field full">
-                  <label htmlFor="user-pincode">Pincode</label>
-                  <input
-                    id="user-pincode"
-                    type="text"
-                    placeholder="Pincode"
-                    value={userInfo.pincode}
-                    onChange={handleInputChange}
-                  />
+                <div className="qr-section">
+                  <h4 className="payment-type selected">
+                    QR Code for Purchase
+                  </h4>
+                  <div className="App">
+                    <QRCode value={String(product.total)} />
+                  </div>
+                  <div className="qr-info">
+                    <p>
+                      <strong>Product Name:</strong> {inputValue1}
+                    </p>
+                    <p>
+                      <strong>Quantity:</strong> {inputValue2}
+                    </p>
+                    <p>
+                      <strong>Price:</strong> {inputValue3}
+                    </p>
+                    <p>
+                      <strong>Description:</strong> {inputValue4}
+                    </p>
+                    <p>
+                      <strong>Category:</strong> {inputValue5}
+                    </p>
+                    <p>
+                      <strong>ShopName:</strong> {inputValue6}
+                    </p>
+                    <p>
+                      <strong>Amount (before tax):</strong> ₹
+                      {inputValue3 * inputValue2}
+                    </p>
+                    <p>
+                      <strong>Tax:</strong> ₹{product.tax}
+                    </p>
+                    <p>
+                      <strong>Total Amount:</strong> ₹{product.total}
+                    </p>
+                  </div>
+                  <form onSubmit={validateform}>
+                    <div className="payment-field full">
+                      <label htmlFor="user-name">Name</label>
+                      <input
+                        id="user-name"
+                        type="text"
+                        placeholder="Name"
+                        value={userInfo.name}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div className="payment-field full">
+                      <label htmlFor="user-address">Address</label>
+                      <input
+                        id="user-address"
+                        type="text"
+                        placeholder="Address"
+                        value={userInfo.address}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div className="payment-field full">
+                      <label htmlFor="user-pincode">Pincode</label>
+                      <input
+                        id="user-pincode"
+                        type="number"
+                        placeholder="Pincode"
+                        value={userInfo.pincode}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
+
             <div className="payment-actions flex justify-space-between">
               <div className="flex-start">
                 <button className="payment-button payment-button-secondary">
@@ -269,25 +265,13 @@ function Payment() {
                   className="payment-button payment-button-primary"
                   onClick={handlePayment}
                 >
-                  payment
+                  Pay Now
                 </button>
               </div>
             </div>
           </div>
         </article>
-        <footer className="payment-footer">
-          Design based on example found{" "}
-          <a
-            href="https://uxdesign.cc/understanding-user-psychology-to-improve-your-product-design-f4e5f930b89e"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            here
-          </a>
-        </footer>
       </div>
-
-
     </>
   );
 }

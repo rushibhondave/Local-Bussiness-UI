@@ -9,10 +9,10 @@ function Register_Shop() {
   const [password, setPassword] = useState("");
   const [shopName, setShopName] = useState("");
   const [address, setAddress] = useState("");
+  const [pinCode, setPinCode] = useState("");
   const [shopTimings, setShopTimings] = useState("");
   const [shopCategory, setShopCategory] = useState("");
   const [city, setCity] = useState("");
-  const [pinCode, setPinCode] = useState("");
   const [emailId, setEmailId] = useState("");
   const [ownerName, setOwnerName] = useState("");
   const [ownerMobileNo, setOwnerMobileNo] = useState("");
