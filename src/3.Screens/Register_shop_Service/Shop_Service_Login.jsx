@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../Style/Login.css";
+
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-function Shop_Service_Signup() {
+export var token=false
+function Shop_Service_Login() {
+
   const [MobileNo, setMobileNo] = useState("");
   const [Password, setPassword] = useState("");
   const [Error, setError] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   const navigate = useNavigate();
-
+  
   const validateMobileNo = (mobile) => {
     const trimmedMobile = mobile.trim();
     const isValid = /^\d{10}$/.test(trimmedMobile);
@@ -24,7 +29,7 @@ function Shop_Service_Signup() {
     return isValid;
   };
 
-  const HandleForm = (event) => {
+  const HandleForm =async (event) => {
     event.preventDefault();
 
     // Validate mobile number
@@ -49,51 +54,59 @@ function Shop_Service_Signup() {
         text: "Password must be at least 4 characters and include only letters, numbers, @, $, _.",
       });
       return;
-    } else {
+    }
+    else{
+
+
       try {
-        const url = "https://localhost:7063/api/ShopServiceLogins";
-        const data = {
-          mobileNo: MobileNo,
-          password: Password,
-        };
-        axios.post(url, data).then((result) => {
+        const url = `https://localhost:7063/api/ShopServiceLogins/${encodeURIComponent(
+          MobileNo
+        )},${encodeURIComponent(Password)}`;
+  
+        const response = await axios.get(url);
+  
+        if (response.data) {
+   
+  
+          Swal.fire({
+            title: "Successfully Logged In!",
+            text: "Redirecting to DashBoard page...",
+            icon: "success",
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false,
+          });
+  
+          // Start fade-out transition after 1 second
           const timer = setTimeout(() => {
             setFadeOut(true);
           }, 3000); // 1000ms = 1 second
-
+  
           // Redirect after fade-out transition
           const redirectTimer = setTimeout(() => {
             navigate("/DashBoard");
           }, 4000); // 3000ms = 3 seconds
-          Swal.fire({
-            title: "Accout Created Successful!",
-            text: "Redirecting to DashBoard page...",
-            icon: "success",
-            timer: 3000, // 3 seconds
-            timerProgressBar: true,
-            showConfirmButton: false,
-            willClose: () => {},
-          });
-
-          return () => {
-            clearTimeout(timer);
-            clearTimeout(redirectTimer);
-          };
-        });
-      } catch (error) {
-
-        if (error.response && error.response.status === 400) {
-          Swal.fire("Error", error.response.data.message, "error");
+        } else {
+          Swal.fire("Error", "User not found!", "error");
         }
+        // Reset the form after successful submission
+        setMobileNo("");
+        setPassword("");
+      } catch (error) {
         if (error.message === "Network Error") {
           Swal.fire({
             icon: "error",
             title: "Network Error",
             text: "Unable to connect. Please check your internet connection and try again.",
           });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while Cheacking your account. Please try again later.",
+          });
         }
-     
-
+  
         if (!error.response) {
           // Backend is not running or network error occurred
           Swal.fire({
@@ -106,23 +119,29 @@ function Shop_Service_Signup() {
           Swal.fire({
             icon: "error",
             title: "Bad Request",
-            text: "Registration failed! Please try again or Mobile No alredy there",
+            text: "Invalid input. Please check your details and try again.",
           });
         }
       }
     }
+
+  
+
+    // Reset the form after successful submission
+    setMobileNo("");
+    setPassword("");
   };
 
   return (
     <>
       <div className="body">
-        <div className="wrapper">
-          <div className="form-wrapper sign-up"></div>
+        <div  className="wrapper">
+          <div  className="form-wrapper sign-up"></div>
 
-          <div className="form-wrapper sign-in">
+          <div  className="form-wrapper sign-in">
             <form onSubmit={HandleForm}>
-              <h2> Sign Up</h2>
-              <div className="input-group">
+              <h2> Sign In</h2>
+              <div  className="input-group">
                 <input
                   type="number"
                   required
@@ -132,7 +151,7 @@ function Shop_Service_Signup() {
                 />
                 <label htmlFor="">Mobile No</label>
               </div>
-              <div className="input-group">
+              <div  className="input-group">
                 <input
                   type="password"
                   required
@@ -140,16 +159,15 @@ function Shop_Service_Signup() {
                   autoComplete="off"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <label htmlFor="">Password</label>
+                    <label htmlFor="">Password</label>
               </div>
-
-              <button type="submit" className="btn_Login">
+              <button type="submit"  className="btn_Login">
                 Login
               </button>
               <div className="sign-link">
                 <p>
-                  Already have an account ?
-                  <Link to={"/Shop_Service_Login"} className="signUp-link">
+                  Don't have an account ?
+                  <Link to={"/Shop_Service_Signup"} className="signUp-link">
                     Here...!
                   </Link>
                 </p>
@@ -162,4 +180,4 @@ function Shop_Service_Signup() {
   );
 }
 
-export default Shop_Service_Signup;
+export default Shop_Service_Login;

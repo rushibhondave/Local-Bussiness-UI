@@ -33,11 +33,26 @@ function Service_Data_Display() {
         setdata(result.data);
       });
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Error while fetching data.",
-      });
+      if (error.response && error.response.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Bad Request",
+          text: "Invalid input. Please check your details and try again.",
+        });
+      } 
+      else if (error.message === "Network Error") {
+        Swal.fire({
+          icon: "error",
+          title: "Network Error",
+          text: "Unable to connect. Please check your internet connection and try again.",
+        });
+      }else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An error occurred while creating your account. Please try again later.",
+        });
+      }
     }
   };
   const getdatabyLoaction = (event) => {
@@ -50,11 +65,26 @@ function Service_Data_Display() {
           setError(""); // Clear any previous errors
         });
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Error while fetching data.",
-      });
+      if (error.response && error.response.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Bad Request",
+          text: "Invalid input. Please check your details and try again.",
+        });
+      } 
+      else if (error.message === "Network Error") {
+        Swal.fire({
+          icon: "error",
+          title: "Network Error",
+          text: "Unable to connect. Please check your internet connection and try again.",
+        });
+      }else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An error occurred while creating your account. Please try again later.",
+        });
+      }
     }
   };
 
@@ -101,13 +131,26 @@ function Service_Data_Display() {
             setError(""); // Clear any previous errors
           });
       } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: "Error",
-          text: error.response
-            ? error.response.data
-            : "Error while fetching data.",
-        });
+        if (error.response && error.response.status === 400) {
+          Swal.fire({
+            icon: "error",
+            title: "Bad Request",
+            text: "Invalid input. Please check your details and try again.",
+          });
+        } 
+        else if (error.message === "Network Error") {
+          Swal.fire({
+            icon: "error",
+            title: "Network Error",
+            text: "Unable to connect. Please check your internet connection and try again.",
+          });
+        }else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while creating your account. Please try again later.",
+          });
+        }
       }
     }
   };

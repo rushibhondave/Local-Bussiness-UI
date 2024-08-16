@@ -39,33 +39,33 @@ function DashBoard() {
           </nav>
 
           <div className="bodyDashboard">
-            <div class="dashboard-container">
-              <div class="dashboard-card earnings-card cardhight">
+            <div className="dashboard-container">
+              <div className="dashboard-card earnings-card cardhight">
                
               </div>
 
-              <div class="dashboard-card visitor-insights-card">
+              <div className="dashboard-card visitor-insights-card">
                 <h2>Visitor Insights</h2>
-                <div class="chart"></div>
+                <div className="chart"></div>
               </div>
 
-              <div class="dashboard-card trending-card">
+              <div className="dashboard-card trending-card">
                 <h2>Trending Now</h2>
-                <div class="trending-items-container">
-                  <div class="trending-item">
+                <div className="trending-items-container">
+                  <div className="trending-item">
                     
                     <p>Home Decor Range</p>
                   </div>
-                  <div class="trending-item">
+                  <div className="trending-item">
                     {/* <img src="disney-dress.jpg" alt="Disney Princess Dress" /> */}
                     <p>Disney Princess Dress</p>
                   </div>
                 </div>
               </div>
 
-              <div class="dashboard-card customers-card">
+              <div className="dashboard-card customers-card">
                 <h2>Customers</h2>
-                <table class="table">
+                <table className="table">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -84,38 +84,38 @@ function DashBoard() {
                       <td>123 Elm Street, Springfield, IL</td>
                       <td>$981.00</td>
                       <td className="Buttonn">
-                        <button class="action-button-delete">Delete</button>
+                        <button className="action-button-delete">Delete</button>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <div class="dashboard-card sales-summary-card">
+              <div className="dashboard-card sales-summary-card">
                 <h2>Today's Sales</h2>
-                <div class="summary-container">
-                  <div class="summary-stat">
+                <div className="summary-container">
+                  <div className="summary-stat">
                     <h3>$5k</h3>
                     <p>Total Sales</p>
                   </div>
-                  <div class="summary-stat">
+                  <div className="summary-stat">
                     <h3>500</h3>
                     <p>Total Orders</p>
                   </div>
-                  <div class="summary-stat">
+                  <div className="summary-stat">
                     <h3>9</h3>
                     <p>Products Sold</p>
                   </div>
-                  <div class="summary-stat">
+                  <div className="summary-stat">
                     <h3>12</h3>
                     <p>New Customers</p>
                   </div>
                 </div>
               </div>
 
-              <div class="dashboard-card top-products-card">
+              <div className="dashboard-card top-products-card">
                 <h2>Top Products</h2>
-                <table class="table">
+                <table className="table">
                   <thead>
                     <tr>
                       <th>#</th>

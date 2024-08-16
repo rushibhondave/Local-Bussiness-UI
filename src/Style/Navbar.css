@@ -88,3 +88,17 @@ ul li:hover .submenu {
 
 
 
+/* Logout button styles */
+.logout-btn {
+  background: none;
+  border: none;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #ffb82e;
+  transition: all ease-in-out 5ms;
+}
+

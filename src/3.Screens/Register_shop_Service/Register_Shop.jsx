@@ -202,26 +202,43 @@ function Register_Shop() {
           shopCategory: shopCategory,
           city: city,
           pinCode: pinCode,
-          emailId: emailId,
+          email: emailId,
+          description: Description,
+          whatupsNo: Area,
           ownerName: ownerName,
           ownerMobileNo: ownerMobileNo,
-          adharNo: adharNo,
-          termsAccepted: termsAccepted,
+          aadharNo: adharNo,
+          termsAndConditionsAccepted: termsAccepted,
         };
         axios.post(url, data).then((result) => {
           Swal.fire({
             icon: "success",
             title: "Added",
-            text: "New Service has been added successfully.",
+            text: "New Shop has been added successfully.",
           });
         });
         clear();
       } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: "Error",
-          text: "Error while adding data.",
-        });
+        if (error.response && error.response.status === 400) {
+          Swal.fire({
+            icon: "error",
+            title: "Bad Request",
+            text: "Invalid input. Please check your details and try again.",
+          });
+        } 
+        else if (error.message === "Network Error") {
+          Swal.fire({
+            icon: "error",
+            title: "Network Error",
+            text: "Unable to connect. Please check your internet connection and try again.",
+          });
+        }else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "An error occurred while creating your account. Please try again later.",
+          });
+        }
       }
     }
   };

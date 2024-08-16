@@ -40,7 +40,7 @@ function ProductsData_Card({
                   <div>⭐⭐⭐⭐</div>
                   <div>{category}</div>
                   <div>{shopName}</div>
-                  <div>₹₹ {price}</div>
+                  <div>₹ {price}</div>
                   <div>Shop Name : {description}</div>
 
                   <div className="line"></div>

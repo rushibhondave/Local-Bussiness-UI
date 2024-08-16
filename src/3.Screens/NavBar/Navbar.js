@@ -1,17 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../../Style/Navbar.css";
 import Seller from '../../Img/Social/Shops.svg'
 import profile from '../../Img/Social/profile-52e0dc.svg'
 import DownArorw from '../../Img/Social/DownArorw.svg'
+import {token } from '../../3.Screens/Register_shop_Service/Shop_Service_Login';
 function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const handleLogout = () =>
+ {
+  setIsLoggedIn(token)
+  };
   return (
     <>
       <nav id="navbar" className="">
         <div className="nav-wrapper">
           <div className="logo">
             <Link to={"/"} className="logo_Link">
-              Logo
+              Local
             </Link>
           </div>
 
@@ -55,16 +62,20 @@ function Navbar() {
                     My Profile
                   </Link>
                 </li>
-                <li>
-                  <Link to={"/Login"} className="Link">
-                    User Sign In
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/Signup"} className="Link">
-                    User Signup
-                  </Link>
-                </li>
+                {!token ? (
+                  <li>
+                    <Link to={"/LoginLogout"} className="Link">
+                      User Sign In
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <button onClick={handleLogout} className="Link logout-btn">
+                      Logout
+                    </button>
+                  </li>
+                )}
+                
               </ul>
             </li>
             <li>
@@ -79,12 +90,21 @@ function Navbar() {
                   DashBoard
                   </Link>
                 </li>
-                <li>
-                  <Link to={"/Shop_Service_Login"} className="Link">
-                   Seller Sign In
-                  </Link>{" "}
-                </li>
 
+                {!token ? (
+                  <li>
+                    <Link to={"/Shop_Service_Login"} className="Link">
+                    Seller Sign In
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <button onClick={handleLogout} className="Link logout-btn">
+                      Logout
+                    </button>
+                  </li>
+                )}
+              
               
               </ul>
             </li>
