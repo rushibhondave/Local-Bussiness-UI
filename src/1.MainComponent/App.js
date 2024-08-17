@@ -43,8 +43,8 @@ function App() {
 
         <Route path="/ShopInfoGet" element={< ShopInfoGet/>}/>
         <Route path="/DashBoard" element={<DashBoard/>}/>
-        <Route path="/Register_Shop" element={<RegsiterProtected  Compoo={Register_Shop} />}/>  
-        <Route path="/Register_Service" element={<RegsiterProtected  Compoo={Register_Service} />}/>
+        <Route path="/Register_Shop" element={<Register_Shop />}/>  
+        <Route path="/Register_Service" element={<Register_Service />}/>
         <Route path="*" element={< ErrorCompoent/>}/>
         {/* <Route path="/*" element={< Navigate to={"/"}/>}/>   Go on Home Page Chose 1*/}   
         </Routes>
