@@ -31,17 +31,17 @@ function App() {
         
         <Route path="/Signup" element={<Signup/>}/>
         <Route path="/LoginLogout" element={<LoginLogout/>}/>
-        <Route path="/Shop_Service_Signup" element={< Shop_Service_Signup/>}/>
-        <Route path="/DashBoadUser" element={<LoginProtectedd Componenut={DashBoadUser}/>}/>
+        <Route path="/Shop_Service_Signup" element={<Shop_Service_Signup/>}/>
+        <Route path="/DashBoadUser" element={<DashBoadUser/>}/>
         <Route path="/Payment" element={<Payment/>}/>
         <Route path="/ShopInfoGet" element={< ShopInfoGet/>}/>
-        <Route path="/ProductsDataDisplay" element={< ProductsDataDisplay/>}/>
-        <Route path="/Service_Data_Display" element={< Service_Data_Display/>}/>
+        <Route path="/ProductsDataDisplay" element={<ProductsDataDisplay/>}/>
+        <Route path="/Service_Data_Display" element={<Service_Data_Display/>}/>
         <Route path="/DisplayPage" element={< DisplayPage/>}/>
         <Route path="/About" element={< About/>}/>
-        <Route path="/Shop_Service_Login" element={< Shop_Service_Login/>}/>
+        <Route path="/Shop_Service_Login" element={<Shop_Service_Login/>}/>
 
-        <Route path="/ShopInfoGet" element={< ShopInfoGet/>}/>
+        <Route path="/ShopInfoGet" element={<ShopInfoGet/>}/>
         <Route path="/DashBoard" element={<DashBoard/>}/>
         <Route path="/Register_Shop" element={<Register_Shop />}/>  
         <Route path="/Register_Service" element={<Register_Service />}/>
