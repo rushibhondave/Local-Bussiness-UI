@@ -12,7 +12,7 @@ function LoginLogout() {
   const [fadeOut, setFadeOut] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     // Check if the user is already logged in (e.g., using a token in localStorage)
@@ -60,76 +60,7 @@ function LoginLogout() {
 else{
 
 
-    try {
-      const url = `https://localhost:7063/api/UserLogins/${encodeURIComponent(
-        MobileNo
-      )},${encodeURIComponent(Password)}`;
-
-      const response = await axios.get(url);
-
-      if (response.data) {
-       
-      
-        token = localStorage.getItem(false);
-
-        Swal.fire({
-          title: "Successfully Logged In!",
-          text: "Redirecting to Products page...",
-          icon: "success",
-          timer: 3000,
-          timerProgressBar: true,
-          showConfirmButton: false,
-        });
-
-        // Start fade-out transition after 1 second
-        const timer = setTimeout(() => {
-          setFadeOut(true);
-        }, 3000); // 1000ms = 1 second
-
-        // Redirect after fade-out transition
-        const redirectTimer = setTimeout(() => {
-          navigate("/ProductsDataDisplay");
-        }, 4000); // 3000ms = 3 seconds
-
-         
-       
-      } else {
-        Swal.fire("Error", "User not found!", "error");
-      }
-      // Reset the form after successful submission
-      setMobileNo("");
-      setPassword("");
-    } catch (error) {
-      if (error.message === "Network Error") {
-        Swal.fire({
-          icon: "error",
-          title: "Network Error",
-          text: "Unable to connect. Please check your internet connection and try again.",
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Error",
-          text: "An error occurred while Cheacking your account. Please try again later.",
-        });
-      }
-
-      if (!error.response) {
-        // Backend is not running or network error occurred
-        Swal.fire({
-          icon: "error",
-          title: "Network Error",
-          text: "Failed to connect to the server. Please try again later.",
-        });
-      } else {
-        // Other errors (e.g., 404, 500)
-        Swal.fire({
-          icon: "error",
-          title: "Bad Request",
-          text: "Invalid input. Please check your details and try again.",
-        });
-      }
-    }
+    
   }
   };
 

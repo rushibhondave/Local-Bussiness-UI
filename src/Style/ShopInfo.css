@@ -202,7 +202,7 @@ label {
 
 .unique-submit-btn {
     padding: 10px;
-    background-color: #007bff;
+    background-color: green;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -213,4 +213,24 @@ label {
 
 .unique-submit-btn:hover {
     background-color: #0056b3;
+}
+
+
+.buttongrup
+{ display: flex;
+    justify-content: center;
+    gap: 15px;
+ 
+}
+
+.red
+
+{   background-color: red;
+
+}
+
+.flexx
+{
+    display: flex;
+    flex-direction: column;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../Style/Login.css";
-
+import Vedio from  '../../Img/Vedio/RainForest.mp4';
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,18 +9,17 @@ function Shop_Service_Login() {
 
   const [MobileNo, setMobileNo] = useState("");
   const [Password, setPassword] = useState("");
+
   const [Error, setError] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-
+  const [Rolebase, setRolebase] = useState("");
   const navigate = useNavigate();
   
-  const validateMobileNo = (mobile) => {
-    const trimmedMobile = mobile.trim();
-    const isValid = /^\d{10}$/.test(trimmedMobile);
-    return isValid;
+  const validateMobileNo= (mobileNo) => {
+    const mobilePattern = /^(?!([0-9])\1{9})[0-9]{10}$/;
+    return mobilePattern.test(mobileNo);
   };
 
   const validatePassword = (password) => {
@@ -32,7 +31,14 @@ function Shop_Service_Login() {
   const HandleForm =async (event) => {
     event.preventDefault();
 
-    // Validate mobile number
+    if (!validateMobileNo(MobileNo)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Mobile Number",
+        text: "Please enter a valid 10-digit mobile number without repeating the same digit.",
+      });
+      return;
+    }
     if (
       !MobileNo ||
       !validateMobileNo(MobileNo) ||
@@ -133,50 +139,75 @@ function Shop_Service_Login() {
   };
 
   return (
-    <>
-      <div className="body">
-        <div  className="wrapper">
-          <div  className="form-wrapper sign-up"></div>
-
-          <div  className="form-wrapper sign-in">
+    <div className="Servicebody">
+      <div className="container">
+        <div className="left-side">
+          <video autoPlay muted loop id="background-video">
+          <source src={Vedio} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="overlay">
+          <h1>Boost Your Local Business  Innovative Strategies for Growth.</h1>
+            <p className="Acc">  Don't have an account ?</p>
+            <button className="signup-btn"> <Link to={"/Shop_Service_Signup"} className=" Link" id="link">
+              Sign Up
+            </Link></button>
+          </div>
+        </div>
+        <div className="right-side">
+          <div className="login-box">
+            <h2>Welcome Back!</h2>
             <form onSubmit={HandleForm}>
-              <h2> Sign In</h2>
-              <div  className="input-group">
+              <div className="input-box">
+                <label htmlFor="MobileNo">Mobile No</label>
                 <input
-                  type="number"
-                  required
+                  type="text"
+                  id="MobileNo"
+                  placeholder="Enter Username"
                   value={MobileNo}
                   autoComplete="off"
                   onChange={(e) => setMobileNo(e.target.value)}
                 />
-                <label htmlFor="">Mobile No</label>
               </div>
-              <div  className="input-group">
+              <div className="input-box">
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
-                  required
+                  id="password"
+                  placeholder="Enter Password"
                   value={Password}
                   autoComplete="off"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                    <label htmlFor="">Password</label>
               </div>
-              <button type="submit"  className="btn_Login">
+              <div className="input_box">
+                <label htmlFor="setRolebase">Role base</label>
+
+                <select
+                  id="pinCode"
+                  className="select"
+                  value={Rolebase}
+                  onChange={(e) => setRolebase(e.target.value)}
+                  required
+                >
+                  <option value="" disabled>
+                    Choose Location
+                  </option>
+                  <option value="Shop">Shop</option>
+                  <option value="Service">Service</option>
+                  <option value="Both">Both</option>
+                </select>
+              </div>
+              <button type="submit" className="login-btn">
                 Login
               </button>
-              <div className="sign-link">
-                <p>
-                  Don't have an account ?
-                  <Link to={"/Shop_Service_Signup"} className="signUp-link">
-                    Here...!
-                  </Link>
-                </p>
-              </div>
             </form>
+           
           </div>
         </div>
       </div>
-    </>
+    </div>
+
   );
 }
 

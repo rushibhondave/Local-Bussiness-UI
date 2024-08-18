@@ -2,7 +2,7 @@ import React from "react";
 import Local_Buussiness_India from "../../Img/LoacalShop/Support_Local_Buussiness.jpg";
 import "../../Style/Data_card.css";
 import { useNavigate } from "react-router-dom";
-function Data_Card({ ShopName, shopCategory, shopTimings, shopaddress,description }) {
+function Data_Card({ ShopName, shopCategory, shopTimings, shopaddress,description, TermsAndConditionsAccepted }) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate('/ShopInfoGet',{state:{shop:ShopName}});

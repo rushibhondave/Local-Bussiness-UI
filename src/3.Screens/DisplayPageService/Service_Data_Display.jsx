@@ -3,16 +3,18 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "../../Style/DisplayPage.css";
 import Service_Data_Card from "./Service_Data_Card";
-import Loader from "../About_Blog/Loader";
+import ShapeLoading from "../LoadingPage/ShapeLoading";
 function Service_Data_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [Location, setLocation] = useState("");
 
+
   const validateinput = (shopName) => {
-    const trimmedshopName = shopName.trim();
-    const isValid = /^[a-zA-Z0-9@$_]{2,}$/.test(trimmedshopName);
+    const trimmedShopName = shopName.trim();
+    // Update regex to allow spaces between letters and numbers
+    const isValid = /^[a-zA-Z0-9\s@$_]{2,}$/.test(trimmedShopName);
     return isValid;
   };
 
@@ -275,7 +277,7 @@ function Service_Data_Display() {
                     />
                   );
                 })
-              :    <Loader />}
+              :    <ShapeLoading />}
           </div>
         </div>
       </div>

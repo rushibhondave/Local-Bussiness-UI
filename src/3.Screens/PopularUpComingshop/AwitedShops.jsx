@@ -3,7 +3,8 @@ import "../../Style/PopularUpComing.css";
 import Shop_Get_Info from "./Shop_Get_Info";
 import axios from "axios";
 import Swal from "sweetalert2";
-import ErrorCompoent from "../../2.Component/Error_Component/ErrorCompoent";
+
+import CardLoading from "../LoadingPage/CardLoading";
 
 function AwitedShops() {
   const [inputValue, setInputValue] = useState("");
@@ -65,7 +66,9 @@ function AwitedShops() {
                 );
               })
             ) : (
-             "Loading..."
+              <div>
+                <CardLoading/>
+              </div>
             )}
      
         </div>

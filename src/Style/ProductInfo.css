@@ -1,0 +1,131 @@
+.product-page
+{
+  
+  background-color: #fff;
+  border-radius: 10px;
+  height: 90vh;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+ 
+.product-container
+{
+  display: flex;
+
+}
+
+
+/* Container for the entire product page */
+.product-page {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 90vh;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* Container for product image and details */
+.product-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+/* Styling for the product image */
+.product-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Styling for the product details section */
+.product-details {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title and price of the product */
+.product-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-details h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Description section */
+.product-description {
+  margin-bottom: 20px;
+}
+
+.product-description h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.product-description p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Container for the quantity and amount controls */
+.product-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-controls label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.product-controls input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 80px;
+}
+
+/* Add to cart button */
+.button21 {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.button21:hover {
+  background-color: #218838;
+}
+
+/* Styling for link   */
+.product-details a {
+  text-decoration: none;
+}

@@ -1,164 +1,215 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../Style/Login.css";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-function Shop_Service_Signup() {
-  const [MobileNo, setMobileNo] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Error, setError] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
+import Vedio from "../../Img/Vedio/RainForest.mp4";
 
+function Shop_Service_Signup() {
+  const [mobileNo, setMobileNo] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [roleBase, setRoleBase] = useState("");
+  const [shopName, setShopName] = useState("");
+  const [serviceName, setServiceName] = useState("");
   const navigate = useNavigate();
 
-  const validateMobileNo = (mobile) => {
-    const trimmedMobile = mobile.trim();
-    const isValid = /^\d{10}$/.test(trimmedMobile);
-    return isValid;
+  const validateMobileNo = (mobileNo) => {
+    const mobilePattern = /^(?!([0-9])\1{9})[0-9]{10}$/;
+    return mobilePattern.test(mobileNo);
   };
 
   const validatePassword = (password) => {
     const trimmedPassword = password.trim();
-    const isValid = /^[a-zA-Z0-9@$_.]{4,}$/.test(trimmedPassword);
-    return isValid;
+    return /^[a-zA-Z0-9@$_.]{4,}$/.test(trimmedPassword);
   };
 
-  const HandleForm = (event) => {
+  const handleForm = (event) => {
     event.preventDefault();
 
     // Validate mobile number
-    if (
-      !MobileNo ||
-      !validateMobileNo(MobileNo) ||
-      (MobileNo.length > 0 && MobileNo == 10)
-    ) {
+    if (!validateMobileNo(mobileNo)) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Mobile No must be a valid 10-digit number!",
+        title: "Invalid Mobile Number",
+        text: "Please enter a valid 10-digit mobile number without repeating the same digit.",
       });
       return;
     }
 
     // Validate password
-    if (!Password || !validatePassword(Password)) {
+    if (!validatePassword(password)) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
+        title: "Invalid Password",
         text: "Password must be at least 4 characters and include only letters, numbers, @, $, _.",
       });
       return;
-    } else {
-      try {
-        const url = "https://localhost:7063/api/ShopServiceLogins";
-        const data = {
-          mobileNo: MobileNo,
-          password: Password,
-        };
-        axios.post(url, data).then((result) => {
-          const timer = setTimeout(() => {
-            setFadeOut(true);
-          }, 3000); // 1000ms = 1 second
+    }
 
-          // Redirect after fade-out transition
-          const redirectTimer = setTimeout(() => {
-            navigate("/DashBoard");
-          }, 4000); // 3000ms = 3 seconds
-          Swal.fire({
-            title: "Accout Created Successful!",
-            text: "Redirecting to DashBoard page...",
-            icon: "success",
-            timer: 3000, // 3 seconds
-            timerProgressBar: true,
-            showConfirmButton: false,
-            willClose: () => {},
-          });
+    // Validate role-specific inputs
+    if (roleBase === "Shop" && !shopName) {
+      Swal.fire({
+        icon: "error",
+        title: "Missing Shop Name",
+        text: "Please enter the shop name.",
+      });
+      return;
+    }
 
-          return () => {
-            clearTimeout(timer);
-            clearTimeout(redirectTimer);
-          };
+    if (roleBase === "Service" && !serviceName) {
+      Swal.fire({
+        icon: "error",
+        title: "Missing Service Name",
+        text: "Please enter the service name.",
+      });
+      return;
+    }
+
+    if (roleBase === "Both" && (!shopName || !serviceName)) {
+      Swal.fire({
+        icon: "error",
+        title: "Missing Information",
+        text: "Please enter both shop name and service name.",
+      });
+      return;
+    }
+
+    // Submit the form
+    const url = "https://localhost:7063/api/ShopServiceLogins";
+    const data = {
+      mobileNo,
+      password,
+      roleBase,
+      shopName: roleBase === "Shop" || roleBase === "Both" ? shopName : null,
+      serviceName: roleBase === "Service" || roleBase === "Both" ? serviceName : null,
+    };
+
+    axios.post(url, data)
+      .then(() => {
+        Swal.fire({
+          title: "Account Created Successfully!",
+          text: "Redirecting to the Dashboard page...",
+          icon: "success",
+          timer: 3000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        }).then(() => {
+          navigate("/DashBoard");
         });
-      } catch (error) {
-
-        if (error.response && error.response.status === 400) {
+      })
+      .catch((error) => {
+        if (error.response) {
           Swal.fire("Error", error.response.data.message, "error");
-        }
-        if (error.message === "Network Error") {
+        } else if (error.message === "Network Error") {
           Swal.fire({
             icon: "error",
             title: "Network Error",
             text: "Unable to connect. Please check your internet connection and try again.",
           });
-        }
-     
-
-        if (!error.response) {
-          // Backend is not running or network error occurred
-          Swal.fire({
-            icon: "error",
-            title: "Network Error",
-            text: "Failed to connect to the server. Please try again later.",
-          });
         } else {
-          // Other errors (e.g., 404, 500)
           Swal.fire({
             icon: "error",
-            title: "Bad Request",
-            text: "Registration failed! Please try again or Mobile No alredy there",
+            title: "Error",
+            text: "Registration failed! Please try again later.",
           });
         }
-      }
-    }
+      });
   };
 
   return (
-    <>
-      <div className="body">
-        <div className="wrapper">
-          <div className="form-wrapper sign-up"></div>
-
-          <div className="form-wrapper sign-in">
-            <form onSubmit={HandleForm}>
-              <h2> Sign Up</h2>
-              <div className="input-group">
+    <div className="Servicebody">
+      <div className="container">
+        <div className="left-side">
+          <video autoPlay muted loop id="background-video">
+            <source src={Vedio} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="overlay">
+            <h1>
+              Transform Your Business  Effective Strategies for Local Success
+            </h1>
+            <p className="Acc">Already have an account?</p>
+            <button className="signup-btn">
+              <Link to="/Shop_Service_Login" className=" Link" id="link">Sign In</Link>
+            </button>
+          </div>
+        </div>
+        <div className="right-side">
+          <div className="login-box">
+            <h2>Welcome Create Account  !</h2>
+            <form onSubmit={handleForm}>
+              <div className="input-box">
+                <label htmlFor="mobileNo">Mobile No</label>
                 <input
-                  type="number"
-                  required
-                  value={MobileNo}
-                  autoComplete="off"
+                  type="text"
+                  id="mobileNo"
+                  placeholder="Enter Mobile No"
+                  value={mobileNo}
                   onChange={(e) => setMobileNo(e.target.value)}
                 />
-                <label htmlFor="">Mobile No</label>
               </div>
-              <div className="input-group">
+              <div className="input-box">
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
-                  required
-                  value={Password}
-                  autoComplete="off"
+                  id="password"
+                  placeholder="Enter Password"
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <label htmlFor="">Password</label>
               </div>
-
-              <button type="submit" className="btn_Login">
-                Login
+              <div className="input-box">
+                <label htmlFor="roleBase">Role Base</label>
+                <select
+                  id="roleBase"
+                  value={roleBase}
+                  className="select"
+                  onChange={(e) => setRoleBase(e.target.value)}
+                  required
+                >
+                  <option value="" disabled>
+                    Choose Role
+                  </option>
+                  <option value="Shop">Shop</option>
+                  <option value="Service">Service</option>
+                  <option value="Both">Both</option>
+                </select>
+              </div>
+              {roleBase === "Shop" || roleBase === "Both" ? (
+                <div className="input-box">
+                  <label htmlFor="shopName">Shop Name</label>
+                  <input
+                    type="text"
+                    id="shopName"
+                    placeholder="Enter Shop Name"
+                    value={shopName}
+                    onChange={(e) => setShopName(e.target.value)}
+                    required={roleBase === "Shop" || roleBase === "Both"}
+                  />
+                </div>
+              ) : null}
+              {roleBase === "Service" || roleBase === "Both" ? (
+                <div className="input-box">
+                  <label htmlFor="serviceName">Service Name</label>
+                  <input
+                    type="text"
+                    id="serviceName"
+                    placeholder="Enter Service Name"
+                    value={serviceName}
+                    onChange={(e) => setServiceName(e.target.value)}
+                    required={roleBase === "Service" || roleBase === "Both"}
+                  />
+                </div>
+              ) : null}
+              <button type="submit" className="login-btn">
+                Sign Up
               </button>
-              <div className="sign-link">
-                <p>
-                  Already have an account ?
-                  <Link to={"/Shop_Service_Login"} className="signUp-link">
-                    Here...!
-                  </Link>
-                </p>
-              </div>
             </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

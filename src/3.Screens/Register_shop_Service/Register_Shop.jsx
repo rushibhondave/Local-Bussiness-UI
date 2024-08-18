@@ -35,10 +35,9 @@ function Register_Shop() {
     }
   }, [Language]);
 
-  const validateMobileNo = (mobile) => {
-    const trimmedMobile = mobile.trim();
-    const isValid = /^\d{10}$/.test(trimmedMobile);
-    return isValid;
+  const validateMobileNo = (mobileNo) => {
+    const mobilePattern = /^(?!([0-9])\1{9})[0-9]{10}$/;
+    return mobilePattern.test(mobileNo);
   };
 
   const validatePassword = (password) => {
@@ -59,7 +58,9 @@ function Register_Shop() {
   };
 
   const validateShopTimings = (timings) => {
-    return /^[a-zA-Z0-9\s]+$/.test(timings);
+    const timeFormat =
+      /^([1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)\s-\s([1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$/i;
+    return timeFormat.test(timings);
   };
 
   const validateAddress = (address) => {
@@ -104,7 +105,14 @@ function Register_Shop() {
       });
       return;
     }
-
+    if (!validateMobileNo(mobileNo)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Mobile Number",
+        text: "Please enter a valid 10-digit mobile number without repeating the same digit.",
+      });
+      return;
+    }
     // Validate mobile number
     if (
       !mobileNo ||
@@ -132,7 +140,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text:content.invalidShopName,
+        text: content.invalidShopName,
       });
       return;
     }
@@ -151,7 +159,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Invalid Shop Timings",
-        text:  content.invalidShopTimings
+        text: "Please enter valid shop timings in the format '9:00 AM - 6:00 PM'.",
       });
       return;
     }
@@ -161,7 +169,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Invalid Address",
-        text: content.invalidAddress
+        text: content.invalidAddress,
       });
       return;
     }
@@ -171,7 +179,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Invalid City",
-        text: content.invalidCity
+        text: content.invalidCity,
       });
       return;
     }
@@ -181,7 +189,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Invalid Area/Land Mark",
-        text: content.invalidArea
+        text: content.invalidArea,
       });
       return;
     }
@@ -191,7 +199,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Invalid Aadhar No",
-        text: content.invalidAadharNo
+        text: content.invalidAadharNo,
       });
       return;
     }
@@ -201,7 +209,7 @@ function Register_Shop() {
       Swal.fire({
         icon: "error",
         title: "Invalid Email",
-        text: content.invalidEmail
+        text: content.invalidEmail,
       });
       return;
     } else {
@@ -228,7 +236,7 @@ function Register_Shop() {
           Swal.fire({
             icon: "success",
             title: "Added",
-            text: content.success
+            text: content.success,
           });
         });
         clear();
@@ -237,19 +245,19 @@ function Register_Shop() {
           Swal.fire({
             icon: "error",
             title: "Bad Request",
-            text: content.badRequest
+            text: content.badRequest,
           });
         } else if (error.message === "Network Error") {
           Swal.fire({
             icon: "error",
             title: "Network Error",
-            text: content.networkError
+            text: content.networkError,
           });
         } else {
           Swal.fire({
             icon: "error",
             title: "Error",
-            text: content.error
+            text: content.error,
           });
         }
       }
@@ -278,29 +286,27 @@ function Register_Shop() {
         <div className="title1">
           <p>Registration Shop</p>
         </div>
-   
-      
-       <div className="transalationdiv">
-       <select
-          name=""
-          id=""
-           className="language-select"
-          value={Language}
-          onChange={(e) => {
-            setLanguage(e.target.value);
-          }}
-        >
-          <option>English</option>
-          <option>हिन्दी</option>
-          <option>मराठी</option>
-        </select>
-       </div>
-     
+
+        <div className="transalationdiv">
+          <select
+            name=""
+            id=""
+            className="language-select"
+            value={Language}
+            onChange={(e) => {
+              setLanguage(e.target.value);
+            }}
+          >
+            <option>English</option>
+            <option>हिन्दी</option>
+            <option>मराठी</option>
+          </select>
+        </div>
 
         <form>
           <div className="user_details">
             <div className="input_box">
-              <label htmlFor="mobileNo">{ content.mobileNo}</label>
+              <label htmlFor="mobileNo">{content.mobileNo}</label>
               <input
                 type="text"
                 id="mobileNo"
@@ -311,11 +317,11 @@ function Register_Shop() {
               />
             </div>
             <div className="input_box">
-              <label htmlFor="password">{ content.password}</label>
+              <label htmlFor="password">{content.password}</label>
               <input
                 type="password"
                 id="password"
-                placeholder={ content.password}
+                placeholder={content.password}
                 autoComplete="off"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -327,7 +333,7 @@ function Register_Shop() {
               <input
                 type="text"
                 id="shopName"
-                placeholder={ content.shopName}
+                placeholder={content.shopName}
                 value={shopName}
                 onChange={(e) => setShopName(e.target.value)}
                 required
@@ -335,29 +341,29 @@ function Register_Shop() {
             </div>
 
             <div className="Bussniess_box input_box GST">
-              <label htmlFor="address">{ content.address}</label>
+              <label htmlFor="address">{content.address}</label>
               <input
                 type="text"
                 id="address"
-                placeholder={ content.address}
+                placeholder={content.address}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
               />
             </div>
             <div className="input_box">
-              <label htmlFor="shopTimings">{ content.shopTimings}</label>
+              <label htmlFor="shopTimings">{content.shopTimings}</label>
               <input
                 type="text"
                 id="shopTimings"
-                placeholder={ content.shopTimings}
+                placeholder={content.shopTimings}
                 value={shopTimings}
                 onChange={(e) => setShopTimings(e.target.value)}
               />
             </div>
 
             <div className="Bussniess_box input_box">
-              <label htmlFor="shopCategory">{ content.shopCategory}</label>
+              <label htmlFor="shopCategory">{content.shopCategory}</label>
               <select
                 id="shopCategory"
                 className="select"
@@ -366,22 +372,22 @@ function Register_Shop() {
                 required
               >
                 <option value="" disabled>
-                <option value="" disabled>
-                { content.option}
+                  <option value="" disabled>
+                    {content.option}
+                  </option>
                 </option>
-                </option>
-                <option value="StreetShop">{ content.StreetShop}</option>
-                <option value="Medical">{ content.FoodStall}</option>
-                <option value="FoodStall">{ content.Grocery}</option>
-                <option value="Grocery">{ content.Medical}</option>
+                <option value="StreetShop">{content.StreetShop}</option>
+                <option value="Medical">{content.FoodStall}</option>
+                <option value="FoodStall">{content.Grocery}</option>
+                <option value="Grocery">{content.Medical}</option>
               </select>
             </div>
             <div className="input_box">
-              <label htmlFor="city">{ content.city}</label>
+              <label htmlFor="city">{content.city}</label>
               <input
                 type="text"
                 id="city"
-                placeholder={ content.city}
+                placeholder={content.city}
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 required
@@ -389,7 +395,7 @@ function Register_Shop() {
             </div>
 
             <div className="input_box">
-              <label htmlFor="pinCode">{ content.pinCode}</label>
+              <label htmlFor="pinCode">{content.pinCode}</label>
               <select
                 id="pinCode"
                 className="select"
@@ -398,7 +404,7 @@ function Register_Shop() {
                 required
               >
                 <option value="" disabled>
-                { content.option}
+                  {content.option}
                 </option>
                 <option value="411052">411052</option>
                 <option value="411007">411007</option>
@@ -411,12 +417,12 @@ function Register_Shop() {
 
             <div className="input_box">
               <label htmlFor="emailId" className="GST">
-              { content.emailId}
+                {content.emailId}
               </label>
               <input
                 type="email"
                 id="emailId"
-                placeholder={ content.emailId}
+                placeholder={content.emailId}
                 value={emailId}
                 onChange={(e) => setEmailId(e.target.value)}
               />
@@ -424,12 +430,12 @@ function Register_Shop() {
 
             <div className="input_box">
               <label htmlFor="description" className="GST">
-              { content.description}
+                {content.description}
               </label>
               <input
                 type="text"
                 id="description"
-                placeholder={ content.description}
+                placeholder={content.description}
                 value={Description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -437,25 +443,25 @@ function Register_Shop() {
 
             <div className="input_box">
               <label htmlFor="area" className="GST">
-              { content.area}
+                {content.area}
               </label>
               <input
                 type="text"
                 id="area"
-                placeholder={ content.area}
+                placeholder={content.area}
                 value={Area}
                 onChange={(e) => setArea(e.target.value)}
               />
             </div>
             <div className="Owner_Info">
-              <p>{ content.Owner_Info}</p>
+              <p>{content.Owner_Info}</p>
             </div>
             <div className="Bussniess_box">
-              <label htmlFor="ownerName">{ content.ownerName}</label>
+              <label htmlFor="ownerName">{content.ownerName}</label>
               <input
                 type="text"
                 id="ownerName"
-                placeholder={ content.ownerName}
+                placeholder={content.ownerName}
                 value={ownerName}
                 onChange={(e) => setOwnerName(e.target.value)}
                 required
@@ -463,18 +469,18 @@ function Register_Shop() {
             </div>
 
             <div className="input_box">
-              <label htmlFor="ownerMobileNo">{ content.ownerMobileNo}</label>
+              <label htmlFor="ownerMobileNo">{content.ownerMobileNo}</label>
               <input
                 type="text"
                 id="ownerMobileNo"
-                placeholder={ content.ownerMobileNo}
+                placeholder={content.ownerMobileNo}
                 value={ownerMobileNo}
                 onChange={(e) => setOwnerMobileNo(e.target.value)}
                 required
               />
             </div>
             <div className="input_box">
-              <label htmlFor="adharNo">{ content.adharNo}</label>
+              <label htmlFor="adharNo">{content.adharNo}</label>
               <input
                 type="text"
                 id="adharNo"
@@ -494,16 +500,16 @@ function Register_Shop() {
                   onChange={(e) => setTermsAccepted(e.target.checked)}
                   required
                 />
-             { content.termsAccepted}
+                {content.termsAccepted}
               </label>
             </div>
           </div>
           <div className="reg_btn">
             <button type="button" onClick={handleForm} className="Submit">
-            { content.submit}
+              {content.submit}
             </button>
             <button type="button" onClick={clear} className="Clear">
-            { content.clear}
+              {content.clear}
             </button>
           </div>
         </form>

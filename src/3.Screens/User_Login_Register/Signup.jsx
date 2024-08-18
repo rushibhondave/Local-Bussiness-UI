@@ -3,6 +3,7 @@ import "../../Style/Login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+
 function Signup() {
   const [MobileNo, setMobileNo] = useState("");
   const [Password, setPassword] = useState("");

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Style/ShopInfo.css";
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function ShopInfoCard({
   shopName,
   shopaddress,
@@ -13,11 +14,20 @@ function ShopInfoCard({
   shopCategory,
   ownerName,
   ownerMobileNo,
+  whatupsNo,
+  TermsAndConditionsAccepted,
 }) {
-  const phoneNumber = ownerMobileNo ; 
-  
-  const handleRateClick = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    product: '',
+    message: '',
+    productList: '', // Added field for product list
+  });
 
+  const phoneNumber = ownerMobileNo;
+
+  const handleRateClick = () => {
     Swal.fire({
       title: "Rate this Product",
       html: `
@@ -58,31 +68,34 @@ function ShopInfoCard({
 
   const handleChatClick = () => {
     const whatsappLink = `https://wa.me/${phoneNumber}`;
-  window.open(whatsappLink, '_blank', 'noopener');
+    window.open(whatsappLink, "_blank", "noopener");
   };
 
-  const HandleSubmit = () => {
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Simple validation
+    if (!formData.name || !formData.email || !formData.product || !formData.message) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'All fields are required!',
       });
-      Toast.fire({
-        icon: "success",
-        title: "Product Inquiry Submit successfully"
-      });
-      
+      return;
+    }
+
+    // Handle successful form submission
+    Swal.fire({
+      icon: 'success',
+      title: 'Inquiry Submitted',
+      text: 'Your product inquiry has been submitted successfully.',
+    });
+
+    // Handle the submission logic here, e.g., sending data to the server
   };
 
   const handleShareClick = () => {
-    // Create a shareable link
-    const shareUrl = window.location.href; // Current page URL
+    const shareUrl = window.location.href;
     navigator.clipboard.writeText(shareUrl).then(() => {
       Swal.fire({
         icon: "success",
@@ -91,6 +104,24 @@ function ShopInfoCard({
       });
     });
   };
+
+  const handleOrder = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Order Placed",
+      text: "Successfully placed the order.",
+    });
+    // Add functionality to handle order placement here
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <div className="main-content">
@@ -99,16 +130,17 @@ function ShopInfoCard({
           <div className="rating-section">
             <span>4.3</span>
             <span className="star-rating">★ ★ ★ ★ ☆</span>
-            <span className="star-rating">{area}</span>
+            <span className="star-rating">{whatupsNo}</span>
             <span>{shopCategory}</span>
             <span>128 Ratings</span>
           </div>
           <div className="action-buttons">
             <button className="action-btn show-number-btn">
-            <a href={`tel:${mobileNo}`} className="phone-link">
-                  <FontAwesomeIcon icon={faPhone} className="phone-icon" />
-                  <span className="mobile-no">{mobileNo}</span>
-                </a></button>
+              <a href={`tel:${mobileNo}`} className="phone-link">
+                <FontAwesomeIcon icon={faPhone} className="phone-icon" />
+                <span className="mobile-no">{mobileNo}</span>
+              </a>
+            </button>
             <button className="action-btn chat-btn" onClick={handleChatClick}>
               Chat
             </button>
@@ -125,8 +157,8 @@ function ShopInfoCard({
           <div className="operating-hours">
             <h3 className="info-title">Timings</h3>
             <p>Mon - Wed: {shopTimings}</p>
-            <p>Thu, 15th Aug: {shopTimings} </p>
-            <p>Fri - Sun: {shopTimings}</p>
+            <p>Thu - Fri: {shopTimings} </p>
+            <p>Sat - Sun: {shopTimings}</p>
           </div>
 
           <div className="operating-hours">
@@ -140,10 +172,21 @@ function ShopInfoCard({
             <h3 className="info-title">Services</h3>
             <ul className="service-items">
               <li className="service-item">
-                <span className="service-checkmark">✔</span> Home Delivery
-              </li>
-              <li className="service-item">
-                <span className="service-checkmark">✔</span> No Contact Delivery
+                {TermsAndConditionsAccepted ? (
+                  <div className="flexx">
+                    <span className="service-checkmark">✔ Home Delivery</span>
+                    <span className="service-checkmark">
+                      ✔ No Contact Delivery
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flexx">
+                    <span className="service-checkmark">❌ Home Delivery</span>
+                    <span className="service-checkmark">
+                      ❌ No Contact Delivery
+                    </span>
+                  </div>
+                )}
               </li>
             </ul>
           </div>
@@ -162,61 +205,87 @@ function ShopInfoCard({
         <br />
         <div className="info-section">
           <div className="operating-hours">
-           <form onSubmit={HandleSubmit}>
-            <div class="unique-inquiry-box">
-              <h2>Product Inquiry</h2>
-              <div id="unique-inquiry-form">
-                <label for="unique-name">Your Name</label>
-                <input
-                  type="text"
-                  id="unique-name"
-                  class="unique-input"
-                  name="name"
-                  required
-                  placeholder="Enter your name"
-                />
+            <form onSubmit={handleSubmit}>
+              <div className="unique-inquiry-box">
+                <h2>Product Inquiry</h2>
+                <div id="unique-inquiry-form">
+                  <label htmlFor="unique-name">Your Name</label>
+                  <input
+                    type="text"
+                    id="unique-name"
+                    className="unique-input"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter your name"
+                  />
 
-                <label for="unique-email">Your Email</label>
-                <input
-                  type="email"
-                  id="unique-email"
-                  class="unique-input"
-                  name="email"
-                  required
-                  placeholder="Enter your email"
-                />
+                  <label htmlFor="unique-email">Your Email</label>
+                  <input
+                    type="email"
+                    id="unique-email"
+                    className="unique-input"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter your email"
+                  />
 
-                <label for="unique-product">Product Name</label>
-                <input
-                  type="text"
-                  id="unique-product"
-                  class="unique-input"
-                  name="product"
-                  required
-                  placeholder="Enter product name"
-                />
+                  <label htmlFor="unique-product">Product Name</label>
+                  <input
+                    type="text"
+                    id="unique-product"
+                    className="unique-input"
+                    name="product"
+                    value={formData.product}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter product name"
+                  />
 
-                <label for="unique-message">Inquiry Message</label>
-                <textarea
-                  id="unique-message"
-                  class="unique-textarea"
-                  name="message"
-                  rows="4"
-                  required
-                  placeholder="Write your inquiry here"
-                ></textarea>
+                  <label htmlFor="unique-message">Inquiry Message</label>
+                  <textarea
+                    id="unique-message"
+                    className="unique-textarea"
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Write your inquiry here"
+                  ></textarea>
 
-                <button type="submit" class="unique-submit-btn">
-                  Send Inquiry
-                </button>
+                  <label htmlFor="product-list">Product List</label>
+                  <textarea
+                    id="product-list"
+                    className="unique-textarea"
+                    name="productList"
+                    rows="4"
+                    value={formData.productList}
+                    onChange={handleInputChange}
+                    placeholder="Enter list of products"
+                  ></textarea>
+
+                  <div className="buttongrup">
+                    <button type="submit" className="unique-submit-btn">
+                      Send Inquiry
+                    </button>
+                    <button
+                      type="button"
+                      className="unique-submit-btn red"
+                      onClick={handleOrder}
+                    >
+                      Place Order
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
             </form>
           </div>
         </div>
-
         <br />
-    
       </div>
     </>
   );

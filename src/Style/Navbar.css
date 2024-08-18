@@ -104,3 +104,28 @@ ul li:hover .submenu {
 
 
 
+.AuthButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login {
+  background-color: green;
+  color: white;
+}
+
+.logout {
+  background-color: red;
+  color: white;
+}
+
+.btnC:hover {
+  opacity: 0.8;
+}
+
+
+
+

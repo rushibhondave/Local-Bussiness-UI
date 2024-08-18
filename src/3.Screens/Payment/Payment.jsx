@@ -15,6 +15,8 @@ function Payment() {
     description = "",
     category = "",
     shopName = "",
+    unit = "units",
+    type = "solid",
   } = location.state || {};
 
   const [inputValue1, setInputValue1] = useState(name);
@@ -23,23 +25,11 @@ function Payment() {
   const [inputValue4, setInputValue4] = useState(description);
   const [inputValue5, setInputValue5] = useState(category);
   const [inputValue6, setInputValue6] = useState(shopName);
-
-
-
-  const [Name, sesetName] = useState(shopName);
-  const [address, setAddress] = useState("");
-  const [pinCode, setPinCode] = useState("");
-  const [userInfo, setUserInfo] = useState({
-    name: "",
-    address: "",
-    pincode: "",
-  });
-
   const [product, setProduct] = useState({
     tax: 15,
-    total: amount + 15, // Default total including tax
+    total: amount * quantity + 15, // Total including tax
     Delivery: true,
-    type: "solid", // Default type; this should be passed as a prop ideally
+    type: type, // Product type
   });
 
   const navigate = useNavigate();
@@ -65,6 +55,7 @@ function Payment() {
       }));
     }
   };
+
   const handleDeleteProduct = () => {
     setInputValue1("");
     setInputValue2(0);
@@ -75,12 +66,9 @@ function Payment() {
     }));
   };
 
-
-
-
   const validateform = (event) => {
     event.preventDefault();
-  }
+  };
 
   const handlePayment = (event) => {
     event.preventDefault();
@@ -108,13 +96,13 @@ function Payment() {
     }
   };
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setUserInfo((prevState) => ({
-      ...prevState,
-      [id.split("-")[1]]: value, // Extracts 'name', 'address', 'pincode'
-    }));
-  };
+  // const handleInputChange = (e) => {
+  //   const { id, value } = e.target;
+  //   setUserInfo((prevState) => ({
+  //     ...prevState,
+  //     [id.split("-")[1]]: value,
+  //   }));
+  // };
 
   const generateInvoice = () => {
     const doc = new jsPDF();
@@ -156,9 +144,8 @@ function Payment() {
                         >
                           Add More
                         </button>
-
                         <button
-                          className={`quantity-button1  ${
+                          className={`quantity-button1 ${
                             product.type === "liquid" ? "liquid" : "solid"
                           }`}
                           onClick={handleDecreaseQuantity}
@@ -166,6 +153,9 @@ function Payment() {
                           Delete
                         </button>
                         <input type="number" value={inputValue2} readOnly />
+                        <span className="unit-label">
+                          {product.type === "solid" ? "kg" : product.type === "liquid" ? "liters" : "units"}
+                        </span>
                       </div>
                     </div>
                     <div className="payment-field full">
@@ -193,10 +183,16 @@ function Payment() {
                       <strong>Product Name:</strong> {inputValue1}
                     </p>
                     <p>
-                      <strong>Quantity:</strong> {inputValue2}
-                    </p>
-                    <p>
-                      <strong>Price:</strong> {inputValue3}
+                      <strong>Quantity:</strong> {inputValue2}{" "}
+                      {product.type === "solid"
+                        ? unit === "kg"
+                          ? "kg"
+                          : "grams"
+                        : product.type === "liquid"
+                        ? unit === "liters"
+                          ? "liters"
+                          : "milliliters"
+                        : "units"}
                     </p>
                     <p>
                       <strong>Description:</strong> {inputValue4}
@@ -205,69 +201,24 @@ function Payment() {
                       <strong>Category:</strong> {inputValue5}
                     </p>
                     <p>
-                      <strong>ShopName:</strong> {inputValue6}
+                      <strong>Shop Name:</strong> {inputValue6}
                     </p>
                     <p>
-                      <strong>Amount (before tax):</strong> ₹
-                      {inputValue3 * inputValue2}
-                    </p>
-                    <p>
-                      <strong>Tax:</strong> ₹{product.tax}
-                    </p>
-                    <p>
-                      <strong>Total Amount:</strong> ₹{product.total}
+                      <strong>Total Amount:</strong> ₹ {product.total}
                     </p>
                   </div>
-                  <form onSubmit={validateform}>
-                    <div className="payment-field full">
-                      <label htmlFor="user-name">Name</label>
-                      <input
-                        id="user-name"
-                        type="text"
-                        placeholder="Name"
-                        value={userInfo.name}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    <div className="payment-field full">
-                      <label htmlFor="user-address">Address</label>
-                      <input
-                        id="user-address"
-                        type="text"
-                        placeholder="Address"
-                        value={userInfo.address}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    <div className="payment-field full">
-                      <label htmlFor="user-pincode">Pincode</label>
-                      <input
-                        id="user-pincode"
-                        type="number"
-                        placeholder="Pincode"
-                        value={userInfo.pincode}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                  </form>
                 </div>
               </div>
-            </div>
 
-            <div className="payment-actions flex justify-space-between">
-              <div className="flex-start">
-                <button className="payment-button payment-button-secondary">
-                  Return to Store
-                </button>
-              </div>
-              <div className="flex-end">
+              <form onSubmit={validateform}>
                 <button
-                  className="payment-button payment-button-primary"
+                  type="submit"
+                  className="payment-btn"
                   onClick={handlePayment}
                 >
-                  Pay Now
+                  Make Payment
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </article>

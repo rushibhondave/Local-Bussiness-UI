@@ -5,7 +5,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ProductsData_Card from "./ProductsData_Card.jsx";
-import Loader from "../About_Blog/Loader.jsx";
+import CardLoading from "../LoadingPage/CardLoading";
+import WordLoading from "../LoadingPage/WordLoading.jsx";
 function ProductsData_Display() {
   const [data, setdata] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -16,11 +17,11 @@ function ProductsData_Display() {
   useEffect(() => {}, [inputValue]);
 
   const validateinput = (shopName) => {
-    const trimmedshopName = shopName.trim();
-    const isValid = /^[a-zA-Z0-9@$_]{2,}$/.test(trimmedshopName);
+    const trimmedShopName = shopName.trim();
+    // Update regex to allow spaces between letters and numbers
+    const isValid = /^[a-zA-Z0-9\s@$_]{2,}$/.test(trimmedShopName);
     return isValid;
   };
-
   const validateinputValue = (shopName) => {
     const trimmedShopName = shopName.trim();
     return /^[a-zA-Z\s]+$/.test(trimmedShopName);
@@ -328,7 +329,7 @@ function ProductsData_Display() {
             ) : (
               <div className="errorcomp">
           
-              <Loader />
+              <WordLoading />
                 
               </div>
             )}

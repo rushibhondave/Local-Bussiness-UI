@@ -27,11 +27,11 @@ function Register_Service() {
   const [content, setcontent] = useState({});
   
   useEffect(() => {
-    if (Language == "English") {
+    if (Language =="English") {
       setcontent(Data.English);
     } else if (Language == "हिन्दी") {
       setcontent(Data.हिन्दी);
-    } else if (Language == "मराठी") {
+    } else if (Language === "मराठी") {
       setcontent(Data.मराठी);
     }
   }, [Language]);
@@ -59,12 +59,10 @@ function Register_Service() {
     }
   };
 
-  const validateMobileNo = (mobile) => {
-    const trimmedMobile = mobile.trim();
-    const isValid = /^\d{10}$/.test(trimmedMobile);
-    return isValid;
+  const validateMobileNo= (mobileNo) => {
+    const mobilePattern = /^(?!([0-9])\1{9})[0-9]{10}$/;
+    return mobilePattern.test(mobileNo);
   };
-
   const validatePassword = (password) => {
     const trimmedPassword = password.trim();
     const isValid = /^[a-zA-Z0-9@$_]{4,}$/.test(trimmedPassword);
@@ -136,7 +134,14 @@ function Register_Service() {
       });
       return;
     }
-
+    if (!validateMobileNo(mobileNo)) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Mobile Number",
+        text: "Please enter a valid 10-digit mobile number without repeating the same digit.",
+      });
+      return;
+    }
     // Validate mobile number
     if (
       !mobileNo ||

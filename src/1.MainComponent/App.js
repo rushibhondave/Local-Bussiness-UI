@@ -12,12 +12,14 @@ import ShopInfoGet from "../3.Screens/ShopInfo/ShopInfoGet.jsx";
 import DashBoard from "../3.Screens/DashBoad/DashBoard.jsx";
 import ProductsDataDisplay from "../2.Component/ProductsDataDisplay/ProductsDataDisplay.jsx";
 import DashBoadUser from "../3.Screens/DashBoadUser/DashBoadUser.jsx";
-import RegsiterProtected from "../2.Component/ProtectedRoute/RegsiterProtected.jsx";
-import LoginProtectedd from "../2.Component/ProtectedRoute/LoginProtectedd.jsx";
+
 import Signup from "../3.Screens/User_Login_Register/Signup.jsx";
 import Shop_Service_Signup from "../3.Screens/Register_shop_Service/Shop_Service_Signup.jsx";
 import LoginLogout from "../3.Screens/User_Login_Register/LoginLogout.jsx";
 import Shop_Service_Login from "../3.Screens/Register_shop_Service/Shop_Service_Login.jsx";
+import AddToCart from "../3.Screens/ProductsDisplayPage/AddToCart.jsx";
+import ProductInfo from "../3.Screens/ProductsDisplayPage/ProductInfo.js";
+
 
 
 
@@ -28,6 +30,9 @@ function App() {
         <Navbar />
         <Routes>
         <Route path="/" element={< MainPage/>}/>
+        <Route path="/AddToCart" element={<AddToCart/>}/>
+        <Route path="/ProductInfo" element={<ProductInfo/>}/>
+
         
         <Route path="/Signup" element={<Signup/>}/>
         <Route path="/LoginLogout" element={<LoginLogout/>}/>

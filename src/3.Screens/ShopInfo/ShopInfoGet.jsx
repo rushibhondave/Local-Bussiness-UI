@@ -4,7 +4,8 @@ import Swal from "sweetalert2";
 import "../../Style/ShopInfo.css";
 import { Link, useLocation } from "react-router-dom";
 import ShopInfoCard from "./ShopInfoCard";
-import ErrorCompoent from "../../2.Component/Error_Component/ErrorCompoent";
+
+import ShapeLoading from "../LoadingPage/ShapeLoading";
 
 function ShopInfoGet() {
   const LoactionGet = useLocation();
@@ -31,6 +32,7 @@ function ShopInfoGet() {
         )
         .then((result) => {
           setdata(result.data);
+        
         });
     } catch (error) {
       Swal.fire({
@@ -52,6 +54,7 @@ function ShopInfoGet() {
         )
         .then((result) => {
           setProdata(result.Prodata);
+        
         });
     } catch (error) {
       Swal.fire({
@@ -70,12 +73,12 @@ function ShopInfoGet() {
             <ul className="nav-list">
               <li className="nav-item">
                 <Link to={"/"} className="nav-link">
-                  DashBoard
+                  Shops
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to={"/"} className="nav-link">
-                  Orders
+                  Produts
                 </Link>
               </li>{" "}
               <li className="nav-item">
@@ -97,16 +100,18 @@ function ShopInfoGet() {
                     shopTimings={item.shopTimings}
                     shopaddress={item.address}
                     mobileNo={item.mobileNo}
+                    whatupsNo={item.whatupsNo}
                     description={item.description}
                     area={item.area}
                     ownerName={item.ownerName}
                     ownerMobileNo={item.ownerMobileNo}
+                    TermsAndConditionsAccepted={item.TermsAndConditionsAccepted}
                   />
                 );
               })
             ) : (
               <div className="errorcomp">
-                <ErrorCompoent />
+                <ShapeLoading />
               </div>
             )}
           </div>
